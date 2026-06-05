@@ -12,8 +12,8 @@ import { images } from "@/lib/images";
 
 type TabId = "learning-objectives" | "camp-detail" | "apply" | "faq";
 
-const tabs: { id: TabId; label: string; multiline?: boolean }[] = [
-  { id: "learning-objectives", label: "Learning\nObjectives", multiline: true },
+const tabs: { id: TabId; label: string }[] = [
+  { id: "learning-objectives", label: "Learning Objectives" },
   { id: "camp-detail", label: "Camp Detail" },
   { id: "apply", label: "Apply" },
   { id: "faq", label: "F&Q" },
@@ -147,15 +147,7 @@ export function CampsPage() {
                         : "text-stone-400 border-transparent hover:text-stone-900"
                     }`}
                   >
-                    {tab.multiline ? (
-                      <>
-                        Learning
-                        <br />
-                        Objectives
-                      </>
-                    ) : (
-                      tab.label
-                    )}
+                    {tab.label}
                   </button>
                 ))}
               </div>

@@ -160,7 +160,7 @@ export function Innovathon2026Page() {
           <div className="bg-primary rounded-[32px] p-xl md:p-xxl flex flex-col md:flex-row items-center justify-between gap-xl">
             <div className="text-white max-w-2xl">
               <h2 className="text-display-lg leading-tight">
-                Ready to shape the <span className="italic font-light">future</span>?
+                Ready to shape the <span className="whitespace-nowrap"><span className="italic font-light">future</span>?</span>
               </h2>
               <p className="text-body-lg text-white/90 mt-md">
                 Limited spots available for the 2026 cohort. Selection is based on

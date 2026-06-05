@@ -138,7 +138,7 @@ export function AboutPage() {
           <div className="bg-inverse-surface text-inverse-on-surface rounded-3xl p-xl md:p-24 flex flex-col md:flex-row justify-between items-center gap-xl relative overflow-hidden">
             <div className="relative z-10 max-w-xl">
               <h2 className="text-display-lg mb-md leading-tight">
-                Ready to explore the <span className="text-primary">unknown</span>?
+                Ready to explore the <span className="whitespace-nowrap"><span className="text-primary">unknown</span>?</span>
               </h2>
               <p className="text-body-lg opacity-80 mb-xl">
                 Reach out to our team for research collaborations, admission
