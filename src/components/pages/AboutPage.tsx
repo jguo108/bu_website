@@ -66,7 +66,7 @@ export function AboutPage() {
             {team.map((member) => (
               <div
                 key={member.title}
-                className={`sticker-card p-lg rounded-2xl flex flex-col group bg-card border border-border ${member.offset ? "lg:mt-8" : ""}`}
+                className="sticker-card p-lg rounded-2xl flex flex-col group bg-card border border-border"
               >
                 <span className="bg-white/50 text-primary px-sm py-1 text-[10px] uppercase tracking-widest rounded-lg w-fit mb-sm">
                   {member.tag}

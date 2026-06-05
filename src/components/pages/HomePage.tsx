@@ -6,6 +6,7 @@ import { MaterialIcon } from "@/components/MaterialIcon";
 import { images } from "@/lib/images";
 
 export function HomePage() {
+  const SHOW_PROJECTS = false;
   return (
     <>
       <Header />
@@ -121,53 +122,55 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="mt-xxl border-t border-border pt-xxl">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-xl">
-            <div>
-              <span className="text-code text-primary uppercase tracking-widest block mb-xs">
-                Portfolio
-              </span>
-              <h2 className="text-display-md text-on-surface">Student Projects</h2>
-            </div>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 group/link text-on-surface hover:text-primary transition-colors"
-            >
-              <span className="text-label-md uppercase tracking-widest">
-                View all projects
-              </span>
-              <MaterialIcon
-                name="arrow_forward"
-                className="text-sm group-hover/link:translate-x-1 transition-transform"
-              />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
-            {[
-              { img: images.project1, tag: "AI & Robotics", title: "Auto-Farm Intelligence" },
-              { img: images.project2, tag: "SaaS & Web", title: "StudySync Platform" },
-              { img: images.project3, tag: "Fintech", title: "KidCoin Wallet" },
-            ].map((p) => (
-              <Link key={p.title} href="/projects" className="group cursor-pointer">
-                <div className="aspect-video overflow-hidden mb-md border border-border relative">
-                  <Image
-                    alt={p.title}
-                    src={p.img}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-[10px] text-primary uppercase tracking-widest font-mono">
-                    {p.tag}
-                  </span>
-                  <h3 className="text-headline-md text-on-surface">{p.title}</h3>
-                </div>
+        {SHOW_PROJECTS && (
+          <section className="mt-xxl border-t border-border pt-xxl">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-xl">
+              <div>
+                <span className="text-code text-primary uppercase tracking-widest block mb-xs">
+                  Portfolio
+                </span>
+                <h2 className="text-display-md text-on-surface">Student Projects</h2>
+              </div>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 group/link text-on-surface hover:text-primary transition-colors"
+              >
+                <span className="text-label-md uppercase tracking-widest">
+                  View all projects
+                </span>
+                <MaterialIcon
+                  name="arrow_forward"
+                  className="text-sm group-hover/link:translate-x-1 transition-transform"
+                />
               </Link>
-            ))}
-          </div>
-        </section>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+              {[
+                { img: images.project1, tag: "AI & Robotics", title: "Auto-Farm Intelligence" },
+                { img: images.project2, tag: "SaaS & Web", title: "StudySync Platform" },
+                { img: images.project3, tag: "Fintech", title: "KidCoin Wallet" },
+              ].map((p) => (
+                <Link key={p.title} href="/projects" className="group cursor-pointer">
+                  <div className="aspect-video overflow-hidden mb-md border border-border relative">
+                    <Image
+                      alt={p.title}
+                      src={p.img}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] text-primary uppercase tracking-widest font-mono">
+                      {p.tag}
+                    </span>
+                    <h3 className="text-headline-md text-on-surface">{p.title}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="mt-xxl bg-card p-xl md:p-xxl border border-border">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">

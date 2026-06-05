@@ -46,12 +46,12 @@ export function Footer({ variant = "default" }: { variant?: FooterVariant }) {
             >
               Programs
             </Link>
-            <Link
+            {/* <Link
               href="/projects"
               className={linkClass}
             >
               Students&apos; Projects
-            </Link>
+            </Link> */}
             <Link
               href="/about"
               className={linkClass}

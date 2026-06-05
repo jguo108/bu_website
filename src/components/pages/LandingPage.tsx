@@ -51,6 +51,7 @@ function useScrollReveal() {
 }
 
 export function LandingPage() {
+  const SHOW_PROJECTS = false;
   const { openRegister } = useRegister();
   const heroReveal = useScrollReveal();
   const featuresReveal = useScrollReveal();
@@ -288,100 +289,102 @@ export function LandingPage() {
         </section>
 
         {/* STUDENT PROJECTS */}
-        <section className="py-12 md:py-20 mb-24">
-          <div ref={projectsReveal.ref} className={projectsReveal.className}>
-            
-            {/* Header */}
-            <div className="flex flex-col items-center text-center gap-4 mb-16">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
-                  Built by Students
-                </h2>
-              </div>
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-[#FF751F] hover:text-white transition-colors"
-              >
-                View all projects
-                <MaterialIcon
-                  name="arrow_forward"
-                  className="text-xs group-hover/link:translate-x-1.5 transition-transform"
-                />
-              </Link>
-            </div>
-
-            {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {SHOW_PROJECTS && (
+          <section className="py-12 md:py-20 mb-24">
+            <div ref={projectsReveal.ref} className={projectsReveal.className}>
               
-              {/* Project 1 */}
-              <Link href="/projects" className="group flex flex-col gap-4">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
-                  <Image
-                    alt="Auto-Farm Intelligence"
-                    src={images.project1}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+              {/* Header */}
+              <div className="flex flex-col items-center text-center gap-4 mb-16">
+                <div>
+                  <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
+                    Built by Students
+                  </h2>
+                </div>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-[#FF751F] hover:text-white transition-colors"
+                >
+                  View all projects
+                  <MaterialIcon
+                    name="arrow_forward"
+                    className="text-xs group-hover/link:translate-x-1.5 transition-transform"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                </div>
-                <div className="flex flex-col gap-1 px-2">
-                  <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
-                    AI & Robotics
-                  </span>
-                  <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
-                    Auto-Farm Intelligence
-                  </h4>
-                </div>
-              </Link>
+                </Link>
+              </div>
 
-              {/* Project 2 */}
-              <Link href="/projects" className="group flex flex-col gap-4">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
-                  <Image
-                    alt="StudySync Platform"
-                    src={images.project2}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                </div>
-                <div className="flex flex-col gap-1 px-2">
-                  <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
-                    SaaS & Web
-                  </span>
-                  <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
-                    StudySync Platform
-                  </h4>
-                </div>
-              </Link>
+              {/* Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                {/* Project 1 */}
+                <Link href="/projects" className="group flex flex-col gap-4">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
+                    <Image
+                      alt="Auto-Farm Intelligence"
+                      src={images.project1}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                  </div>
+                  <div className="flex flex-col gap-1 px-2">
+                    <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
+                      AI & Robotics
+                    </span>
+                    <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
+                      Auto-Farm Intelligence
+                    </h4>
+                  </div>
+                </Link>
 
-              {/* Project 3 */}
-              <Link href="/projects" className="group flex flex-col gap-4">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
-                  <Image
-                    alt="KidCoin Wallet"
-                    src={images.project3}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                </div>
-                <div className="flex flex-col gap-1 px-2">
-                  <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
-                    Fintech
-                  </span>
-                  <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
-                    KidCoin Wallet
-                  </h4>
-                </div>
-              </Link>
+                {/* Project 2 */}
+                <Link href="/projects" className="group flex flex-col gap-4">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
+                    <Image
+                      alt="StudySync Platform"
+                      src={images.project2}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                  </div>
+                  <div className="flex flex-col gap-1 px-2">
+                    <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
+                      SaaS & Web
+                    </span>
+                    <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
+                      StudySync Platform
+                    </h4>
+                  </div>
+                </Link>
 
+                {/* Project 3 */}
+                <Link href="/projects" className="group flex flex-col gap-4">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
+                    <Image
+                      alt="KidCoin Wallet"
+                      src={images.project3}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                  </div>
+                  <div className="flex flex-col gap-1 px-2">
+                    <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
+                      Fintech
+                    </span>
+                    <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
+                      KidCoin Wallet
+                    </h4>
+                  </div>
+                </Link>
+
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* MISSION + REGISTER PROMPT */}
         <section className="py-12 md:py-20 text-center">

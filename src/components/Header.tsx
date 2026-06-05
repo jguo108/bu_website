@@ -8,7 +8,7 @@ import { useRegister } from "./RegisterProvider";
 
 const navItems = [
   { href: "/", label: "Programs" },
-  { href: "/projects", label: "Students' Projects" },
+  // { href: "/projects", label: "Students' Projects" },
   { href: "/about", label: "About" },
 ] as const;
 
