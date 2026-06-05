@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #ff751f;
-  --color-primary-hover: #e66a1c;
-  --color-background: #ffffff;
+  --color-primary: #D06A4C;
+  --color-primary-hover: #b8573a;
+  --color-background: #FAF9F5;
   --color-surface: #fef9f0;
   --color-card: #ede8df;
   --color-border: #e6e1d9;
   --color-border-muted: #d9d3c9;
-  --color-on-surface: #1d1c17;
+  --color-on-surface: #141413;
   --color-on-surface-variant: #424938;
   --color-secondary: #5f5e5e;
   --color-inverse-surface: #32302b;
-  --color-inverse-on-surface: #f5f0e8;
+  --color-inverse-on-surface: #FAF9F5;
   --color-surface-container: #f2ede5;
   --color-surface-container-low: #f8f3eb;
   --color-surface-container-high: #ede7df;
   --color-surface-container-highest: #e7e2da;
   --color-outline-variant: #c2c9b3;
-  --color-accent-orange: #ff751f;
+  --color-accent-orange: #D06A4C;
   --color-tertiary-container: #a19e96;
 
   --spacing-xs: 4px;
@@ -43,14 +43,34 @@
 
   --radius-section: 32px;
 
-  --font-sans: var(--font-work-sans), "Work Sans", sans-serif;
+  --font-sans: "Styrene B", "Space Grotesk", sans-serif;
+  --font-serif: "Tiempos Text", "Lora", "Georgia", serif;
+  --font-mono: "Space Mono", "JetBrains Mono", monospace;
 }
 
 body {
-  background-color: #ffffff;
-  color: #1d1c17;
-  font-family: "Work Sans", sans-serif;
+  background-color: #FAF9F5;
+  color: #141413;
+  font-family: "Tiempos Text", "Lora", "Georgia", serif;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+button,
+a,
+input,
+select,
+textarea,
+.text-display-lg,
+.text-display-md,
+.text-headline-lg,
+.text-headline-md,
+.text-label-md {
+  font-family: "Styrene B", "Space Grotesk", sans-serif;
+}
+
+h1, h2 {
+  letter-spacing: -0.02em;
 }
 
 .material-symbols-outlined {
@@ -58,11 +78,11 @@ body {
 }
 
 .knowledge-block {
-  border-left: 4px solid #ff751f;
+  border-left: 4px solid var(--color-primary);
 }
 
 .knowledge-block-thin {
-  border-left: 1px solid #ff751f;
+  border-left: 1px solid var(--color-primary);
 }
 
 .sticker-card {
@@ -85,7 +105,7 @@ body {
 }
 
 .hover-protocol:hover {
-  border-color: #ff751f;
+  border-color: var(--color-primary);
   transform: scale(1.02);
   z-index: 10;
 }
@@ -100,7 +120,7 @@ body {
 .text-display-md {
   font-size: 36px;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   font-weight: 600;
 }
 
@@ -132,15 +152,20 @@ body {
   line-height: 1.5;
 }
 
-.text-label-md {
-  font-size: 12px;
+.text-label-md,
+label,
+.tag,
+.date,
+.metadata {
+  font-size: 11px;
   line-height: 1.2;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.12em !important;
   font-weight: 600;
+  text-transform: uppercase !important;
 }
 
 .text-code {
   font-size: 14px;
   line-height: 1.5;
-  font-family: monospace;
+  font-family: "Space Mono", "JetBrains Mono", monospace;
 }
