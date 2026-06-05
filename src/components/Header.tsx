@@ -19,7 +19,7 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-export function Header({ variant = "default" }: { variant?: "default" | "white" }) {
+export function Header({ variant = "default" }: { variant?: "default" | "white" | "dark" }) {
   const pathname = usePathname();
   const { openRegister } = useRegister();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,6 +27,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
   const bg =
     variant === "white"
       ? "bg-white border-stone-200"
+      : variant === "dark"
+      ? "bg-black/30 backdrop-blur-md border-zinc-800"
       : "bg-background border-border";
 
   return (
@@ -34,7 +36,9 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
       <nav className="flex justify-between items-center px-4 md:px-8 py-5 w-full max-w-screen-2xl mx-auto tracking-tight antialiased text-sm uppercase">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tighter text-stone-900"
+          className={`text-xl font-bold tracking-tighter ${
+            variant === "dark" ? "text-white" : "text-stone-900"
+          }`}
         >
           BoundaryUnknown
         </Link>
@@ -46,8 +50,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
               href={href}
               className={
                 isActive(pathname, href)
-                  ? "text-stone-900 border-b border-primary pb-1"
-                  : "text-stone-500 hover:text-stone-900 transition-colors duration-200"
+                  ? `${variant === "dark" ? "text-white border-primary" : "text-stone-900 border-primary"} border-b pb-1`
+                  : `${variant === "dark" ? "text-zinc-400 hover:text-white" : "text-stone-500 hover:text-stone-900"} transition-colors duration-200`
               }
             >
               {label}
@@ -56,19 +60,21 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <span className="hidden sm:inline text-stone-500 text-xs tracking-widest cursor-pointer hover:text-stone-900 transition-colors">
+          <span className={`hidden sm:inline text-xs tracking-widest cursor-pointer transition-colors ${
+            variant === "dark" ? "text-zinc-400 hover:text-white" : "text-stone-500 hover:text-stone-900"
+          }`}>
             EN | 中文
           </span>
           <button
             type="button"
             onClick={openRegister}
-            className="hidden sm:block bg-primary text-white px-6 py-2 font-semibold tracking-tight hover:bg-primary-hover transition-colors"
+            className="hidden sm:block bg-primary text-white px-6 py-2 font-semibold tracking-tight hover:bg-primary-hover transition-colors cursor-pointer"
           >
             REGISTER
           </button>
           <button
             type="button"
-            className="md:hidden text-stone-900"
+            className={`md:hidden ${variant === "dark" ? "text-white" : "text-stone-900"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menu"
           >
@@ -86,8 +92,8 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
               onClick={() => setMobileOpen(false)}
               className={
                 isActive(pathname, href)
-                  ? "text-stone-900 font-semibold"
-                  : "text-stone-500"
+                  ? `${variant === "dark" ? "text-white font-semibold" : "text-stone-900 font-semibold"}`
+                  : `${variant === "dark" ? "text-zinc-400" : "text-stone-500"}`
               }
             >
               {label}
@@ -99,7 +105,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
               setMobileOpen(false);
               openRegister();
             }}
-            className="bg-primary text-white px-6 py-2 font-semibold tracking-tight w-fit"
+            className="bg-primary text-white px-6 py-2 font-semibold tracking-tight w-fit cursor-pointer"
           >
             REGISTER
           </button>
