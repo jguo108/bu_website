@@ -3,7 +3,7 @@
 @theme inline {
   --color-primary: #ff751f;
   --color-primary-hover: #e66a1c;
-  --color-background: #f5f0e8;
+  --color-background: #ffffff;
   --color-surface: #fef9f0;
   --color-card: #ede8df;
   --color-border: #e6e1d9;
@@ -47,7 +47,7 @@
 }
 
 body {
-  background-color: #f5f0e8;
+  background-color: #ffffff;
   color: #1d1c17;
   font-family: "Work Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
