@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -10,215 +9,148 @@ import { MaterialIcon } from "@/components/MaterialIcon";
 import { RegisterButton } from "@/components/RegisterButton";
 import { images } from "@/lib/images";
 
-type TabId = "learning-objectives" | "camp-detail" | "apply" | "faq";
-
-const tabs: { id: TabId; label: string }[] = [
-  { id: "learning-objectives", label: "Learning Objectives" },
-  { id: "camp-detail", label: "Camp Detail" },
-  { id: "apply", label: "Apply" },
-  { id: "faq", label: "F&Q" },
-];
-
 const objectives = [
   {
+    icon: "insights",
     title: "Think & Act Like an Entrepreneur",
-    body: "Kids don't just learn about entrepreneurship — they practice it. They identify real problems, make decisions under uncertainty, take smart risks, and iterate fast. The mindset of a founder isn't taught through lectures here. It's built through doing.",
+    body: "Kids don't just learn about entrepreneurship — they practice it. They identify real problems, make decisions under uncertainty, take smart risks, and iterate fast. The mindset of a founder is built through doing.",
   },
   {
-    title: "AI Literacy - Use it, Don't Feat it",
+    icon: "smart_toy",
+    title: "AI Literacy - Use it, Don't Fear it",
     body: "AI is the defining tool of their generation. Kids learn to direct AI with intention — turning vague ideas into working products. They understand what AI can and can't do, how to prompt it effectively, and how to stay in the driver's seat.",
   },
   {
+    icon: "hub",
     title: "System Thinking",
     body: "Great entrepreneurs see the whole picture. Kids learn to map how pieces connect — users, problems, solutions, feedback loops — and understand why products succeed or fail as systems, not just features.",
   },
   {
+    icon: "co_present",
     title: "Communication & Pitch Confidence",
     body: "An idea is only as powerful as your ability to share it. Kids learn to distill their work into a clear, compelling story — and present it live on Demo Day in front of a real audience.",
   },
   {
+    icon: "groups",
     title: "Collaboration & Resilience",
     body: "Kids work in teams, navigate disagreement, hit walls, and find ways through. They learn that failure is a data point, not a verdict.",
   },
 ];
 
-const faqs = [
-  {
-    q: "What are the age requirements for participants?",
-    a: "The Innovathon is open to students aged 9–18. We maintain a diverse cohort to encourage peer-to-peer mentoring and multi-generational perspectives on design.",
-  },
-  {
-    q: "Do I need prior coding experience?",
-    a: "While prior experience is helpful, it is not mandatory. We provide pre-program digital modules and Vibe Coding tools to bring all participants up to a baseline level.",
-  },
-  {
-    q: "What should I bring to the program?",
-    a: "Participants should bring a laptop capable of running standard development tools. All other specialized hardware, prototyping materials, and daily sustenance will be provided.",
-  },
-];
-
 export function CampsPage() {
-  const router = useRouter();
-  const [activeTab, setActiveTab] = useState<TabId>("learning-objectives");
-
-  const handleTabClick = (id: TabId) => {
-    if (id === "camp-detail") {
-      router.push("/programs/camps/innovathon-2026");
-      return;
-    }
-    setActiveTab(id);
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <>
-      <Header />
-      <main className="max-w-screen-2xl mx-auto px-4 md:px-8">
-        <header className="py-xxl grid grid-cols-12 gap-gutter items-end">
-          <div className="col-span-12 lg:col-span-8">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="bg-surface-container-highest text-on-surface px-3 py-1 text-label-md rounded-lg">
-                SUMMER 2026
-              </span>
-              <span className="bg-surface-container-highest text-on-surface px-3 py-1 text-label-md rounded-lg">
-                Entrepreneurship + AI
-              </span>
-            </div>
-            <h1 className="text-display-lg text-stone-900 mb-6">
-              Innovathon: Future Systems Design
-            </h1>
-            <p className="text-body-lg text-stone-600 max-w-2xl">
-              A rigorous six-day intensive exploring the intersection of algorithmic
-              thinking and entrepreneurial frameworks. Designed for curious minds ready
-              to architect the next century.
-            </p>
-          </div>
-          <div className="col-span-12 lg:col-span-4 flex flex-col items-start lg:items-end gap-4 mt-6 lg:mt-0">
-            <div className="lg:text-right">
-              <p className="text-label-md text-stone-500 uppercase">Location</p>
-              <p className="text-headline-md text-stone-900">
-                Global Innovation Hub, Shanghai
+      <Header variant="white" />
+      <main className="mt-24">
+        <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl flex flex-col items-center text-center">
+          <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight text-inverse-surface max-w-4xl mb-md">
+            Innovathon: <span className="text-primary font-black">Future Systems Design</span>
+          </h1>
+          <p className="text-body-lg text-secondary max-w-2xl mb-xl">
+            A rigorous six-day intensive exploring the intersection of algorithmic
+            thinking and entrepreneurial frameworks. Designed for curious minds ready
+            to architect the next century.
+          </p>
+          <Link
+            href="/programs/camps/innovathon-2026"
+            className="inline-flex items-center gap-xs bg-stone-900 text-white hover:bg-stone-800 px-8 py-3 rounded-full text-md font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-lg"
+          >
+            View Details <MaterialIcon name="arrow_forward" className="text-lg" />
+          </Link>
+        </section>
+
+        <section className="bg-white border-y border-outline-variant py-xxl">
+          <div className="max-w-screen-xl mx-auto px-4 md:px-gutter grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+            <div className="space-y-md">
+              <h2 className="text-display-md text-inverse-surface">Developing Future Founders</h2>
+              <p className="text-body-md text-on-surface-variant leading-relaxed">
+                Our curriculum is designed to build the habits of system architects and tech founders.
+                Through hands-on challenges, we cultivate skills that last a lifetime.
               </p>
-            </div>
-            <div className="lg:text-right">
-              <p className="text-label-md text-stone-500 uppercase">Duration</p>
-              <p className="text-headline-md text-stone-900">Session 1: July 5 - 10</p>
-              <p className="text-headline-md text-stone-900">Session 2: August 2-7</p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/programs/camps/timetable"
-                className="text-label-md text-primary uppercase hover:underline"
-              >
-                View timetable
-              </Link>
-              <Link
-                href="/programs/camps/weekly-protocol"
-                className="text-label-md text-primary uppercase hover:underline"
-              >
-                Weekly protocol
-              </Link>
-            </div>
-          </div>
-        </header>
-
-        <div className="w-full h-[300px] md:h-[500px] mb-xxl overflow-hidden bg-surface-container rounded-xl relative">
-          <Image
-            alt="Camp venue"
-            src={images.campDetailHero}
-            fill
-            className="object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-700"
-            sizes="100vw"
-            priority
-          />
-        </div>
-
-        <section className="mb-xxl">
-          <div className="grid grid-cols-12 gap-gutter">
-            <div className="col-span-12 lg:col-span-4">
-              <div className="flex flex-col gap-6 lg:sticky lg:top-32">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    onClick={() => handleTabClick(tab.id)}
-                    className={`text-left text-headline-lg uppercase tracking-tight pb-2 border-b-2 transition-colors ${
-                      activeTab === tab.id && tab.id !== "camp-detail"
-                        ? "text-stone-900 border-primary"
-                        : "text-stone-400 border-transparent hover:text-stone-900"
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+              <div className="knowledge-block-thin pl-md">
+                <p className="text-label-md text-primary uppercase tracking-widest mb-xs">
+                  Systems Mindset
+                </p>
+                <p className="text-body-sm text-secondary italic">
+                  &quot;The best way to predict the future is to build it. We give kids the tools and agency to become architects, not just consumers, of technology.&quot;
+                </p>
               </div>
             </div>
-            <div className="col-span-12 lg:col-span-8">
-              {activeTab === "learning-objectives" && (
-                <div className="space-y-md">
-                  {objectives.map((item) => (
-                    <div
-                      key={item.title}
-                      className="knowledge-block p-lg bg-surface-container-low border border-outline-variant/10 rounded-xl"
-                    >
-                      <h3 className="text-headline-md mb-2 text-stone-900">
-                        {item.title}
-                      </h3>
-                      <p className="text-body-md text-stone-600">{item.body}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {activeTab === "apply" && (
-                <div className="knowledge-block p-lg bg-surface-container-low border border-outline-variant/10 rounded-xl">
-                  <h3 className="text-headline-md mb-2 text-stone-900">
-                    Application Process
-                  </h3>
-                  <p className="text-body-md text-stone-600 mb-6">
-                    Admission is selective. Please submit a portfolio of your recent
-                    work or a 500-word statement of intent regarding your interest in
-                    innovation and entrepreneurship.
-                  </p>
-                  <RegisterButton className="bg-primary text-white px-8 py-3 font-bold tracking-tight text-xs rounded-xl hover:opacity-90 transition-all">
-                    START APPLICATION
-                  </RegisterButton>
-                </div>
-              )}
-              {activeTab === "faq" && (
-                <div className="space-y-0 divide-y divide-border">
-                  {faqs.map((faq) => (
-                    <details key={faq.q} className="group py-md">
-                      <summary className="flex justify-between items-center cursor-pointer list-none text-headline-md text-stone-900">
-                        {faq.q}
-                        <MaterialIcon
-                          name="expand_more"
-                          className="group-open:rotate-180 transition-transform"
-                        />
-                      </summary>
-                      <div className="mt-4 text-body-md text-stone-600 max-w-xl">
-                        {faq.a}
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              )}
+            <div className="relative aspect-square rounded-full overflow-hidden border-8 border-surface-container-high">
+              <Image
+                src={images.campsHero}
+                alt="Camp venue"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </section>
 
-        <section className="mb-xxl p-xl bg-stone-900 text-white flex flex-col items-center justify-center text-center rounded-xl">
-          <h2 className="text-display-md mb-8 max-w-2xl">
-            Secure your position in the next cohort of system architects.
-          </h2>
-          <div className="flex flex-col md:flex-row gap-lg">
-            <RegisterButton className="bg-primary text-white px-12 py-4 font-bold tracking-tight text-md rounded-xl hover:opacity-90 transition-all">
-              REGISTER NOW
+        <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl">
+          <div className="mb-xl">
+            <h2 className="text-display-md text-inverse-surface">
+              Core Learning Objectives
+            </h2>
+            <div className="h-1 w-24 bg-primary mt-sm" />
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-lg items-stretch">
+            <div className="lg:col-span-5 flex flex-col gap-sm justify-center">
+              {objectives.map((item, i) => (
+                <button
+                  key={item.title}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  className={`text-left p-md rounded-2xl border transition-all duration-300 flex items-center gap-md cursor-pointer ${
+                    activeIndex === i
+                      ? "bg-stone-900 border-primary text-white shadow-md scale-[1.02]"
+                      : "bg-white border-outline-variant/30 text-stone-700 hover:bg-stone-50 hover:border-outline-variant hover:scale-[1.01]"
+                  }`}
+                >
+                  <span className={`font-mono text-label-md shrink-0 ${activeIndex === i ? "text-primary" : "text-stone-400"}`}>
+                    0{i + 1}
+                  </span>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${activeIndex === i ? "bg-primary/20 text-primary border border-primary/30" : "bg-stone-100 text-stone-600"}`}>
+                    <MaterialIcon name={item.icon} className="text-xl font-semibold" />
+                  </div>
+                  <span className="font-semibold text-base tracking-tight leading-tight">{item.title}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="lg:col-span-7 bg-stone-950 text-stone-50 p-xl rounded-[32px] relative overflow-hidden flex flex-col justify-center min-h-[400px] border border-stone-800 shadow-xl">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-primary/15 rounded-full blur-[80px] pointer-events-none animate-pulse-glow" />
+              
+              <div key={activeIndex} className="animate-fade-in-up flex flex-col items-center text-center gap-md relative z-10 px-md">
+                <div className="w-20 h-20 bg-primary/20 border border-primary/40 rounded-full flex items-center justify-center mb-sm shadow-[0_0_40px_rgba(208,106,76,0.25)]">
+                  <MaterialIcon name={objectives[activeIndex].icon} className="text-primary text-4xl" />
+                </div>
+                <span className="text-label-md text-primary font-mono tracking-widest">
+                  Objective 0{activeIndex + 1}
+                </span>
+                <h3 className="text-display-md text-white font-bold leading-tight max-w-lg">
+                  {objectives[activeIndex].title}
+                </h3>
+                <p className="text-body-lg text-stone-300 leading-relaxed max-w-xl mt-sm">
+                  {objectives[activeIndex].body}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl text-center">
+          <div className="bg-white border-2 border-primary rounded-[48px] p-xl md:p-xxl">
+            <h2 className="text-display-md mb-md">Ready to start your application?</h2>
+            <p className="text-body-lg text-secondary mb-xl max-w-xl mx-auto">
+              Admission is selective. Please submit a portfolio of your recent work or a 500-word statement of intent regarding your interest in innovation and entrepreneurship.
+            </p>
+            <RegisterButton className="bg-primary text-white px-12 py-4 rounded-full text-lg transition-all active:opacity-80 active:scale-95 shadow-lg">
+              Start Application
             </RegisterButton>
-            <button
-              type="button"
-              className="border border-white text-white px-12 py-4 font-bold tracking-tight text-md rounded-xl hover:bg-white hover:text-stone-900 transition-all"
-            >
-              DOWNLOAD SYLLABUS
-            </button>
           </div>
         </section>
       </main>

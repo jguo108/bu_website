@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -27,10 +26,19 @@ const tracks = [
   },
 ];
 
-const gallery = [
-  { img: images.innovathonGallery1, label: "Summer 2024 / Robotics Lab" },
-  { img: images.innovathonGallery2, label: "Spring 2025 / Neural Networks", offset: true },
-  { img: images.innovathonGallery3, label: "Winter 2025 / Spatial Computing" },
+const faqs = [
+  {
+    q: "What are the age requirements for participants?",
+    a: "The Innovathon is open to students aged 9–18. We maintain a diverse cohort to encourage peer-to-peer mentoring and multi-generational perspectives on design.",
+  },
+  {
+    q: "Do I need prior coding experience?",
+    a: "While prior experience is helpful, it is not mandatory. We provide pre-program digital modules and Vibe Coding tools to bring all participants up to a baseline level.",
+  },
+  {
+    q: "What should I bring to the program?",
+    a: "Participants should bring a laptop capable of running standard development tools. All other specialized hardware, prototyping materials, and daily sustenance will be provided.",
+  },
 ];
 
 export function Innovathon2026Page() {
@@ -39,22 +47,19 @@ export function Innovathon2026Page() {
       <Header variant="white" />
       <main className="mt-0">
         <section className="max-w-7xl mx-auto px-4 md:px-6 py-xxl">
-          <div className="flex flex-col items-start gap-md">
-            <span className="text-label-md text-primary uppercase tracking-[0.2em]">
-              BoundaryUnknown Summer 2026
-            </span>
+          <div className="flex flex-col items-center text-center gap-md">
             <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight max-w-4xl">
               Summer 2026 Innovathon:{" "}
               <span className="text-primary font-black">Future Systems</span>
             </h1>
-            <p className="text-body-lg text-secondary max-w-2xl mt-md">
+            <p className="text-body-lg text-secondary max-w-2xl">
               An intensive, week-long residency for young pioneers to conceptualize,
               prototype, and build the ethical frameworks and creative tools of the
               next decade.
             </p>
             <Link
               href="/programs/camps"
-              className="text-label-md text-secondary uppercase hover:text-primary mt-2"
+              className="text-label-md text-secondary uppercase hover:text-primary"
             >
               ← Back to camp overview
             </Link>
@@ -63,94 +68,76 @@ export function Innovathon2026Page() {
 
         <section className="max-w-7xl mx-auto px-4 md:px-6 mb-xxl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter bg-surface-container rounded-[32px] p-xl border border-outline-variant/30">
-            <div className="flex items-start gap-md">
+            <div className="flex flex-col items-center text-center gap-xs">
               <MaterialIcon name="location_on" className="text-primary text-3xl shrink-0" />
-              <div>
-                <h3 className="text-headline-md mb-xs">Location</h3>
-                <p className="text-body-md text-secondary">
-                  Global Innovation Hub, Shanghai
-                </p>
-                <p className="text-body-sm text-tertiary mt-xs">
-                  No. 188 Museum Lane, Jing&apos;an District
-                </p>
-              </div>
+              <h3 className="text-headline-md font-semibold mt-xs">Location</h3>
+              <p className="text-body-md text-secondary mt-xs">
+                Global Innovation Hub, Shanghai
+              </p>
+              <p className="text-body-sm text-tertiary">
+                No. 188 Museum Lane, Jing&apos;an District
+              </p>
             </div>
-            <div className="flex items-start gap-md">
+            <div className="flex flex-col items-center text-center gap-xs">
               <MaterialIcon name="calendar_month" className="text-primary text-3xl shrink-0" />
-              <div>
-                <h3 className="text-headline-md mb-xs">Available Dates</h3>
-                <p className="text-body-md text-secondary">Session 1: July 5-10, 2026</p>
-                <p className="text-body-md text-secondary">Session 2: August 2-7, 2026</p>
-              </div>
+              <h3 className="text-headline-md font-semibold mt-xs">Available Dates</h3>
+              <p className="text-body-md text-secondary mt-xs">Session 1: July 5-10, 2026</p>
+              <p className="text-body-md text-secondary">Session 2: August 2-7, 2026</p>
             </div>
           </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-4 md:px-6 mb-xxl">
-          <div className="flex flex-col gap-xl">
-            <div>
-              <h2 className="text-display-md">Core Curriculum</h2>
-              <div className="h-1 w-24 bg-primary mt-sm" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-              {tracks.map((track) => (
-                <div
-                  key={track.title}
-                  className="group bg-white border border-outline-variant p-xl rounded-[32px] flex flex-col justify-between min-h-[400px] hover:border-primary transition-all duration-300"
-                >
-                  <div className="flex flex-col gap-md">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                      <MaterialIcon name={track.icon} className="text-primary" />
-                    </div>
-                    <h4 className="text-[28px] font-semibold">{track.title}</h4>
-                    <p className="text-body-md text-secondary">{track.description}</p>
-                  </div>
-                  <div className="flex items-center gap-sm text-primary font-bold uppercase text-xs tracking-widest mt-xl">
-                    Explore Track{" "}
-                    <MaterialIcon name="arrow_forward" className="text-sm" />
-                  </div>
+          <div className="mb-xl">
+            <h2 className="text-display-md text-inverse-surface">
+              Core Curriculum
+            </h2>
+            <div className="h-1 w-24 bg-primary mt-sm" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            {tracks.map((track) => (
+              <div
+                key={track.title}
+                className="bg-stone-950 text-stone-50 p-xl rounded-[32px] flex flex-col items-center text-center"
+              >
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-md">
+                  <MaterialIcon name={track.icon} className="text-white text-3xl" />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-headline-lg mb-sm">{track.title}</h3>
+                <p className="text-body-sm text-stone-400">{track.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-xl">
+            <Link
+              href="/programs/camps/timetable"
+              className="inline-flex items-center gap-xs bg-stone-900 text-white hover:bg-stone-800 px-8 py-3 rounded-full text-md font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-lg"
+            >
+              View Timetable <MaterialIcon name="arrow_forward" className="text-lg" />
+            </Link>
           </div>
         </section>
 
-        <section className="bg-surface-container-high py-xxl">
-          <div className="max-w-7xl mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-xl">
-              <div className="max-w-xl">
-                <h2 className="text-display-md">Legacy of Innovation</h2>
-                <p className="text-body-md text-secondary mt-sm">
-                  A visual retrospective of our past cohorts building future-ready
-                  technologies in collaboration with world-class mentors.
-                </p>
-              </div>
-              <button
-                type="button"
-                className="border border-on-surface px-8 py-3 rounded-full font-bold hover:bg-on-surface hover:text-white transition-all shrink-0"
-              >
-                View All Archives
-              </button>
+        <section className="max-w-7xl mx-auto px-4 md:px-6 py-xxl border-t border-outline-variant/30">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-xl">
+            <div className="md:col-span-4">
+              <h2 className="text-display-md">Frequently Asked Questions</h2>
+              <div className="h-1 w-24 bg-primary mt-sm" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-xl">
-              {gallery.map((item) => (
-                <div
-                  key={item.label}
-                  className={`flex flex-col gap-md ${item.offset ? "md:translate-y-12" : ""}`}
-                >
-                  <div className="aspect-[4/5] overflow-hidden rounded-[32px] arched-crop relative">
-                    <Image
-                      alt={item.label}
-                      src={item.img}
-                      fill
-                      className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+            <div className="md:col-span-8 space-y-0 divide-y divide-border">
+              {faqs.map((faq) => (
+                <details key={faq.q} className="group py-md">
+                  <summary className="flex justify-between items-center cursor-pointer list-none text-headline-md text-stone-900 font-semibold">
+                    {faq.q}
+                    <MaterialIcon
+                      name="expand_more"
+                      className="group-open:rotate-180 transition-transform"
                     />
+                  </summary>
+                  <div className="mt-4 text-body-md text-secondary leading-relaxed">
+                    {faq.a}
                   </div>
-                  <span className="text-label-md uppercase tracking-widest text-tertiary">
-                    {item.label}
-                  </span>
-                </div>
+                </details>
               ))}
             </div>
           </div>
