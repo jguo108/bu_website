@@ -198,18 +198,6 @@ export function LandingPage() {
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
                     In six fast-paced days, kids form teams, think like founders, write prompts to build product MVPs, and present live pitches on Demo Day to professional judges.
                   </p>
-                  
-                  <ul className="space-y-3 mb-12 text-xs text-zinc-300 font-mono">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#FF751F]">▸</span> Age Cohorts: 9–18 years
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#FF751F]">▸</span> Session 1: July 5 - 10
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#FF751F]">▸</span> Location: Global Innovation Hub, Shanghai
-                    </li>
-                  </ul>
                 </div>
 
                 <div className="pt-6 border-t border-zinc-900 flex justify-between items-center">
@@ -223,12 +211,6 @@ export function LandingPage() {
                       className="text-xs group-hover/link:translate-x-1.5 transition-transform"
                     />
                   </Link>
-                  <button
-                    onClick={openRegister}
-                    className="bg-zinc-900 text-white hover:bg-[#FF751F] hover:text-white px-5 py-2 font-mono text-[10px] tracking-wider uppercase transition-all duration-300 cursor-pointer"
-                  >
-                    Apply Now
-                  </button>
                 </div>
               </div>
 
@@ -250,18 +232,6 @@ export function LandingPage() {
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
                     For builders who seek complete validation. We take raw tech prototypes and guide them through customer interviews, data structures, deployment, and seed iterations.
                   </p>
-                  
-                  <ul className="space-y-3 mb-12 text-xs text-zinc-300 font-mono">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#FF751F]">▸</span> 1:1 mentorship from startup architects
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#FF751F]">▸</span> Dedicated AI hardware nodes/compute
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#FF751F]">▸</span> Strategic GTM & early launch advisory
-                    </li>
-                  </ul>
                 </div>
 
                 <div className="pt-6 border-t border-zinc-900 flex justify-between items-center">
@@ -275,12 +245,6 @@ export function LandingPage() {
                       className="text-xs group-hover/link:translate-x-1.5 transition-transform"
                     />
                   </Link>
-                  <button
-                    onClick={openRegister}
-                    className="bg-zinc-900 text-white hover:bg-[#FF751F] hover:text-white px-5 py-2 font-mono text-[10px] tracking-wider uppercase transition-all duration-300 cursor-pointer"
-                  >
-                    Apply Now
-                  </button>
                 </div>
               </div>
 
