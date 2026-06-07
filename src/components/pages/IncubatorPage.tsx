@@ -23,10 +23,7 @@ export function IncubatorPage() {
       <Header variant="white" />
       <main className="mt-24">
         <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl flex flex-col items-center text-center">
-          <span className="inline-block px-3 py-1 bg-surface-container-highest text-on-surface-variant text-label-md rounded-full mb-sm">
-            Incubator Program
-          </span>
-          <h1 className="text-display-lg text-inverse-surface max-w-4xl mb-md">
+          <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight text-inverse-surface max-w-4xl mb-md">
             The Incubation Track:{" "}
             <span className="text-primary">From Idea to Venture</span>
           </h1>
