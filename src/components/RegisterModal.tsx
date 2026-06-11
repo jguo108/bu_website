@@ -33,53 +33,33 @@ export function RegisterModal({
         >
           <MaterialIcon name="close" />
         </button>
-        <span className="text-code text-primary uppercase tracking-widest block mb-sm">
-          Register / Apply
-        </span>
         <h2 id="register-title" className="text-display-md text-on-surface mb-md">
           Join BoundaryUnknown
         </h2>
         <p className="text-body-md text-secondary mb-lg">
-          Tell us about your interest in our programs. Our team will reach out
-          with session dates, logistics, and next steps.
+          Feeling interested? Scan the codes below to chat with us! Our team will get back to
+          you with all the information!
         </p>
-        <div className="space-y-md">
-          <div>
-            <label className="text-label-md uppercase text-on-surface-variant block mb-xs">
-              Email
-            </label>
-            <input
-              type="email"
-              placeholder="parent@email.com"
-              className="w-full border border-border bg-background px-md py-sm text-body-md focus:outline-none focus:border-primary"
-            />
+        <div className="grid grid-cols-2 gap-md mt-lg">
+          <div className="flex flex-col items-center p-md bg-background border border-border text-center">
+            <div className="w-full aspect-square max-w-[160px] bg-white p-sm border border-border-muted mb-sm flex items-center justify-center">
+              <img
+                src="/images/wechat_service.png"
+                alt="WeChat Customer Service"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
-          <div>
-            <label className="text-label-md uppercase text-on-surface-variant block mb-xs">
-              Program interest
-            </label>
-            <select className="w-full border border-border bg-background px-md py-sm text-body-md focus:outline-none focus:border-primary">
-              <option>Innovathon Camp</option>
-              <option>Incubator</option>
-              <option>General inquiry</option>
-            </select>
+          <div className="flex flex-col items-center p-md bg-background border border-border text-center">
+            <div className="w-full aspect-square max-w-[160px] bg-white p-sm border border-border-muted mb-sm flex items-center justify-center">
+              <img
+                src="/images/wechat_boundary.png"
+                alt="WeChat Official Account"
+                className="w-full h-full object-contain"
+              />
+            </div>
           </div>
-          <button
-            type="button"
-            className="w-full bg-primary text-white py-3 font-semibold uppercase tracking-tight hover:bg-primary-hover transition-colors"
-          >
-            Submit inquiry
-          </button>
         </div>
-        <p className="text-body-sm text-secondary mt-md">
-          Or contact us directly at{" "}
-          <a
-            href="mailto:hello@boundaryunknown.edu"
-            className="text-primary hover:underline"
-          >
-            hello@boundaryunknown.edu
-          </a>
-        </p>
       </div>
     </div>
   );
