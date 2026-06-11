@@ -1,6 +1,7 @@
 "use client";
 
 import { MaterialIcon } from "./MaterialIcon";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export function RegisterModal({
   open,
@@ -9,6 +10,8 @@ export function RegisterModal({
   open: boolean;
   onClose: () => void;
 }) {
+  const { t } = useLanguage();
+
   if (!open) return null;
 
   return (
@@ -34,11 +37,10 @@ export function RegisterModal({
           <MaterialIcon name="close" />
         </button>
         <h2 id="register-title" className="text-display-md text-on-surface mb-md">
-          Join BoundaryUnknown
+          {t("register.title")}
         </h2>
         <p className="text-body-md text-secondary mb-lg">
-          Feeling interested? Scan the codes below to chat with us! Our team will get back to
-          you with all the information!
+          {t("register.desc")}
         </p>
         <div className="grid grid-cols-2 gap-md mt-lg">
           <div className="flex flex-col items-center p-md bg-background border border-border text-center">
@@ -50,7 +52,7 @@ export function RegisterModal({
               />
             </div>
             <span className="text-label-md text-on-surface uppercase tracking-wider font-semibold">
-              微信小助手
+              {t("register.assistant")}
             </span>
           </div>
           <div className="flex flex-col items-center p-md bg-background border border-border text-center">
@@ -62,7 +64,7 @@ export function RegisterModal({
               />
             </div>
             <span className="text-label-md text-on-surface uppercase tracking-wider font-semibold">
-              微信公众号
+              {t("register.official")}
             </span>
           </div>
         </div>
@@ -70,3 +72,4 @@ export function RegisterModal({
     </div>
   );
 }
+

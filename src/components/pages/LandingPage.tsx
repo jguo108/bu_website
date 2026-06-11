@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { MaterialIcon } from "@/components/MaterialIcon";
 import { InteractiveCanvas } from "@/components/InteractiveCanvas";
 import { images } from "@/lib/images";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Custom scroll reveal hook
 function useScrollReveal() {
@@ -49,8 +50,86 @@ function useScrollReveal() {
   };
 }
 
+const content = {
+  en: {
+    heroTitle: (
+      <>
+        Beyond the
+        <br />
+        <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
+          Boundaries
+        </span>
+      </>
+    ),
+    heroSub: (
+      <>
+        Where curious minds bring a raw idea, learn to think like startup founders, and leverage cutting-edge{" "}
+        <span className="text-white font-semibold">AI systems</span> to architect real, working products.
+      </>
+    ),
+    cta: "EXPLORE PROGRAMS",
+    f1Title: "Founder Mindset",
+    f1Desc: "Identify systemic challenges, perform rapid target user validation, analyze metrics, and design dynamic feedback loops.",
+    f2Title: "AI-First Development",
+    f2Desc: "Stay in the driver's seat. Harness the power of generative AI, prompt engineering, and LLM orchestration to translate thoughts into codebase.",
+    f3Title: "Working Prototypes",
+    f3Desc: "No empty theories. Students assemble, iterate, and publish fully functional web architectures or robotics MVPs ready to showcase.",
+    programsTitle: "Our Programs",
+    campsTag: "Intensive Sprint",
+    campsDuration: "6 Days",
+    campsTitle: "Innovathon Camps",
+    campsDesc: "In six fast-paced days, kids form teams, think like founders, write prompts to build product MVPs, and present live pitches on Demo Day to professional judges.",
+    learnMore: "LEARN MORE",
+    incubatorTag: "Long-Term Track",
+    incubatorDuration: "Semester",
+    incubatorTitle: "Incubator Lab",
+    incubatorDesc: "For builders who seek complete validation. We take raw tech prototypes and guide them through customer interviews, data structures, deployment, and seed iterations.",
+    missionTitle: "Empowering the next generation of founders to build with AI.",
+    missionDesc: "We believe that the best way to learn is by doing. BoundaryUnknown provides the space, mentorship, and cloud compute nodes for young minds to transform curiosity into ventures."
+  },
+  zh: {
+    heroTitle: (
+      <>
+        超越
+        <br />
+        <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
+          边界
+        </span>
+      </>
+    ),
+    heroSub: (
+      <>
+        在这里，好奇的心灵带着粗糙的创意而来，学习像初创创始人一样思考，并利用前沿的{" "}
+        <span className="text-white font-semibold">AI 系统</span> 架构真实、可运行的产品。
+      </>
+    ),
+    cta: "探索项目课程",
+    f1Title: "创始人思维",
+    f1Desc: "识别系统性挑战，进行快速的真实用户验证，分析商业数据指标，并设计动态的反馈闭环。",
+    f2Title: "AI 优先开发",
+    f2Desc: "保持主导地位。利用生成式 AI、提示词工程和 LLM 编排，将头脑中的想法转化为真正的代码库。",
+    f3Title: "可运行的原型",
+    f3Desc: "拒绝空谈理论。学员们亲自动手组装、迭代并发布功能完备的 Web 架构或机器人 MVP 原型。",
+    programsTitle: "项目课程",
+    campsTag: "短期冲刺营",
+    campsDuration: "6 天",
+    campsTitle: "Innovathon 创新营",
+    campsDesc: "在节奏紧凑的 6 天内，孩子们组建团队、像创始人一样思考、通过编写提示词构建产品 MVP，并在 Demo Day 向专业评审进行现场路演。",
+    learnMore: "了解更多",
+    incubatorTag: "长期路线",
+    incubatorDuration: "单学期",
+    incubatorTitle: "孵化实验室",
+    incubatorDesc: "专为追求完整商业验证的创造者设计。我们以原始的技术原型为起点，引导他们进行真实用户访谈、数据架构设计、项目部署及种子用户迭代。",
+    missionTitle: "赋能下一代创造者，与 AI 协同共建。",
+    missionDesc: "我们相信，最好的学习方式就是动手实践。BoundaryUnknown 为年轻人提供探索空间、导师指导以及云端计算资源，将抽象的好奇心转化为真正的创新实践。"
+  }
+};
+
 export function LandingPage() {
   const SHOW_PROJECTS = false;
+  const { language } = useLanguage();
+  const t = content[language];
+
   const heroReveal = useScrollReveal();
   const featuresReveal = useScrollReveal();
   const programsReveal = useScrollReveal();
@@ -87,16 +166,12 @@ export function LandingPage() {
             
             {/* Main Headline */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] text-white uppercase max-w-3xl mb-8">
-              Beyond the<br />
-              <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
-                Boundaries
-              </span>
+              {t.heroTitle}
             </h1>
 
             {/* Subtext */}
             <p className="text-body-lg text-zinc-400 max-w-2xl leading-relaxed mb-12">
-              Where curious minds bring a raw idea, learn to think like startup founders, and leverage cutting-edge{" "}
-              <span className="text-white font-semibold">AI systems</span> to architect real, working products.
+              {t.heroSub}
             </p>
 
             {/* Actions */}
@@ -106,7 +181,7 @@ export function LandingPage() {
                 onClick={handleScrollToPrograms}
                 className="w-full sm:w-auto bg-[#FF751F] text-white font-semibold tracking-tight px-10 py-4 hover:bg-[#e05f10] transition-all hover:scale-105 duration-300 shadow-lg shadow-[#FF751F]/15 cursor-pointer uppercase text-xs"
               >
-                EXPLORE PROGRAMS
+                {t.cta}
               </button>
             </div>
           </div>
@@ -122,10 +197,10 @@ export function LandingPage() {
                   01
                 </span>
                 <h3 className="text-xl font-bold uppercase text-white tracking-tight">
-                  Founder Mindset
+                  {t.f1Title}
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Identify systemic challenges, perform rapid target user validation, analyze metrics, and design dynamic feedback loops.
+                  {t.f1Desc}
                 </p>
               </div>
 
@@ -134,10 +209,10 @@ export function LandingPage() {
                   02
                 </span>
                 <h3 className="text-xl font-bold uppercase text-white tracking-tight">
-                  AI-First Development
+                  {t.f2Title}
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  Stay in the driver&apos;s seat. Harness the power of generative AI, prompt engineering, and LLM orchestration to translate thoughts into codebase.
+                  {t.f2Desc}
                 </p>
               </div>
 
@@ -146,10 +221,10 @@ export function LandingPage() {
                   03
                 </span>
                 <h3 className="text-xl font-bold uppercase text-white tracking-tight">
-                  Working Prototypes
+                  {t.f3Title}
                 </h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  No empty theories. Students assemble, iterate, and publish fully functional web architectures or robotics MVPs ready to showcase.
+                  {t.f3Desc}
                 </p>
               </div>
 
@@ -164,7 +239,7 @@ export function LandingPage() {
             {/* Section Header */}
             <div className="mb-16 text-center">
               <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
-                Our Programs
+                {t.programsTitle}
               </h2>
             </div>
 
@@ -177,17 +252,17 @@ export function LandingPage() {
                 <div>
                   <div className="flex justify-between items-start mb-8">
                     <span className="text-[10px] uppercase font-mono tracking-widest text-[#FF751F] border border-[#FF751F]/30 px-3 py-1 rounded-full bg-[#FF751F]/5">
-                      Intensive Sprite
+                      {t.campsTag}
                     </span>
                     <span className="text-zinc-500 font-mono text-sm uppercase">
-                      6 Days
+                      {t.campsDuration}
                     </span>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-black uppercase text-white mb-6">
-                    Innovathon Camps
+                    {t.campsTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
-                    In six fast-paced days, kids form teams, think like founders, write prompts to build product MVPs, and present live pitches on Demo Day to professional judges.
+                    {t.campsDesc}
                   </p>
                 </div>
 
@@ -196,7 +271,7 @@ export function LandingPage() {
                     href="/programs/camps"
                     className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-white hover:text-[#FF751F] transition-colors"
                   >
-                    LEARN MORE
+                    {t.learnMore}
                     <MaterialIcon
                       name="arrow_forward"
                       className="text-xs group-hover/link:translate-x-1.5 transition-transform"
@@ -211,17 +286,17 @@ export function LandingPage() {
                 <div>
                   <div className="flex justify-between items-start mb-8">
                     <span className="text-[10px] uppercase font-mono tracking-widest text-[#FF751F] border border-[#FF751F]/30 px-3 py-1 rounded-full bg-[#FF751F]/5">
-                      Long-Term Track
+                      {t.incubatorTag}
                     </span>
                     <span className="text-zinc-500 font-mono text-sm uppercase">
-                      Semester
+                      {t.incubatorDuration}
                     </span>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-black uppercase text-white mb-6">
-                    Incubator Lab
+                    {t.incubatorTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
-                    For builders who seek complete validation. We take raw tech prototypes and guide them through customer interviews, data structures, deployment, and seed iterations.
+                    {t.incubatorDesc}
                   </p>
                 </div>
 
@@ -230,7 +305,7 @@ export function LandingPage() {
                     href="/programs/incubator"
                     className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-white hover:text-[#FF751F] transition-colors"
                   >
-                    LEARN MORE
+                    {t.learnMore}
                     <MaterialIcon
                       name="arrow_forward"
                       className="text-xs group-hover/link:translate-x-1.5 transition-transform"
@@ -243,104 +318,6 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* STUDENT PROJECTS */}
-        {SHOW_PROJECTS && (
-          <section className="py-12 md:py-20 mb-24">
-            <div ref={projectsReveal.ref} className={projectsReveal.className}>
-              
-              {/* Header */}
-              <div className="flex flex-col items-center text-center gap-4 mb-16">
-                <div>
-                  <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
-                    Built by Students
-                  </h2>
-                </div>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-[#FF751F] hover:text-white transition-colors"
-                >
-                  View all projects
-                  <MaterialIcon
-                    name="arrow_forward"
-                    className="text-xs group-hover/link:translate-x-1.5 transition-transform"
-                  />
-                </Link>
-              </div>
-
-              {/* Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                {/* Project 1 */}
-                <Link href="/projects" className="group flex flex-col gap-4">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
-                    <Image
-                      alt="Auto-Farm Intelligence"
-                      src={images.project1}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                  </div>
-                  <div className="flex flex-col gap-1 px-2">
-                    <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
-                      AI & Robotics
-                    </span>
-                    <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
-                      Auto-Farm Intelligence
-                    </h4>
-                  </div>
-                </Link>
-
-                {/* Project 2 */}
-                <Link href="/projects" className="group flex flex-col gap-4">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
-                    <Image
-                      alt="StudySync Platform"
-                      src={images.project2}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                  </div>
-                  <div className="flex flex-col gap-1 px-2">
-                    <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
-                      SaaS & Web
-                    </span>
-                    <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
-                      StudySync Platform
-                    </h4>
-                  </div>
-                </Link>
-
-                {/* Project 3 */}
-                <Link href="/projects" className="group flex flex-col gap-4">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-[24px] border border-zinc-900 bg-zinc-950">
-                    <Image
-                      alt="KidCoin Wallet"
-                      src={images.project3}
-                      fill
-                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-out brightness-90"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                  </div>
-                  <div className="flex flex-col gap-1 px-2">
-                    <span className="text-[10px] text-[#FF751F] uppercase tracking-widest font-mono font-bold">
-                      Fintech
-                    </span>
-                    <h4 className="text-xl font-bold uppercase text-white group-hover:text-[#FF751F] transition-colors duration-300">
-                      KidCoin Wallet
-                    </h4>
-                  </div>
-                </Link>
-
-              </div>
-            </div>
-          </section>
-        )}
-
         {/* MISSION + REGISTER PROMPT */}
         <section className="py-12 md:py-20 text-center">
           <div ref={ctaReveal.ref} className={`${ctaReveal.className} max-w-4xl mx-auto`}>
@@ -348,11 +325,11 @@ export function LandingPage() {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-[30%] bg-[#FF751F]/5 blur-[64px] rounded-full" />
               
               <h2 className="text-3xl md:text-5xl font-black uppercase text-white mb-8 leading-tight">
-                Empowering the next generation of founders to build with AI.
+                {t.missionTitle}
               </h2>
               
               <p className="text-zinc-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                We believe that the best way to learn is by doing. BoundaryUnknown provides the space, mentorship, and cloud compute nodes for young minds to transform curiosity into ventures.
+                {t.missionDesc}
               </p>
             </div>
           </div>
@@ -366,3 +343,4 @@ export function LandingPage() {
     </div>
   );
 }
+

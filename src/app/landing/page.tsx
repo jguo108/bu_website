@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function LandingPage() {
   const [phase, setPhase] = useState<"shimmer" | "dissolve" | "text">("shimmer");
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     // Sequence the animations
@@ -112,7 +114,7 @@ export default function LandingPage() {
           Boundary<span className="text-[#FF751F]">Unknown</span>
         </h1>
         <p className="mt-6 text-[#c2c9b3] tracking-[0.3em] text-xs md:text-sm uppercase max-w-md text-center leading-loose">
-          Dare to think. Dare to act.
+          {t("footer.desc").split("\n").join(" ")}
         </p>
         
         <Link 
@@ -121,10 +123,11 @@ export default function LandingPage() {
             phase === "text" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Enter Academy
+          {language === "zh" ? "进入学院" : "Enter Academy"}
         </Link>
       </div>
 
     </main>
   );
 }
+

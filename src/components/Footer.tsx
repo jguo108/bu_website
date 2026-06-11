@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { Fragment } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type FooterVariant = "default" | "minimal" | "dark";
 
 export function Footer({ variant = "default" }: { variant?: FooterVariant }) {
   const isDark = variant === "dark";
+  const { t } = useLanguage();
   const bgClass = isDark ? "bg-[#090909] border-zinc-900" : "bg-background border-border";
   const textClass = isDark ? "text-stone-400" : "text-stone-500";
   const headingClass = isDark ? "text-white" : "text-stone-900";
@@ -15,7 +18,7 @@ export function Footer({ variant = "default" }: { variant?: FooterVariant }) {
       <footer className="w-full border-t mt-24 bg-background border-border">
         <div className="px-8 py-8 w-full max-w-screen-2xl mx-auto">
           <p className="text-stone-400 text-[10px] uppercase tracking-widest">
-            © 2024 BoundaryUnknown. All rights reserved.
+            {t("footer.rights")}
           </p>
         </div>
       </footer>
@@ -30,62 +33,60 @@ export function Footer({ variant = "default" }: { variant?: FooterVariant }) {
             BoundaryUnknown
           </div>
           <p className={`${textClass} max-w-xs leading-relaxed`}>
-            Dare to think.
-            <br />
-            Dare to act.
+            {t("footer.desc").split("\n").map((line: string, i: number) => (
+              <Fragment key={i}>
+                {line}
+                <br />
+              </Fragment>
+            ))}
           </p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
           <div className="flex flex-col gap-4">
             <span className={`font-bold uppercase tracking-widest text-[10px] ${headingClass}`}>
-              Ecosystem
+              {t("footer.ecosystem")}
             </span>
             <Link
               href="/"
               className={linkClass}
             >
-              Programs
+              {t("nav.programs")}
             </Link>
-            {/* <Link
-              href="/projects"
-              className={linkClass}
-            >
-              Students&apos; Projects
-            </Link> */}
             <Link
               href="/about"
               className={linkClass}
             >
-              About
+              {t("nav.about")}
             </Link>
           </div>
           <div className="flex flex-col gap-4">
             <span className={`font-bold uppercase tracking-widest text-[10px] ${headingClass}`}>
-              Inquiry
+              {t("footer.inquiry")}
             </span>
             <a
               href="mailto:hello@boundaryunknown.edu"
               className={linkClass}
             >
-              Contact
+              {t("nav.contact")}
             </a>
-            <span className={textClass}>Partnerships</span>
-            <span className={textClass}>FAQ</span>
+            <span className={textClass}>{t("footer.partnerships")}</span>
+            <span className={textClass}>{t("footer.faq")}</span>
           </div>
           <div className="flex flex-col gap-4">
             <span className={`font-bold uppercase tracking-widest text-[10px] ${headingClass}`}>
-              Legal
+              {t("footer.legal")}
             </span>
-            <span className={textClass}>Terms of Service</span>
-            <span className={textClass}>Privacy Policy</span>
+            <span className={textClass}>{t("footer.terms")}</span>
+            <span className={textClass}>{t("footer.privacy")}</span>
           </div>
         </div>
       </div>
       <div className="px-4 md:px-8 pb-8 w-full max-w-screen-2xl mx-auto">
         <p className={mutedTextClass}>
-          © 2024 BoundaryUnknown. All rights reserved.
+          {t("footer.rights")}
         </p>
       </div>
     </footer>
   );
 }
+

@@ -5,17 +5,18 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { MaterialIcon } from "./MaterialIcon";
 import { useRegister } from "./RegisterProvider";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const navItems = [
-  { href: "/", label: "Home" },
+  { href: "/", labelKey: "nav.home" as const },
   {
-    label: "Programs",
+    labelKey: "nav.programs" as const,
     children: [
-      { href: "/programs/camps", label: "Camps" },
-      { href: "/programs/incubator", label: "Incubator" },
+      { href: "/programs/camps", labelKey: "nav.camps" as const },
+      { href: "/programs/incubator", labelKey: "nav.incubator" as const },
     ],
   },
-  { href: "/about", label: "About" },
+  { href: "/about", labelKey: "nav.about" as const },
 ] as const;
 
 export function Header({ variant = "default" }: { variant?: "default" | "white" | "dark" }) {
@@ -23,6 +24,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
   const { openRegister } = useRegister();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(true);
+  const { language, setLanguage, t } = useLanguage();
 
   const bg =
     variant === "white"
@@ -61,7 +63,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
             if ("children" in item) {
               const isActive = checkActive(item);
               return (
-                <div key={item.label} className="relative group py-2">
+                <div key={item.labelKey} className="relative group py-2">
                   <button
                     type="button"
                     className={`flex items-center gap-1 cursor-pointer transition-colors duration-200 border-b pb-1 font-sans text-sm uppercase tracking-tight font-normal ${
@@ -70,7 +72,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                         : `${variant === "dark" ? "text-zinc-400 hover:text-white border-transparent" : "text-stone-500 hover:text-stone-900 border-transparent"}`
                     }`}
                   >
-                    <span>{item.label}</span>
+                    <span>{t(item.labelKey)}</span>
                     <MaterialIcon
                       name="keyboard_arrow_down"
                       className="text-xs transition-transform duration-200 group-hover:rotate-180"
@@ -98,7 +100,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                                 : `${variant === "dark" ? "hover:text-white hover:bg-white/5" : "hover:text-stone-900 hover:bg-stone-50"}`
                             }`}
                           >
-                            {child.label}
+                            {t(child.labelKey)}
                           </Link>
                         );
                       })}
@@ -118,7 +120,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                       : `${variant === "dark" ? "text-zinc-400 hover:text-white border-transparent" : "text-stone-500 hover:text-stone-900 border-transparent"}`
                   }`}
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               );
             }
@@ -126,17 +128,37 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <span className={`hidden sm:inline text-xs tracking-widest cursor-pointer transition-colors ${
-            variant === "dark" ? "text-zinc-400 hover:text-white" : "text-stone-500 hover:text-stone-900"
-          }`}>
-            EN | 中文
-          </span>
+          <div className="hidden sm:flex items-center gap-1.5 text-xs font-semibold tracking-wider font-mono select-none">
+            <button
+              type="button"
+              onClick={() => setLanguage("en")}
+              className={`cursor-pointer transition-colors duration-150 ${
+                language === "en"
+                  ? `${variant === "dark" ? "text-white font-bold" : "text-stone-900 font-bold"}`
+                  : `${variant === "dark" ? "text-zinc-500 hover:text-zinc-300" : "text-stone-400 hover:text-stone-600"}`
+              }`}
+            >
+              EN
+            </button>
+            <span className={variant === "dark" ? "text-zinc-700" : "text-stone-300"}>|</span>
+            <button
+              type="button"
+              onClick={() => setLanguage("zh")}
+              className={`cursor-pointer transition-colors duration-150 ${
+                language === "zh"
+                  ? `${variant === "dark" ? "text-white font-bold" : "text-stone-900 font-bold"}`
+                  : `${variant === "dark" ? "text-zinc-500 hover:text-zinc-300" : "text-stone-400 hover:text-stone-600"}`
+              }`}
+            >
+              中文
+            </button>
+          </div>
           <button
             type="button"
             onClick={openRegister}
             className="hidden sm:block bg-primary text-white px-6 py-2 font-semibold tracking-tight hover:bg-primary-hover transition-colors cursor-pointer"
           >
-            CONTACT
+            {t("nav.contact")}
           </button>
           <button
             type="button"
@@ -155,7 +177,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
             if ("children" in item) {
               const isActive = checkActive(item);
               return (
-                <div key={item.label} className="flex flex-col gap-2">
+                <div key={item.labelKey} className="flex flex-col gap-2">
                   <button
                     type="button"
                     onClick={() => setMobileProgramsOpen(!mobileProgramsOpen)}
@@ -165,7 +187,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                         : `${variant === "dark" ? "text-zinc-400" : "text-stone-500"}`
                     }`}
                   >
-                    <span>{item.label}</span>
+                    <span>{t(item.labelKey)}</span>
                     <MaterialIcon
                       name={mobileProgramsOpen ? "keyboard_arrow_up" : "keyboard_arrow_down"}
                       className="text-sm"
@@ -186,7 +208,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                                 : `${variant === "dark" ? "text-zinc-400" : "text-stone-500"}`
                             }
                           >
-                            {child.label}
+                            {t(child.labelKey)}
                           </Link>
                         );
                       })}
@@ -207,23 +229,53 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                       : `${variant === "dark" ? "text-zinc-400" : "text-stone-500"}`
                   }
                 >
-                  {item.label}
+                  {t(item.labelKey)}
                 </Link>
               );
             }
           })}
-          <button
-            type="button"
-            onClick={() => {
-              setMobileOpen(false);
-              openRegister();
-            }}
-            className="bg-primary text-white px-6 py-2 font-semibold tracking-tight w-fit cursor-pointer"
-          >
-            CONTACT
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 items-start border-t border-border-muted pt-4 mt-2">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false);
+                openRegister();
+              }}
+              className="bg-primary text-white px-6 py-2 font-semibold tracking-tight w-fit cursor-pointer"
+            >
+              {t("nav.contact")}
+            </button>
+            <div className="flex items-center gap-3 text-sm font-semibold tracking-wider font-mono mt-2 select-none">
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage("en");
+                  setMobileOpen(false);
+                }}
+                className={`transition-colors duration-150 ${
+                  language === "en" ? "text-primary font-bold" : "text-stone-400"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-stone-300">|</span>
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage("zh");
+                  setMobileOpen(false);
+                }}
+                className={`transition-colors duration-150 ${
+                  language === "zh" ? "text-primary font-bold" : "text-stone-400"
+                }`}
+              >
+                中文
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </header>
   );
 }
+

@@ -7,8 +7,9 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaterialIcon } from "@/components/MaterialIcon";
 import { images } from "@/lib/images";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const objectives = [
+const objectivesEn = [
   {
     icon: "insights",
     title: "Think & Act Like an Entrepreneur",
@@ -36,8 +37,72 @@ const objectives = [
   },
 ];
 
+const objectivesZh = [
+  {
+    icon: "insights",
+    title: "像创业者一样思考与行动",
+    body: "学员们不仅仅是学习创业的理论——更是在实践中体会。他们需要识别真实问题、在不确定性中做出决策、承担合理的风险并快速迭代。创始人的思维方式正是通过“做”来建立的。",
+  },
+  {
+    icon: "smart_toy",
+    title: "AI 素养：主导并妙用 AI，而非恐惧",
+    body: "AI 是这一代人的决定性工具。学员们将学会带着明确意图引导 AI——将抽象的想法转化为可运行的产品。他们将理解 AI 的边界、如何高效编写 Prompt，并在协作中始终坐在驾驶员的位置上。",
+  },
+  {
+    icon: "hub",
+    title: "系统性思维",
+    body: "优秀的创业者看重全局。学员们学习绘制各要素之间的连接图——用户、痛点、解决方案、反馈环，并从系统层面理解为什么一个产品会成功或失败，而不仅仅是堆砌功能。",
+  },
+  {
+    icon: "co_present",
+    title: "沟通与路演表达的自信",
+    body: "创意的价值取决于你分享它的能力。学员们学习将复杂的项目工作提炼成一个清晰、引人入胜的故事，并在 Demo Day 站在真实观众面前进行路演展示。",
+  },
+  {
+    icon: "groups",
+    title: "团队协作与抗挫折力",
+    body: "在团队中紧密配合、面对分歧、跨越阻碍并找到出路。他们将认识到失败只是一个实验数据点，而非最终裁决。",
+  },
+];
+
+const content = {
+  en: {
+    heroTitle: (
+      <>
+        Innovathon: <span className="text-primary font-black">Future Systems Design</span>
+      </>
+    ),
+    heroSub: "A rigorous six-day intensive exploring the intersection of algorithmic thinking and entrepreneurial frameworks. Designed for curious minds ready to architect the next century.",
+    viewDetails: "View Details",
+    foundersTitle: "Developing Future Founders",
+    foundersDesc: "Our curriculum is designed to build the habits of system architects and tech founders. Through hands-on challenges, we cultivate skills that last a lifetime.",
+    systemsMindset: "Systems Mindset",
+    quote: "The best way to predict the future is to build it. We give kids the tools and agency to become architects, not just consumers, of technology.",
+    coreObjectives: "Core Learning Objectives",
+    objectiveLabel: "Objective 0",
+  },
+  zh: {
+    heroTitle: (
+      <>
+        Innovathon: <span className="text-primary font-black">未来系统设计营</span>
+      </>
+    ),
+    heroSub: "为期六天的紧凑集训，深入探索算法思维与创业框架的融合。专为渴望架构下一个世纪的探求者设计。",
+    viewDetails: "查看详情",
+    foundersTitle: "培养未来的创始人",
+    foundersDesc: "我们的课程旨在培养系统架构师和技术创始人的习惯。通过亲自动手的挑战，我们培养伴随一生的能力。",
+    systemsMindset: "系统化思维",
+    quote: "预测未来的最好方法是亲手去创造它。我们赋予孩子们工具和自主权，让他们成为技术的架构师，而不仅仅是消费者。",
+    coreObjectives: "核心学习目标",
+    objectiveLabel: "核心目标 0",
+  }
+};
+
 export function CampsPage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { language } = useLanguage();
+  const objectives = language === "zh" ? objectivesZh : objectivesEn;
+  const t = content[language];
 
   return (
     <>
@@ -45,35 +110,32 @@ export function CampsPage() {
       <main className="mt-24">
         <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl flex flex-col items-center text-center">
           <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight text-inverse-surface max-w-4xl mb-md">
-            Innovathon: <span className="text-primary font-black">Future Systems Design</span>
+            {t.heroTitle}
           </h1>
           <p className="text-body-lg text-secondary max-w-2xl mb-xl">
-            A rigorous six-day intensive exploring the intersection of algorithmic
-            thinking and entrepreneurial frameworks. Designed for curious minds ready
-            to architect the next century.
+            {t.heroSub}
           </p>
           <Link
             href="/programs/camps/innovathon-2026"
             className="inline-flex items-center gap-xs bg-stone-900 text-white hover:bg-stone-800 px-8 py-3 rounded-full text-md font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-lg"
           >
-            View Details <MaterialIcon name="arrow_forward" className="text-lg" />
+            {t.viewDetails} <MaterialIcon name="arrow_forward" className="text-lg" />
           </Link>
         </section>
 
         <section className="bg-white border-y border-outline-variant py-xxl">
           <div className="max-w-screen-xl mx-auto px-4 md:px-gutter grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
             <div className="space-y-md">
-              <h2 className="text-display-md text-inverse-surface">Developing Future Founders</h2>
+              <h2 className="text-display-md text-inverse-surface">{t.foundersTitle}</h2>
               <p className="text-body-md text-on-surface-variant leading-relaxed">
-                Our curriculum is designed to build the habits of system architects and tech founders.
-                Through hands-on challenges, we cultivate skills that last a lifetime.
+                {t.foundersDesc}
               </p>
               <div className="knowledge-block-thin pl-md">
                 <p className="text-label-md text-primary uppercase tracking-widest mb-xs">
-                  Systems Mindset
+                  {t.systemsMindset}
                 </p>
                 <p className="text-body-sm text-secondary italic">
-                  &quot;The best way to predict the future is to build it. We give kids the tools and agency to become architects, not just consumers, of technology.&quot;
+                  &quot;{t.quote}&quot;
                 </p>
               </div>
             </div>
@@ -92,7 +154,7 @@ export function CampsPage() {
         <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl">
           <div className="mb-xl">
             <h2 className="text-display-md text-inverse-surface">
-              Core Learning Objectives
+              {t.coreObjectives}
             </h2>
             <div className="h-1 w-24 bg-primary mt-sm" />
           </div>
@@ -128,7 +190,7 @@ export function CampsPage() {
                   <MaterialIcon name={objectives[activeIndex].icon} className="text-primary text-4xl" />
                 </div>
                 <span className="text-label-md text-primary font-mono tracking-widest">
-                  Objective 0{activeIndex + 1}
+                  {t.objectiveLabel}{activeIndex + 1}
                 </span>
                 <h3 className="text-display-md text-white font-bold leading-tight max-w-lg">
                   {objectives[activeIndex].title}
@@ -146,3 +208,4 @@ export function CampsPage() {
     </>
   );
 }
+
