@@ -49,6 +49,9 @@ export function RegisterModal({
                 className="w-full h-full object-contain"
               />
             </div>
+            <span className="text-label-md text-on-surface uppercase tracking-wider font-semibold">
+              微信小助手
+            </span>
           </div>
           <div className="flex flex-col items-center p-md bg-background border border-border text-center">
             <div className="w-full aspect-square max-w-[160px] bg-white p-sm border border-border-muted mb-sm flex items-center justify-center">
@@ -58,6 +61,9 @@ export function RegisterModal({
                 className="w-full h-full object-contain"
               />
             </div>
+            <span className="text-label-md text-on-surface uppercase tracking-wider font-semibold">
+              微信公众号
+            </span>
           </div>
         </div>
       </div>
