@@ -156,7 +156,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
           <button
             type="button"
             onClick={openRegister}
-            className="hidden sm:block bg-primary text-white px-6 py-2 font-semibold tracking-tight hover:bg-primary-hover transition-colors cursor-pointer"
+            className="hidden sm:block bg-primary text-white w-32 py-2 font-semibold tracking-tight hover:bg-primary-hover transition-colors cursor-pointer text-center"
           >
             {t("nav.contact")}
           </button>
@@ -241,7 +241,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
                 setMobileOpen(false);
                 openRegister();
               }}
-              className="bg-primary text-white px-6 py-2 font-semibold tracking-tight w-fit cursor-pointer"
+              className="bg-primary text-white w-32 py-2 font-semibold tracking-tight cursor-pointer text-center"
             >
               {t("nav.contact")}
             </button>
