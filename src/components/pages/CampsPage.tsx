@@ -69,7 +69,9 @@ const content = {
   en: {
     heroTitle: (
       <>
-        Innovathon: <span className="text-primary font-black">Future Systems Design</span>
+        Innovathon:
+        <br />
+        <span className="text-primary font-black">Future Systems Design</span>
       </>
     ),
     heroSub: "A rigorous six-day intensive exploring the intersection of algorithmic thinking and entrepreneurial frameworks. Designed for curious minds ready to architect the next century.",

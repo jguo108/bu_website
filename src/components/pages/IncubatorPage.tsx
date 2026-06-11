@@ -35,7 +35,8 @@ const content = {
   en: {
     heroTitle: (
       <>
-        The Incubation Track:{" "}
+        The Incubation Track:
+        <br />
         <span className="text-primary">From Idea to Venture</span>
       </>
     ),
