@@ -7,7 +7,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MaterialIcon } from "@/components/MaterialIcon";
 import { InteractiveCanvas } from "@/components/InteractiveCanvas";
-import { useRegister } from "@/components/RegisterProvider";
 import { images } from "@/lib/images";
 
 // Custom scroll reveal hook
@@ -52,7 +51,6 @@ function useScrollReveal() {
 
 export function LandingPage() {
   const SHOW_PROJECTS = false;
-  const { openRegister } = useRegister();
   const heroReveal = useScrollReveal();
   const featuresReveal = useScrollReveal();
   const programsReveal = useScrollReveal();
@@ -105,15 +103,8 @@ export function LandingPage() {
             <div className="flex flex-col sm:flex-row gap-4 items-center w-full sm:w-auto">
               <button
                 type="button"
-                onClick={openRegister}
-                className="w-full sm:w-auto bg-[#FF751F] text-white font-semibold tracking-tight px-10 py-4 hover:bg-[#e05f10] transition-all hover:scale-105 duration-300 shadow-lg shadow-[#FF751F]/15 cursor-pointer uppercase text-xs"
-              >
-                APPLY / REGISTER
-              </button>
-              <button
-                type="button"
                 onClick={handleScrollToPrograms}
-                className="w-full sm:w-auto border border-zinc-700 bg-zinc-950/40 backdrop-blur-md text-white font-semibold tracking-tight px-10 py-4 hover:bg-zinc-900/60 hover:border-zinc-500 transition-all duration-300 cursor-pointer uppercase text-xs"
+                className="w-full sm:w-auto bg-[#FF751F] text-white font-semibold tracking-tight px-10 py-4 hover:bg-[#e05f10] transition-all hover:scale-105 duration-300 shadow-lg shadow-[#FF751F]/15 cursor-pointer uppercase text-xs"
               >
                 EXPLORE PROGRAMS
               </button>
@@ -360,17 +351,9 @@ export function LandingPage() {
                 Empowering the next generation of founders to build with AI.
               </h2>
               
-              <p className="text-zinc-400 text-sm md:text-base mb-12 max-w-xl mx-auto leading-relaxed">
+              <p className="text-zinc-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                 We believe that the best way to learn is by doing. BoundaryUnknown provides the space, mentorship, and cloud compute nodes for young minds to transform curiosity into ventures.
               </p>
-
-              <button
-                type="button"
-                onClick={openRegister}
-                className="bg-[#FF751F] text-white font-semibold tracking-tight px-12 py-4 hover:bg-[#e05f10] transition-all hover:scale-105 duration-300 shadow-lg shadow-[#FF751F]/15 cursor-pointer uppercase text-xs"
-              >
-                Start Your Proposal
-              </button>
             </div>
           </div>
         </section>

@@ -70,7 +70,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
             onClick={openRegister}
             className="hidden sm:block bg-primary text-white px-6 py-2 font-semibold tracking-tight hover:bg-primary-hover transition-colors cursor-pointer"
           >
-            REGISTER
+            CONTACT
           </button>
           <button
             type="button"
@@ -107,7 +107,7 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
             }}
             className="bg-primary text-white px-6 py-2 font-semibold tracking-tight w-fit cursor-pointer"
           >
-            REGISTER
+            CONTACT
           </button>
         </div>
       )}
