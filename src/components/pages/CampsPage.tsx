@@ -84,7 +84,9 @@ const content = {
   zh: {
     heroTitle: (
       <>
-        Innovathon: <span className="text-primary font-black">未来系统设计营</span>
+        Innovathon:
+        <br />
+        <span className="text-primary font-black">未来系统设计营</span>
       </>
     ),
     heroSub: "为期六天的紧凑集训，深入探索算法思维与创业框架的融合。专为渴望架构下一个世纪的探求者设计。",

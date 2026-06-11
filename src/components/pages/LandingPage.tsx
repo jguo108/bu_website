@@ -54,8 +54,7 @@ const content = {
   en: {
     heroTitle: (
       <>
-        Beyond the
-        <br />
+        Beyond the{" "}
         <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
           Boundaries
         </span>
@@ -91,7 +90,6 @@ const content = {
     heroTitle: (
       <>
         超越
-        <br />
         <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
           边界
         </span>
@@ -120,7 +118,12 @@ const content = {
     incubatorDuration: "单学期",
     incubatorTitle: "孵化实验室",
     incubatorDesc: "专为追求完整商业验证的创造者设计。我们以原始的技术原型为起点，引导他们进行真实用户访谈、数据架构设计、项目部署及种子用户迭代。",
-    missionTitle: "赋能下一代创造者，与 AI 协同共建。",
+    missionTitle: (
+      <>
+        <span className="inline-block">赋能下一代创造者，</span>
+        <span className="inline-block">与 AI 协同共建。</span>
+      </>
+    ),
     missionDesc: "我们相信，最好的学习方式就是动手实践。BoundaryUnknown 为年轻人提供探索空间、导师指导以及云端计算资源，将抽象的好奇心转化为真正的创新实践。"
   }
 };
@@ -320,7 +323,7 @@ export function LandingPage() {
 
         {/* MISSION + REGISTER PROMPT */}
         <section className="py-12 md:py-20 text-center">
-          <div ref={ctaReveal.ref} className={`${ctaReveal.className} max-w-4xl mx-auto`}>
+          <div ref={ctaReveal.ref} className={`${ctaReveal.className} max-w-5xl mx-auto`}>
             <div className="bg-zinc-950/40 border border-zinc-900/80 rounded-[48px] p-8 md:p-20 relative overflow-hidden backdrop-blur-md">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-[30%] bg-[#FF751F]/5 blur-[64px] rounded-full" />
               

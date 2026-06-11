@@ -111,7 +111,8 @@ const content = {
   zh: {
     heroTitle: (
       <>
-        2026 夏季 Innovathon：{" "}
+        2026 夏季 Innovathon：
+        <br />
         <span className="text-primary font-black">未来系统设计营</span>
       </>
     ),

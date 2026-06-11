@@ -55,7 +55,8 @@ const content = {
   zh: {
     heroTitle: (
       <>
-        孵化课程路线：{" "}
+        孵化课程路线：
+        <br />
         <span className="text-primary">从创意到商业项目</span>
       </>
     ),
