@@ -1,24 +1,20 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaterialIcon } from "@/components/MaterialIcon";
-import { RegisterButton } from "@/components/RegisterButton";
 
 const team = [
   {
-    tag: "Academic Excellence",
     title: "Our Teachers",
     desc: "Former MIT Research Fellow specializing in cognitive architectures and the intersection of AI with classical ethics.",
     role: "Faculty Lead",
   },
   {
-    tag: "Global Operations",
     title: "Our Linkers",
     desc: "Expert in scaling deep-tech ventures, Elena ensures our systematic knowledge translates into feasible, global-scale plans.",
     role: "Scale & Strategy",
     offset: true,
   },
   {
-    tag: "Innovation & Development",
     title: "Our Community",
     desc: "Leading the 'Hand' of our philosophy, Marcus converts complex theories into iterative code and hardware prototypes.",
     role: "Product Lab",
@@ -68,9 +64,6 @@ export function AboutPage() {
                 key={member.title}
                 className="sticker-card p-lg rounded-2xl flex flex-col group bg-card border border-border"
               >
-                <span className="bg-white/50 text-primary px-sm py-1 text-[10px] uppercase tracking-widest rounded-lg w-fit mb-sm">
-                  {member.tag}
-                </span>
                 <h3 className="text-headline-lg mb-sm group-hover:text-primary transition-colors">
                   {member.title}
                 </h3>
@@ -87,7 +80,7 @@ export function AboutPage() {
           </div>
         </section>
 
-        <section className="mt-xxl">
+        <section className="mt-xxl mb-xxl">
           <div className="text-center mb-xl">
             <h2 className="text-display-md mb-sm">
               Our Philosophy: <span className="text-primary">3H Theory</span>
@@ -131,56 +124,6 @@ export function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="mt-xxl mb-xxl">
-          <div className="bg-inverse-surface text-inverse-on-surface rounded-3xl p-xl md:p-24 flex flex-col md:flex-row justify-between items-center gap-xl relative overflow-hidden">
-            <div className="relative z-10 max-w-xl">
-              <h2 className="text-display-lg mb-md leading-tight">
-                Ready to explore the <span className="whitespace-nowrap"><span className="text-primary">unknown</span>?</span>
-              </h2>
-              <p className="text-body-lg opacity-80 mb-xl">
-                Reach out to our team for research collaborations, admission
-                inquiries, or general partnership discussions.
-              </p>
-              <div className="space-y-lg">
-                <a
-                  href="mailto:hello@boundaryunknown.edu"
-                  className="flex items-center gap-md group cursor-pointer"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shrink-0">
-                    <MaterialIcon name="mail" className="text-white" />
-                  </div>
-                  <span className="text-headline-md group-hover:text-primary transition-colors">
-                    hello@boundaryunknown.edu
-                  </span>
-                </a>
-                <div className="flex items-center gap-md group cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shrink-0">
-                    <MaterialIcon name="chat" className="text-white" />
-                  </div>
-                  <span className="text-headline-md group-hover:text-primary transition-colors">
-                    +1 (555) 890-2341 (WhatsApp)
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="relative z-10 w-full md:w-auto">
-              <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-xl rounded-2xl space-y-md w-full md:min-w-[320px] shadow-2xl">
-                <div className="text-center pb-md border-b border-white/10">
-                  <p className="text-label-md text-primary uppercase tracking-widest mb-1">
-                    Global HQ
-                  </p>
-                  <p className="text-body-lg font-semibold">Cambridge, MA</p>
-                </div>
-                <RegisterButton className="w-full bg-primary text-white py-4 rounded-xl text-headline-md uppercase tracking-wider hover:scale-[1.02] transition-transform shadow-lg shadow-primary/20">
-                  Send Message
-                </RegisterButton>
-              </div>
-            </div>
-            <div className="absolute -right-24 -bottom-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute -left-24 -top-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
           </div>
         </section>
       </main>
