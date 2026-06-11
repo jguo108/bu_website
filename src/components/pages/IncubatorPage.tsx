@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaterialIcon } from "@/components/MaterialIcon";
-import { RegisterButton } from "@/components/RegisterButton";
 import { images } from "@/lib/images";
 
 const steps = [
@@ -133,18 +132,6 @@ export function IncubatorPage() {
           </div>
         </section>
 
-        <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl text-center">
-          <div className="bg-white border-2 border-primary rounded-[48px] p-xl md:p-xxl">
-            <h2 className="text-display-md mb-md">Ready to build the future?</h2>
-            <p className="text-body-lg text-secondary mb-xl max-w-xl mx-auto">
-              Applications for the Autumn Cohort are now open. We are looking for
-              technical founders with bold vision.
-            </p>
-            <RegisterButton className="bg-primary text-white px-12 py-4 rounded-full text-lg transition-all active:opacity-80 active:scale-95 shadow-lg">
-              Submit Your Proposal
-            </RegisterButton>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
