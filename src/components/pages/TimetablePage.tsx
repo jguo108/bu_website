@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { MaterialIcon } from "@/components/MaterialIcon";
 import { useLanguage } from "@/lib/LanguageContext";
 
 interface Detail {
@@ -15,489 +13,394 @@ interface Detail {
 }
 
 const DETAILS_ZH: Record<string, Detail> = {
-  fin: {
-    tag: "Morning · 个人理财",
-    when: "每天晨间 · 营歌之后 · 约 5 分钟 · 全营合班",
-    title: "晨间个人理财小常识",
+  d2_lo_ai: {
+    tag: "AI Boost · 低龄",
+    when: "Day 2 · 上午",
+    title: "What is AI? vibe coding 101",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">不单独占课时，做成<b>每天 5 分钟的滚动小主题</b>，插在营歌之后。形式是<b>提问 + 举手</b>，不讲大道理——抛一个生活场景，让孩子自己说，老师只点一句。</p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">四天主题</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 2 · 需要 vs 想要</div>
-          <p class="text-body-sm text-stone-600">买之前先问一句："我是真的<b>需要</b>它，还是只是<b>想要</b>它？"</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 3 · 存钱罐的魔法</div>
-          <p class="text-body-sm text-stone-600">每天存一点点，时间会让它悄悄变多——种下"延迟满足"的种子。</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 4 · 一块钱怎么分</div>
-          <p class="text-body-sm text-stone-600">把零花钱分进三个罐子：<b>花的 / 存的 / 帮别人的</b>。</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 5 · 钱不睡觉</div>
-          <p class="text-body-sm text-stone-600">钱可以帮我们"生钱"——用最简单的话讲清"投资"是怎么回事。</p>
-        </div>
-      </div>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        和 Day 2 上午的"生意账（收入-成本-利润）"呼应：生意账是<b>公司的钱</b>，晨间理财是<b>你自己的钱</b>，两条线一起长。
-      </div>
+      <p>孩子将<b>初步认识 AI</b>：它大概是怎么工作的、如今能做到哪些事，以及——<b>怎样和 AI 有效地对话</b>。</p>
+      <div class="quote">课程目标：建立对 AI 的整体认识，学会"好好提问"，为后面动手用 AI 打下基础。</div>
     `
   },
-  d2jiexi: {
-    tag: "创业思维 · 分班进行",
-    when: "Day 2 上午 · 第 1 段 · 两间屋 / 两个老师同时",
-    title: "拆解主题：AI 能做什么",
+  d2_jiexi: {
+    tag: "创业思维",
+    when: "Day 2 · 上午",
+    title: "主题拆解 · 创业思维",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">这是<b>三个分班环节中的第一个</b>（Day 4 商业分析、Day 5 路演表达也分班）。两个版本差别不在"换更难的案例"，而在<b>思考的层次</b>：小的看"AI 能做什么"，大的看"AI 改变了什么、代价是谁付"。</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">版本 A · 10 岁以下 · 体验式</div>
-          <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600">
-            <li><b>AI for fun</b>：即梦/可灵把照片变成会动的动漫角色（现场演）</li>
-            <li><b>AI for good</b>：Be My Eyes — AI 帮盲人"看见"</li>
-            <li><b>AI for learning</b>：现场用 AI 问一道难题，看它一步步教</li>
-          </ul>
-          <p class="text-body-sm text-stone-500 mt-3">结尾：每人贴贴纸投票"我最想做哪一类"。</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">版本 B · 10 岁以上 · 批判式</div>
-          <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600">
-            <li><b>fun</b>：谁从你"刷到停不下来"里赚钱？</li>
-            <li><b>good</b>：AI 看错了，谁负责？</li>
-            <li><b>learning</b>：给答案 vs 教你思考，哪个真帮你？</li>
-          </ul>
-          <p class="text-body-sm text-stone-500 mt-3">加："找出第四类 AI"归纳练习 + 小型站队辩论。</p>
-        </div>
-      </div>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        带走的一句话 —— 小：<b>"AI 能做的事分好几种，我可以挑一种来做我的项目。"</b><br>大：<b>"每个产品都有受益的人，也有被影响的人——我要想清楚帮了谁、有没有副作用。"</b>（用户思维 → 负责任的创造者思维）
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI 工具：<b>即梦 / 可灵</b> · <b>Claude / 豆包</b>
-      </div>
+      <p>用一组真实又有趣的例子，带孩子认识 AI 能做的三类事：让生活更有趣（<b>fun</b>）、帮助学习（<b>learning</b>）、让世界更好（<b>good</b>）。</p>
+      <div class="quote">课程目标：打开视野，理解"AI 可以用来做很多有意义的事"，并找到自己最感兴趣的方向。</div>
     `
   },
-  d2biz: {
-    tag: "创业思维 · 合班",
-    when: "Day 2 上午 · 第 2 段 · 两班合回来一起上",
-    title: "游戏、应用背后的商业 + 生意账",
+  d2_hi_biz2: {
+    tag: "创业思维 · 高龄",
+    when: "Day 2 · 上午",
+    title: "商业素养课",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">拆解主题之后两班合回来。用孩子最熟的两个产品，问一个扎心问题：<b>"它免费，那公司喝西北风吗？"</b></p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">蛋仔派对 · 游戏</div>
-          <p class="text-body-sm text-stone-600">免费玩，靠<b>卖皮肤</b>赚钱。关键点：皮肤<b>不增强战力</b>，卖的是"我想更酷"的<b>感觉</b>。</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">小红书 · 应用</div>
-          <p class="text-body-sm text-stone-600">免费刷，靠<b>广告 + 带货抽成</b>。顺带一个媒体素养点：你刷到的"好物推荐"，背后可能是广告。</p>
-        </div>
-      </div>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">生意账：现场算一遍</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        1000 个人玩，10 个人买了 6 块的皮肤 → 收入 60 块。<br>但服务器一个月要 30 块、画皮肤要发工资…… → 这叫<b>成本</b>。<br><b>收入 − 成本 = 利润。</b>
-      </div>
-      <p class="text-body-md text-stone-600 mb-4">由此引出一个反直觉点：<b>玩的人多 ≠ 一定赚钱</b>（没人买皮肤，服务器钱照付，反而亏）。</p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">抓注意力机制</h3>
-      <p class="text-body-md text-stone-600">单向讲<b>不超过 8 分钟</b>，每段插一个钩子：① 商业侦探（抢答"钱藏在哪"）② 真假辨别（AI 做的还是人做的，举牌站队）③ 现场试玩。</p>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI 工具：<b>Claude / 豆包</b>　|　产出：每个孩子对"我想做哪类、它怎么活下去"有初步答案
-      </div>
+      <p>通过一局「<b>商业侦探</b>」桌游，在玩中搞清楚一家 company 是怎么运转的：CEO、CFO、CTO、CMO 各自做什么，公司靠哪些关键指标判断好坏。</p>
+      <div class="quote">课程目标：建立简单的商业"sense"，理解公司就像一台需要分工配合的"团队机器"。</div>
     `
   },
-  d3market: {
-    tag: "市场与用户",
-    when: "Day 2 上午 + 午休行动 + 整理",
-    title: "市场与用户",
+  d2pm_hi: {
+    tag: "AI Boost · 高龄",
+    when: "Day 2 · 下午",
+    title: "What is AI? vibe coding 101",
     html: `
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">① 案例破题</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        "有人在<b>游泳池边支了个摊卖热汤</b>，一碗没卖出去。" —— 产品没问题，错在<b>用户不对、地方不对</b>。
-      </div>
-      <p class="text-body-md text-stone-600 mb-4">点破：<b>市场 = 一群有相同需求的人；用户 = 具体的那个人。</b></p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">② 确定我的市场 / 用户</h3>
-      <p class="text-body-md text-stone-600 mb-4">每队回答："我的东西给谁？他们会在哪出现？"</p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">③ AI 辅助调研</h3>
-      <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600 mb-4">
-        <li>用 Claude/豆包生成<b>用户画像</b>："列 10 个可能用我产品的人，几岁、喜欢什么、有什么烦恼"</li>
-        <li>用 AI 生成<b>问卷问题</b>（直接产出午休要用的问卷）</li>
-      </ul>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">④ 午休行动 🥢</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        孩子拿着问卷，去找营地里<b>参加其他营的小朋友</b>做问卷调查——真实用户、就在身边、时间天然对上。
-      </div>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">⑤ 收集整理</h3>
-      <p class="text-body-md text-stone-600">用 AI 帮忙归类问卷答案，找出共同的<b>痛点 / 需求</b>。</p>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI 工具：<b>Claude / 豆包</b>　|　产出：用户画像 + 一手问卷数据
-      </div>
+      <p>孩子将<b>初步认识 AI</b>：它大概是怎么工作的、如今能做到哪些事、怎样和 AI 有效对话，并以更具思辨的视角看待 AI 的能力与边界。</p>
+      <div class="quote">课程目标：建立对 AI 的整体认识与判断力，学会"好好提问"，为动手用 AI 打基础。</div>
     `
   },
-  d4analysis: {
-    tag: "Tech × 商业 · 分班进行",
-    when: "Day 4 上午 · 按 10 岁为界分班",
-    title: "商业分析 / 竞品分析",
+  d2pm_lo: {
+    tag: "创业思维 · 低龄",
+    when: "Day 2 · 下午",
+    title: "商业素养课",
     html: `
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">10 岁以下 · 认识"竞品"</div>
-          <p class="text-body-sm text-stone-600 mb-2"><b>什么是竞品？</b>——一句话讲清："和你做同一件事、抢同一批用户的，就是你的竞品。"用孩子熟悉的例子破题（蜜雪冰城 vs 茶百道、蛋仔 vs 迷你世界）。</p>
-          <p class="text-body-sm text-stone-600"><b>找找市场上哪些是我的竞品？为什么？</b>——每队列出 3-5 个候选，说明<b>"为什么它和我抢同一批用户"</b>。用 Claude 辅助搜索类似产品，生成简单对比表（叫什么 / 给谁用 / 有什么 / 缺什么）。</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">10 岁以上</div>
-          <p class="text-body-sm text-stone-600 mb-2"><b>SWOT</b>：优势 / 劣势 / 机会 / 威胁，AI 辅助填四象限。</p>
-          <p class="text-body-sm text-stone-600"><b>PEST（保留完整版）</b>：政治 / 经济 / 社会 / 技术——四个外部因素怎么影响我的项目，AI 辅助梳理。</p>
-        </div>
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI 工具：<b>Claude</b>（竞品搜索 + 对比表 + 四象限辅助）　|　产出：竞品对比表（小）/ SWOT + PEST（大）
-      </div>
-    `
-  },
-  d5pitch: {
-    tag: "Tech × 商业 · 分班进行",
-    when: "Day 5 上午 · 按 10 岁为界分班",
-    title: "AI 如何帮我们讲好故事 / 做路演",
-    html: `
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">10 岁以下 · 讲故事 + AI 漫画</div>
-          <p class="text-body-sm text-stone-600 mb-2">最简英雄结构：<b>有个人遇到麻烦 → 用了我的产品 → 变开心了。</b></p>
-          <p class="text-body-sm text-stone-600">用即梦 / Midjourney 出 3–4 格漫画分镜。</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">10 岁以上 · AI 做 HTML slides</div>
-          <p class="text-body-sm text-stone-600">用 Claude 生成 <b>HTML 形式的 slides</b>，和下午学的 vibe coding 一脉相承，自己改标题、配色、加动画。</p>
-        </div>
-      </div>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">路演语言重心（两班统一）</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        必须讲出<b>"我访谈的那个人是谁、他说了什么"</b>——把用户的真实声音作为说服评委的最强武器。这样"用户思维"和"卖给评委"就不打架。
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI 工具：<b>即梦 / Midjourney</b>（小）· <b>Claude</b>（大）　|　产出：项目漫画 / HTML slides
-      </div>
+      <p>通过一局「<b>商业侦探</b>」桌游，在玩中搞清楚一家公司是怎么运转的：CEO、CFO、CTO、CMO 各自做什么，公司靠哪些关键指标判断好坏。</p>
+      <div class="quote">课程目标：建立简单的商业"sense"，理解公司就像一台需要分工配合的"团队机器"。</div>
     `
   },
   d2empathy: {
     tag: "创业思维",
-    when: "Day 2 下午",
+    when: "Day 2 · 下午",
     title: "共情力 — 发现痛点、头脑风暴",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">上午建立了"用户思维"的概念，下午落到具体动作：<b>从"我讨厌 / 不爽的事"出发找痛点</b>。这接住了 Day 1 收尾埋的钩子——"最好的产品，都是从'讨厌'开始的"。</p>
-      <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600 mb-4">
-        <li>每个孩子写下 3 件"最近让我抓狂 / 麻烦"的事</li>
-        <li>小组分享 → 找出"原来大家都烦这个"的共同痛点</li>
-        <li>用 AI 围绕痛点头脑风暴可能的解法方向</li>
-      </ul>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        衔接：这里产出的痛点，正是 Day 3"市场与用户"要去验证的对象。
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        这是商业主线在下午的延伸环节，详细流程可在确认上午手册后一并细化。
-      </div>
+      <p>好的创意，来自对生活的观察和对痛点的捕捉。这节课带孩子一起头脑风暴：<b>生活里有哪些"问题"？哪些是你最想改变的？</b></p>
+      <div class="quote">课程目标：培养观察力与共情力，学会"先看见问题，再谈点子"，为项目找到真实的出发点。</div>
+    `
+  },
+  d2_blueprint: {
+    tag: "Teamwork",
+    when: "Day 2 · 晚间",
+    title: "开始策划你的创业蓝图",
+    html: `
+      <p>晚间小组时间：从三大主题（AI for <b>fun</b> / <b>learning</b> / <b>good</b>）里，讨论并定下自己小组想做的"创业主题"。</p>
+      <div class="quote">课程目标：完成从"我喜欢"到"我们要做什么"的第一步，凝聚小组方向。</div>
+    `
+  },
+  d6show: {
+    tag: "Showtime",
+    when: "Day 6 · 下午",
+    title: "项目路演",
+    html: `
+      <p><b>It's your show time!</b> 六天的努力在这一刻登场——每个小组上台讲出自己的项目，并展示亲手做出的作品。</p>
+      <div class="quote">课程目标：在真实舞台上自信表达，为自己的创造感到骄傲。</div>
+    `
+  },
+  d_mvp: {
+    tag: "Teamwork",
+    when: "Day 4 / Day 5",
+    title: "打造 MVP",
+    html: `
+      <p>小组开始动手打造自己的 <b>MVP</b>（最小可用产品）——借助 AI 工具，实现<b>从 0 到 1 的突破</b>。</p>
+      <div class="quote">课程目标：把想法变成一个能展示、能讲清楚的真实作品。</div>
+    `
+  },
+  d3_vibe_games: {
+    tag: "AI Boost · 低龄",
+    when: "Day 3 · 上午",
+    title: "Vibe Coding · Games",
+    html: `
+      <p>会打游戏，不等于会做游戏。这节课从<b>分析经典游戏</b>入手，看看一个好游戏背后有哪些关键设计，并用 AI 工具动手做出自己的小游戏。</p>
+      <div class="quote">课程目标：理解游戏设计的基本思路，并亲手做出一个能玩的小游戏。</div>
+    `
+  },
+  d3_vibe_web: {
+    tag: "AI Boost · 高龄",
+    when: "Day 3 · 上午",
+    title: "Vibe Coding · Web & Apps",
+    html: `
+      <p>做一个网站不是天方夜谭。这节课一起看看<b>经典网站是怎么诞生的</b>，并用 AI 工具动手搭建属于自己项目的网页或小应用。</p>
+      <div class="quote">课程目标：理解一个"受欢迎"的网站从何而来，并搭出自己项目的第一版网页。</div>
+    `
+  },
+  d3_market: {
+    tag: "创业思维",
+    when: "Day 3 · 下午",
+    title: "市场与用户",
+    html: `
+      <p>一句话搞懂市场和用户：<b>市场 = 一群有相同需求的人，用户 = 具体的那个人。</b>孩子将思考"我的东西到底给谁用"，并借助 AI 描绘目标用户画像。</p>
+      <div class="quote">课程目标：建立"为真实用户而做"的意识，明确自己项目的目标人群。</div>
+    `
+  },
+  d4_survey: {
+    tag: "创业思维",
+    when: "Day 4 · 晨间 + 午休",
+    title: "市场问卷调查",
+    html: `
+      <p><b>做之前先问，别猜。</b>每个小组设计一份属于自己的问卷，午休时走出去采访营地里的其他小朋友，收集真实的反馈。</p>
+      <div class="quote">课程目标：学会用调研倾听真实用户的声音，为产品和路演积累一手依据。</div>
+    `
+  },
+  d4plan_lo: {
+    tag: "创业思维 · 低龄",
+    when: "Day 4 · 下午",
+    title: "商业计划书 · 填故事",
+    html: `
+      <p>用<b>讲故事</b>的方式，把自己的小公司说清楚：卖什么、给谁、解决什么烦恼、怎么让别人知道……一句一个角度，轻松完成。</p>
+      <div class="quote">课程目标：用孩子能懂的方式完成人生第一份"商业计划"，也是路演稿的雏形。</div>
+    `
+  },
+  d4plan_hi: {
+    tag: "创业思维 · 高龄",
+    when: "Day 4 · 下午",
+    title: "商业计划书 · 三模型",
+    html: `
+      <p>像专业人士一样，用 <b>SWOT、PEST、Porter</b> 三个"放大镜"从不同角度看清自己的生意，并在 AI 辅助下整合成一份完整的商业计划书。</p>
+      <div class="quote">课程目标：学会用分析工具支撑决策，产出一份有说服力的商业计划书。</div>
+    `
+  },
+  d5_lo: {
+    tag: "路演准备 · 低龄",
+    when: "Day 5 · 上午",
+    title: "AI 工具 · 路演准备",
+    html: `
+      <p>用 AI 工具帮助<b>梳理路演结构</b>，甚至制作属于自己的"<b>产品广告</b>"，让项目更打动人。</p>
+      <div class="quote">课程目标：把项目讲清楚、讲生动，准备好属于自己的路演稿的雏形。</div>
+    `
+  },
+  d5_hi: {
+    tag: "路演准备 · 高龄",
+    when: "Day 5 · 上午",
+    title: "AI 工具 · 路演准备",
+    html: `
+      <p>用 AI 工具梳理路演逻辑，并制作<b>路演 slides、产品广告</b>等，让表达更专业、更有说服力。</p>
+      <div class="quote">课程目标：高效产出专业的路演材料，把项目的价值讲明白。</div>
+    `
+  },
+  d5speak: {
+    tag: "路演准备",
+    when: "Day 5 · 下午",
+    title: "演讲课",
+    html: `
+      <p>专业的演讲课：先一起学习开场、肢体、声音、控场等表达技巧，再分小组针对各自的稿子做单独辅导。</p>
+      <div class="quote">课程目标：克服上台紧张，自信清晰地把项目讲给别人听。</div>
+    `
+  },
+  d6rehearsal: {
+    tag: "路演准备",
+    when: "Day 6 · 上午",
+    title: "彩排及路演准备",
+    html: `
+      <p>正式路演前的彩排：完整走一遍流程、调试设备、演练评委可能问到的问题，确保下午的路演万无一失。</p>
+      <div class="quote">课程目标：让每个孩子都准备充分、信心满满地登上舞台。</div>
     `
   },
   d1open: {
     tag: "Opening",
-    when: "Day 1 下午",
-    title: "开营仪式：主题拆解 + 营规共创",
+    when: "Day 1 · 15:00 入营 / 16:00 开营",
+    title: "入营 + 开营仪式",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">开营魔法秀、6 天目标介绍、营地规则共创（孩子自己定规矩、签字按手印）。</p>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm">
-        这一环节已有完整执行手册 —— 见项目里的 <b>Day1_执行手册</b>。
-      </div>
+      <p>15:00 入营报到；约 16:00 举行开营仪式：开营魔法秀、六天目标介绍，以及由孩子们一起<b>共创营地规则</b>。</p>
+      <div class="quote">课程目标：正式开启六天的创客之旅，让孩子从第一刻起就成为营地的主人。</div>
     `
   },
   d1ice: {
-    tag: "Ice Breaking",
-    when: "Day 1 晚间",
+    tag: "Teamwork",
+    when: "Day 1 · 晚间",
     title: "破冰游戏 · 分组 · 队伍三件套",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">名字大轮转、AI 猜猜猜、找朋友 Bingo、分组揭晓、队名/队徽/队歌三件套。</p>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm">
-        这一环节已有完整执行手册 —— 见项目里的 <b>Day1_执行手册</b>。
-      </div>
+      <p>晚间破冰：名字大轮转、AI 猜猜猜、找朋友 Bingo，然后分组并共创队名、队徽、队歌。</p>
+      <div class="quote">课程目标：快速破冰、结识新朋友，组建接下来并肩作战的小队。</div>
     `
   }
 };
 
 const DETAILS_EN: Record<string, Detail> = {
-  fin: {
-    tag: "Morning · Personal Finance",
-    when: "Daily Morning · After Camp Song · ~5 mins · All Cohorts",
-    title: "Morning Personal Finance Tips",
+  d2_lo_ai: {
+    tag: "AI Boost · Younger Cohort",
+    when: "Day 2 · Morning",
+    title: "What is AI? Vibe Coding 101",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">No dedicated slot. Conducted as a <b>daily 5-minute rolling micro-topic</b> right after the camp song. Format: <b>Q&A + hands-on scenarios</b>, avoiding abstract lectures. We present a real-life situation, let kids share their thoughts, and the teacher sums it up with a single key takeaway.</p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">4-Day Themes</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 2 · Needs vs. Wants</div>
-          <p class="text-body-sm text-stone-600">Before buying, ask: "Do I really <b>need</b> it, or do I just <b>want</b> it?"</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 3 · Magic of Piggy Bank</div>
-          <p class="text-body-sm text-stone-600">Save a tiny bit daily. Time will multiply it quietly—planting the seed of "delayed gratification."</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 4 · Splitting a Dollar</div>
-          <p class="text-body-sm text-stone-600">Divide pocket money into three piggy banks: <b>To Spend / To Save / To Help Others</b>.</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Day 5 · Money Never Sleeps</div>
-          <p class="text-body-sm text-stone-600">Money can help us "make money"—explaining the concept of "investment" in simplest terms.</p>
-        </div>
-      </div>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        Echoing Day 2 Morning's "Business Equation (Revenue - Cost = Profit)": the business equation is about <b>the company's money</b>, while morning finance is about <b>your own money</b>. Both lines grow together.
-      </div>
+      <p>Children will <b>get to know AI</b>: how it works, what it can do today, and—most importantly—<b>how to converse with AI effectively</b>.</p>
+      <div class="quote">Course Objective: Develop a general understanding of AI, learn how to ask "good questions," and build a foundation for hands-on AI creation.</div>
     `
   },
-  d2jiexi: {
-    tag: "Founder Mindset · Split Cohorts",
-    when: "Day 2 Morning · Session 1 · Two rooms / Two teachers simultaneously",
-    title: "Deconstruction: What Can AI Do?",
+  d2_jiexi: {
+    tag: "Founder Mindset",
+    when: "Day 2 · Morning",
+    title: "Topic Deconstruction · Founder Mindset",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">This is the <b>first of three split sessions</b> (the others being Day 4 Business Analysis and Day 5 Roadshow Expression). The difference between the cohorts is not in "using harder cases" but in the <b>depth of thinking</b>: younger kids look at "what AI can do," while older ones analyze "what AI changed and who pays the price."</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Version A · Under 10 · Experiential</div>
-          <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600">
-            <li><b>AI for fun</b>: Live demo converting photos into moving anime characters using Jimeng/Kling.</li>
-            <li><b>AI for good</b>: Be My Eyes — how AI helps visually impaired people "see."</li>
-            <li><b>AI for learning</b>: Live prompting to ask AI a hard question and watch it teach step-by-step.</li>
-          </ul>
-          <p class="text-body-sm text-stone-500 mt-3">Wrap-up: Sticker voting on "Which category I want to build."</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Version B · Age 10+ · Critical</div>
-          <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600">
-            <li><b>fun</b>: Who profits from keeping you scrolling endlessly?</li>
-            <li><b>good</b>: When AI hallucinates or makes a mistake, who is held responsible?</li>
-            <li><b>learning</b>: Getting answers vs. learning to think—which one actually helps you?</li>
-          </ul>
-          <p class="text-body-sm text-stone-500 mt-3">Addition: "Identify the 4th category of AI" synthesis exercise + mini debate.</p>
-        </div>
-      </div>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        Takeaway phrase —— Younger: <b>"There are several types of things AI can do, and I can choose one for my project."</b><br>Older: <b>"Every product has beneficiaries and people who get impacted. I need to be clear about who I am helping and whether there are side effects."</b> (User Mindset → Responsible Creator Mindset)
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI Tools: <b>Jimeng / Kling</b> · <b>Claude / Doubao</b>
-      </div>
+      <p>Through a series of real and engaging examples, children will discover three categories of things AI can do: make life more fun (<b>fun</b>), assist learning (<b>learning</b>), and make the world a better place (<b>good</b>).</p>
+      <div class="quote">Course Objective: Expand their horizons, understand that "AI can be used to do many meaningful things," and identify their direction of interest.</div>
     `
   },
-  d2biz: {
-    tag: "Founder Mindset · Combined",
-    when: "Day 2 Morning · Session 2 · Combined cohort",
-    title: "Business Behind Games & Apps + Financial Ledger",
+  d2_hi_biz2: {
+    tag: "Founder Mindset · Older Cohort",
+    when: "Day 2 · Morning",
+    title: "Business Literacy",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">After splitting up, cohorts merge back together. Using the two products kids know best, we ask a piercing question: <b>"If it is free, how does the company survive?"</b></p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Eggy Party · Game</div>
-          <p class="text-body-sm text-stone-600">Free to play, monetizes via <b>selling skins</b>. Key point: skins <b>do not increase stats</b>; they sell the <b>feeling</b> of wanting to look cool.</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Xiaohongshu (RED) · App</div>
-          <p class="text-body-sm text-stone-600">Free to browse, monetizes via <b>ads + e-commerce commission</b>. Side topic on media literacy: the "awesome items" recommended on your feed might actually be paid ads.</p>
-        </div>
-      </div>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">Ledger Math: Live Calculation</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        1,000 players, 10 buy a skin for $1 each → Revenue: $10.<br>But monthly server cost is $5, artists' salary is $8... → These are <b>Costs</b>.<br><b>Revenue - Cost = Profit.</b>
-      </div>
-      <p class="text-body-md text-stone-600 mb-4">This leads to a counter-intuitive insight: <b>high user count ≠ profitable</b> (if no one buys skins but server costs keep mounting, the company loses money).</p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">Attention Anchoring Mechanisms</h3>
-      <p class="text-body-md text-stone-600">Lectures do not exceed <b>8 minutes straight</b>. Every segment has a hook: ① Business Detectives (spot where the money is hidden) ② Real vs. AI (identify AI creations and vote) ③ Live interactive trial.</p>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI Tools: <b>Claude / Doubao</b> | Output: Each child has a basic concept of "what I want to build and how it stays alive."
-      </div>
+      <p>Through a round of the "<b>Business Detective</b>" board game, children will learn how a company operates in a play-based setting: what the CEO, CFO, CTO, and CMO do, and what key metrics determine success.</p>
+      <div class="quote">Course Objective: Build basic business "sense" and understand that a company is like a "team machine" requiring division of labor and collaboration.</div>
     `
   },
-  d3market: {
-    tag: "Market & User",
-    when: "Day 2 Morning + Lunch Action + Sync",
-    title: "Market and Users",
+  d2pm_hi: {
+    tag: "AI Boost · Older Cohort",
+    when: "Day 2 · Afternoon",
+    title: "What is AI? Vibe Coding 101",
     html: `
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">① Case Study Hook</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        "Someone set up a booth selling hot soup right next to a swimming pool in summer, and didn't sell a single bowl." —— The product is fine, but the <b>users are wrong, and the location is wrong</b>.
-      </div>
-      <p class="text-body-md text-stone-600 mb-4">Core concept: <b>Market = a group of people with the same pain point; User = that specific individual.</b></p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">② Define My Market / Users</h3>
-      <p class="text-body-md text-stone-600 mb-4">Each team answers: "Who is my product for? Where do they usually gather?"</p>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">③ AI-Assisted Research</h3>
-      <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600 mb-4">
-        <li>Use Claude/Doubao to generate a <b>user persona</b>: "List 10 potential users of my product, their age, likes, and frustrations."</li>
-        <li>Use AI to draft <b>survey questions</b> (instant output for the lunch survey session).</li>
-      </ul>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">④ Lunch Survey Mission 🥢</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        Kids print out surveys and interview <b>campers in other programs</b> during lunch break—real users, right next to them.
-      </div>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">⑤ Synthesis & Sync</h3>
-      <p class="text-body-md text-stone-600">Use AI to categorize survey responses, uncovering common <b>frustrations / requirements</b>.</p>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI Tools: <b>Claude / Doubao</b> | Output: User personas + primary survey data.
-      </div>
+      <p>Students will <b>develop an initial understanding of AI</b>: how it works, what it is capable of today, how to converse with AI effectively, and view AI's capabilities and boundaries through a critical lens.</p>
+      <div class="quote">Course Objective: Establish a holistic understanding and judgment of AI, learn how to "ask good questions," and lay a solid foundation for hands-on AI usage.</div>
     `
   },
-  d4analysis: {
-    tag: "Tech × Business · Split Cohorts",
-    when: "Day 4 Morning · Split by age (10 years cutoff)",
-    title: "Business Analysis & Competitive Landscapes",
+  d2pm_lo: {
+    tag: "Founder Mindset · Younger Cohort",
+    when: "Day 2 · Afternoon",
+    title: "Business Literacy",
     html: `
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Under 10 · What is a "Competitor"?</div>
-          <p class="text-body-sm text-stone-600 mb-2"><b>What is a competitor?</b> — Simple explanation: "Whoever does the same thing as you and targets the same users is your competitor." Break it down using examples they know (Mixue vs. Chagee, Eggy Party vs. Roblox).</p>
-          <p class="text-body-sm text-stone-600"><b>Find who my competitors are in the market.</b> — Each team lists 3-5 candidates and explains why they compete. Use Claude to search for similar products and generate a comparison table (Name / Target User / Strengths / Gaps).</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Age 10+</div>
-          <p class="text-body-sm text-stone-600 mb-2"><b>SWOT</b>: Strengths, Weaknesses, Opportunities, Threats. AI-assisted analysis of their own project.</p>
-          <p class="text-body-sm text-stone-600"><b>PEST</b>: Political, Economic, Social, Technological — how these external factors impact their venture, structured using AI templates.</p>
-        </div>
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI Tools: <b>Claude</b> (competitor research + comparison tables + SWOT/PEST frameworks) | Output: Competitive analysis table (Younger) / SWOT + PEST (Older).
-      </div>
-    `
-  },
-  d5pitch: {
-    tag: "Tech × Business · Split Cohorts",
-    when: "Day 5 Morning · Split by age (10 years cutoff)",
-    title: "How AI Helps Us Tell Stories / Pitch Ideas",
-    html: `
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Under 10 · Storyboarding + AI Comic</div>
-          <p class="text-body-sm text-stone-600 mb-2">Hero's Journey formula: <b>Someone hits a wall → uses my product → problem solved, happy ending.</b></p>
-          <p class="text-body-sm text-stone-600">Use Jimeng / Midjourney to generate a 3–4 panel comic storyboard.</p>
-        </div>
-        <div class="border border-stone-200 rounded-xl p-4 bg-white shadow-sm">
-          <div class="text-label-md text-primary font-mono tracking-wider mb-2">Age 10+ · AI-Generated HTML Slides</div>
-          <p class="text-body-sm text-stone-600">Use Claude to code <b>HTML-based interactive slides</b>. This aligns with the vibe coding mindset, allowing them to customize typography, colors, and layout animations directly.</p>
-        </div>
-      </div>
-      <h3 class="text-headline-md text-primary font-bold mt-6 mb-3">Pitch Tone & Core Focus (Unified)</h3>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        Teams must highlight <b>"Who we interviewed and what they said"</b>—using actual user quotes as their ultimate leverage to convince the judges.
-      </div>
-      <div class="text-code text-xs text-stone-500 border-t border-stone-200 pt-3 mt-4">
-        AI Tools: <b>Jimeng / Midjourney</b> (Younger) · <b>Claude</b> (Older) | Output: Project comic storyboard / Interactive HTML slides.
-      </div>
+      <p>Through a round of the "<b>Business Detective</b>" board game, children will learn how a company operates in a play-based setting: what the CEO, CFO, CTO, and CMO do, and what key metrics determine success.</p>
+      <div class="quote">Course Objective: Build basic business "sense" and understand that a company is like a "team machine" requiring division of labor and collaboration.</div>
     `
   },
   d2empathy: {
     tag: "Founder Mindset",
-    when: "Day 2 Afternoon",
-    title: "Empathy — Uncovering Frustrations, Brainstorming Solutions",
+    when: "Day 2 · Afternoon",
+    title: "Empathy — Discovering Pain Points & Brainstorming",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">Morning built the "user-first" foundation; afternoon turns it into actions: <b>Start from what frustrates me to find pain points</b>. This connects with Day 1's hook: "The best products always start with an annoyance."</p>
-      <ul class="list-disc pl-5 space-y-1 text-body-sm text-stone-600 mb-4">
-        <li>Each child writes down 3 things that annoyed them recently.</li>
-        <li>Group share → identify the common friction points where "we all hate this."</li>
-        <li>Brainstorm potential solution directions with AI.</li>
-      </ul>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm mb-4">
-        Connection: The frustrations discovered here are precisely what will be validated on Day 3 during "Market & Users."
-      </div>
+      <p>Great ideas come from observing life and identifying pain points. This session guides children to brainstorm together: <b>What "problems" exist in daily life? Which ones do you want to change the most?</b></p>
+      <div class="quote">Course Objective: Foster observation skills and empathy, learn to "identify the problem first, then brainstorm ideas," and find a real starting point for their project.</div>
+    `
+  },
+  d2_blueprint: {
+    tag: "Teamwork",
+    when: "Day 2 · Evening",
+    title: "Start Designing Your Business Blueprint",
+    html: `
+      <p>Evening group time: Discuss and select the team's "venture theme" from the three main domains (AI for <b>fun</b> / <b>learning</b> / <b>good</b>).</p>
+      <div class="quote">Course Objective: Complete the first step of transitioning from "what I like" to "what we will build," aligning the team's direction.</div>
+    `
+  },
+  d6show: {
+    tag: "Showtime",
+    when: "Day 6 · Afternoon",
+    title: "Project Roadshow",
+    html: `
+      <p><b>It's your showtime!</b> Six days of hard work culminate in this moment—each team will pitch their project on stage and demonstrate the product they built from scratch.</p>
+      <div class="quote">Course Objective: Deliver a confident presentation on a real stage and take pride in their creation.</div>
+    `
+  },
+  d_mvp: {
+    tag: "Teamwork",
+    when: "Day 4 / Day 5",
+    title: "Build MVP",
+    html: `
+      <p>Teams begin building their own <b>MVP</b> (Minimum Viable Product)—leveraging AI tools to achieve a <b>0 to 1 breakthrough</b>.</p>
+      <div class="quote">Course Objective: Turn ideas into a real, presentable, and well-explained product.</div>
+    `
+  },
+  d3_vibe_games: {
+    tag: "AI Boost · Younger Cohort",
+    when: "Day 3 · Morning",
+    title: "Vibe Coding · Games",
+    html: `
+      <p>Knowing how to play games is not the same as knowing how to build them. This session starts by <b>analyzing classic games</b>, exploring key design principles, and using AI tools to build their own mini-games.</p>
+      <div class="quote">Course Objective: Understand the fundamentals of game design and build a playable mini-game from scratch.</div>
+    `
+  },
+  d3_vibe_web: {
+    tag: "AI Boost · Older Cohort",
+    when: "Day 3 · Morning",
+    title: "Vibe Coding · Web & Apps",
+    html: `
+      <p>Building a website is not out of reach. In this session, we will explore <b>how classic websites are created</b> and use AI tools to build web pages or mini-apps for their projects.</p>
+      <div class="quote">Course Objective: Understand what makes a website popular and build the first web page of their project.</div>
+    `
+  },
+  d3_market: {
+    tag: "Founder Mindset",
+    when: "Day 3 · Afternoon",
+    title: "Market & Users",
+    html: `
+      <p>Understand markets and users in one sentence: <b>Market = a group of people with the same need; User = that specific individual.</b> Students will think about "who my product is for" and use AI to create target user personas.</p>
+      <div class="quote">Course Objective: Cultivate a "build for real users" mindset and clarify the target audience for their projects.</div>
+    `
+  },
+  d4_survey: {
+    tag: "Founder Mindset",
+    when: "Day 4 · Morning & Lunch Break",
+    title: "Market Survey",
+    html: `
+      <p><b>Ask before you build, don't guess.</b> Each team will design their own survey and interview other campers during lunch break to gather real-world feedback.</p>
+      <div class="quote">Course Objective: Learn to listen to real users through research, accumulating first-hand insights for the product and pitch.</div>
+    `
+  },
+  d4plan_lo: {
+    tag: "Founder Mindset · Younger Cohort",
+    when: "Day 4 · Afternoon",
+    title: "Business Plan · Storytelling",
+    html: `
+      <p>Explain their mini-company through <b>storytelling</b>: what they sell, to whom, what problems they solve, and how they get noticed... wrapping it up step by step.</p>
+      <div class="quote">Course Objective: Complete their first-ever "business plan" in a kid-friendly way, laying the groundwork for their pitch script.</div>
+    `
+  },
+  d4plan_hi: {
+    tag: "Founder Mindset · Older Cohort",
+    when: "Day 4 · Afternoon",
+    title: "Business Plan · Three Models",
+    html: `
+      <p>Like a professional, use <b>SWOT, PEST, and Porter's Five Forces</b> as analytical lenses to evaluate their venture, integrating them into a comprehensive business plan with AI assistance.</p>
+      <div class="quote">Course Objective: Learn to back decisions with analytical tools, producing a persuasive business plan.</div>
+    `
+  },
+  d5_lo: {
+    tag: "Roadshow Prep · Younger Cohort",
+    when: "Day 5 · Morning",
+    title: "AI Tools · Roadshow Prep",
+    html: `
+      <p>Use AI tools to help <b>structure their roadshow pitches</b>, and even create their own "<b>product commercials</b>" to make their project more compelling.</p>
+      <div class="quote">Course Objective: Present their projects clearly and vividly, preparing their roadshow materials.</div>
+    `
+  },
+  d5_hi: {
+    tag: "Roadshow Prep · Older Cohort",
+    when: "Day 5 · Morning",
+    title: "AI Tools · Roadshow Prep",
+    html: `
+      <p>Use AI tools to map out roadshow logic, and create professional materials like <b>pitch slides and product commercials</b> to make presentations persuasive.</p>
+      <div class="quote">Course Objective: Efficiently output professional roadshow materials that clearly articulate their project's value.</div>
+    `
+  },
+  d5speak: {
+    tag: "Roadshow Prep",
+    when: "Day 5 · Afternoon",
+    title: "Pitch Presentation Class",
+    html: `
+      <p>A professional public speaking class: learn presentation techniques like hooks, body language, vocal modulation, and stage presence, followed by group-specific individual coaching sessions.</p>
+      <div class="quote">Course Objective: Overcome stage fright, and pitch their project confidently and clearly to others.</div>
+    `
+  },
+  d6rehearsal: {
+    tag: "Roadshow Prep",
+    when: "Day 6 · Morning",
+    title: "Rehearsal & Roadshow Prep",
+    html: `
+      <p>Dress rehearsal before the official roadshow: walk through the entire flow, test equipment, and practice Q&As for judges' potential questions to ensure a smooth afternoon presentation.</p>
+      <div class="quote">Course Objective: Make sure every child is fully prepared and steps onto the stage with confidence.</div>
     `
   },
   d1open: {
     tag: "Opening",
-    when: "Day 1 Afternoon",
-    title: "Opening Ceremony: Goal Settings & Class Contract",
+    when: "Day 1 · 15:00 Check-in / 16:00 Ceremony",
+    title: "Camp Check-in & Opening Ceremony",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">Opening magic show, introducing the 6-day path, and collaborative rules creation (kids write rules, sign, and stamp fingerprint).</p>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm">
-        This session has a detailed operational manual — refer to <b>Day1_Manual</b> in the project files.
-      </div>
+      <p>15:00 Camp arrival and check-in; around 16:00 Opening Ceremony: opening magic show, overview of the 6-day goals, and co-creating camp rules together with the kids.</p>
+      <div class="quote">Course Objective: Kick off the 6-day maker journey, making children the masters of the camp from the very first moment.</div>
     `
   },
   d1ice: {
-    tag: "Ice Breaking",
-    when: "Day 1 Evening",
-    title: "Icebreaking games · Team assembly · Branding",
+    tag: "Teamwork",
+    when: "Day 1 · Evening",
+    title: "Icebreaker Games · Grouping · Team Identity Triad",
     html: `
-      <p class="text-body-md text-stone-600 mb-4">Name rotations, AI Guessing, Friend Bingo, team announcements, and designing team names, logos, and themes.</p>
-      <div class="border-l-4 border-l-primary bg-primary/5 p-4 rounded-r-xl text-stone-700 italic text-body-sm">
-        This session has a detailed operational manual — refer to <b>Day1_Manual</b> in the project files.
-      </div>
+      <p>Evening icebreakers: name rotation game, "Guess the AI", and Friend Bingo. Followed by team division and co-creating team names, logos, and team songs.</p>
+      <div class="quote">Course Objective: Break the ice quickly, meet new friends, and establish the teams that will collaborate for the rest of the camp.</div>
     `
   }
 };
 
 const content = {
-  en: {
-    title: "6-Day Timetable · ",
-    titleHighlight: "Business Curriculum Design",
-    subtitle: "Click the orange and morning slots with a › to view detailed course designs. The business curriculum runs from Day 2–5 morning, and personal finance tips are integrated into daily morning sessions.",
-    colDay1: "DAY 1",
-    colDay2: "DAY 2",
-    colDay3: "DAY 3",
-    colDay4: "DAY 4",
-    colDay5: "DAY 5",
-    colDay6: "DAY 6",
-    subDay1: "Onboarding",
-    subDay2: "Founder Mindset",
-    subDay3: "Market & User",
-    subDay4: "Business Analysis",
-    subDay5: "Roadshow Prep",
-    subDay6: "Demo Day",
-    rowMorning: "Morning",
-    rowMorningSession: "AM",
-    rowAfternoonSession: "PM",
-    rowEveningSession: "NIGHT",
-    fin1: "Personal Finance · Needs vs Wants",
-    fin2: "Personal Finance · Magic Piggy Bank",
-    fin3: "Personal Finance · Splitting a Dollar",
-    fin4: "Personal Finance · Money Never Sleeps",
-    d2jiexiTtl: "AI for fun / good / learning",
-    d2jiexiMeta: "Under & Over 10 versions",
-    d2bizTtl: "Business Behind Games & Ledger",
-    d2bizMeta: "Eggy Party · RED · Calculations",
-    d3marketTtl: "Market and Users",
-    d3marketMeta: "Incl. AI Research & Lunch Survey",
-    seedIdeaTtl: "Define Seed Idea",
-    competitorTtl: "Competitor Landscapes",
-    competitorMeta: "Under 10: Comp Tables · Over 10: SWOT/PEST",
-    gddPrdTtl: "Lock GDD/PRD",
-    narrativeTtl: "How AI Tells Stories",
-    narrativeMeta: "Under 10: Comic · Over 10: HTML slides",
-    slidesTtl: "Build Slides with AI",
-    pitchBootcamp: "Pitch Bootcamp",
-    openingManualTtl: "Opening: Goals & Rules",
-    openingManualMeta: "Refer to Day 1 Manual",
-    aiBasicsTtl: "AI Basics & Prompting",
-    empathyTtl: "Empathy & Brainstorming",
-    vibeCodingGames: "Vibe Coding — Games",
-    vibeCodingWeb: "Vibe Coding — Web & Apps",
-    favAppReview: "Analyze Your Fav App/Game",
-    buildMvp: "Build MVP",
-    syncReview: "Sync + Review",
-    iterateMvp: "Iterate MVP & Pitch",
-    projectRoadshow: "Project Roadshow",
-    icebreakBranding: "Icebreaking & Team branding",
-    draftBlueprint: "Draft Business Blueprint",
-    writeGddPrd: "Write GDD / PRD",
-    mvpMidnight: "MVP Midnight Sprint",
-    catBiz: "Founder Mindset / Biz",
-    catTech: "Tech Boost",
-    catTeam: "Teamwork",
-    catShare: "Review",
-    catPresent: "Presentation",
-    catCream: "Morning Finance",
-  },
   zh: {
-    title: "6 天课程表 · ",
-    titleHighlight: "商业板块设计",
-    subtitle: "点击带 › 的绿色与晨间板块，查看该环节的详细设计。商业主线贯穿 Day 2–5 上午，晨间穿插个人理财小常识。",
+    title: "未知边界 · 2026 暑期创客松 ",
+    titleHighlight: "课程表",
+    subtitle: "6 天，从一个想法到一件能上台路演的真实作品。青色=AI 课，橙色=创业思维 / 商业课；点击任意板块查看课程内容与目标。",
     colDay1: "DAY 1",
     colDay2: "DAY 2",
     colDay3: "DAY 3",
@@ -505,54 +408,126 @@ const content = {
     colDay5: "DAY 5",
     colDay6: "DAY 6",
     subDay1: "开营 · 破冰",
-    subDay2: "创业思维启蒙",
-    subDay3: "市场与用户",
-    subDay4: "商业分析",
+    subDay2: "创业思维 × 初识 AI",
+    subDay3: "市场用户 × Vibe Coding",
+    subDay4: "市场调研 · 计划书",
     subDay5: "路演表达",
     subDay6: "路演日",
     rowMorning: "晨间",
     rowMorningSession: "上午",
+    rowNoonSession: "中午",
     rowAfternoonSession: "下午",
+    rowDinnerSession: "晚餐",
     rowEveningSession: "晚间",
-    fin1: "个人理财 · 需要 vs 想要",
-    fin2: "个人理财 · 存钱罐的魔法",
-    fin3: "个人理财 · 一块钱怎么分",
-    fin4: "个人理财 · 钱不睡觉",
-    d2jiexiTtl: "拆解主题：AI for fun / good / learning",
-    d2jiexiMeta: "10岁以下 & 以上 两个版本",
-    d2bizTtl: "游戏、应用背后的\"商业\" + 生意账",
-    d2bizMeta: "蛋仔派对 · 小红书 · 算账",
-    d3marketTtl: "市场与用户",
-    d3marketMeta: "含 AI 调研 + 午休问卷行动",
-    seedIdeaTtl: "初步确定\"创业项目\"",
-    competitorTtl: "商业分析 / 竞品分析",
-    competitorMeta: "小：认识竞品 · 大：SWOT + PEST",
-    gddPrdTtl: "完善 GDD / PRD",
-    narrativeTtl: "AI 如何帮我们讲好故事",
-    narrativeMeta: "小：AI 漫画 · 大：HTML slides",
-    slidesTtl: "用 AI 完成路演材料",
-    pitchBootcamp: "演讲集训",
-    openingManualTtl: "开营仪式：主题拆解 + 营规共创",
-    openingManualMeta: "详见 Day 1 执行手册",
-    aiBasicsTtl: "什么是 AI，如何 prompting？",
-    empathyTtl: "共情力 — 发现痛点、头脑风暴",
-    vibeCodingGames: "Vibe Coding — Games",
-    vibeCodingWeb: "Vibe Coding — Web & Apps",
-    favAppReview: "拆解你最喜欢的游戏 / 应用",
-    buildMvp: "打造 MVP",
-    syncReview: "分享 + 复盘",
-    iterateMvp: "继续完善 MVP 及路演",
-    projectRoadshow: "项目路演",
-    icebreakBranding: "破冰游戏 · 分组 · 队伍三件套",
-    draftBlueprint: "开始策划你的创业蓝图",
-    writeGddPrd: "确定小组 GDD / PRD",
-    mvpMidnight: "MVP 冲刺前夜",
-    catBiz: "创业思维 / 商业",
-    catTech: "Tech Boost",
-    catTeam: "Teamwork / 小组",
-    catShare: "分享 / 复盘",
-    catPresent: "演讲活动",
-    catCream: "晨间 · 理财",
+    legendBiz: "创业思维",
+    legendTech: "AI Boost",
+    legendTeam: "Teamwork",
+    legendShare: "分享与复盘",
+    legendPresent: "路演准备 / Showtime",
+    legendCream: "Warm up",
+    legendLo: "低龄",
+    legendHi: "高龄",
+    legendLoRange: "<10 岁",
+    legendHiRange: "10 岁+",
+    clickHint: "点击板块查看 课程详情 →",
+    kicker: "BoundaryUnknown · Summer Maker-thon 2026",
+    lunchRecess: "午餐和午休 · Lunch & Recess",
+    dinnerRecess: "晚餐及休息 · Dinner & Recess",
+    familyTime: "家庭沟通 · Family Time",
+    warmup: "Warm up",
+    surveyTitle: "市场问卷调查",
+    surveyMeta: "设计问卷 → 午休找陌生小朋友做调研",
+    loAIPrep: "AI 工具 · 路演准备",
+    hiAIPrep: "AI 工具 · 路演准备",
+    d2jiexi: "主题拆解 · 创业思维",
+    d2loai: "What is AI? vibe coding 101",
+    d2hibiz2: "商业素养课",
+    d3vibegames: "Vibe Coding · Games",
+    d3vibeweb: "Vibe Coding · Web & Apps",
+    dmvp: "打造 MVP",
+    d5completeAI: "用 AI 完成路演材料",
+    d6rehearsal: "路演准备",
+    d1open: "入营 + 开营仪式",
+    d1openMeta: "15:00 入营 · 16:00 开营仪式",
+    d2empathy: "共情力 — 发现痛点、头脑风暴",
+    d2share: "分享与复盘",
+    d3market: "市场与用户",
+    d3discuss: "讨论 PRD / GDD，确定小组方案",
+    d4planlo: "商业计划书 · 填故事",
+    d4planhi: "商业计划书 · 三模型",
+    d5speak: "演讲课（合班）→ 小组单独辅导",
+    d6show: "项目路演",
+    d1ice: "破冰游戏 · 分组 · 队伍三件套",
+    d2blueprint: "开始策划你的创业蓝图",
+    d4pitchscript: "路演讲稿准备",
+    d5refinement: "继续完善 MVP 及路演",
+    d6departure: "结营 · 离营"
+  },
+  en: {
+    title: "Boundary Unknown · 2026 Summer Maker-thon ",
+    titleHighlight: "Timetable",
+    subtitle: "6 days, from an idea to a real product ready for a stage pitch. Cyan = AI class, Orange = Entrepreneurial mindset / Business class. Click on any block to view course details and objectives.",
+    colDay1: "DAY 1",
+    colDay2: "DAY 2",
+    colDay3: "DAY 3",
+    colDay4: "DAY 4",
+    colDay5: "DAY 5",
+    colDay6: "DAY 6",
+    subDay1: "Onboarding & Icebreaking",
+    subDay2: "Founder Mindset × Intro to AI",
+    subDay3: "Market & User × Vibe Coding",
+    subDay4: "Market Research & Business Plan",
+    subDay5: "Roadshow Pitching",
+    subDay6: "Demo Day",
+    rowMorning: "Morning",
+    rowMorningSession: "AM",
+    rowNoonSession: "Noon",
+    rowAfternoonSession: "PM",
+    rowDinnerSession: "Dinner",
+    rowEveningSession: "Night",
+    legendBiz: "Founder Mindset",
+    legendTech: "AI Boost",
+    legendTeam: "Teamwork",
+    legendShare: "Review & Recap",
+    legendPresent: "Roadshow Prep / Showtime",
+    legendCream: "Warm up",
+    legendLo: "Younger",
+    legendHi: "Older",
+    legendLoRange: "< 10 years old",
+    legendHiRange: "10 years+",
+    clickHint: "Click block to view Course Details →",
+    kicker: "BoundaryUnknown · Summer Maker-thon 2026",
+    lunchRecess: "Lunch & Recess",
+    dinnerRecess: "Dinner & Recess",
+    familyTime: "Family Time",
+    warmup: "Warm up",
+    surveyTitle: "Market Survey",
+    surveyMeta: "Design questionnaire → survey other kids during lunch",
+    loAIPrep: "AI Tools · Roadshow Prep",
+    hiAIPrep: "AI Tools · Roadshow Prep",
+    d2jiexi: "Topic Deconstruction · Founder Mindset",
+    d2loai: "What is AI? Vibe Coding 101",
+    d2hibiz2: "Business Literacy",
+    d3vibegames: "Vibe Coding · Games",
+    d3vibeweb: "Vibe Coding · Web & Apps",
+    dmvp: "Build MVP",
+    d5completeAI: "Complete Roadshow Materials with AI",
+    d6rehearsal: "Roadshow Prep",
+    d1open: "Camp Check-in & Opening Ceremony",
+    d1openMeta: "15:00 Check-in · 16:00 Ceremony",
+    d2empathy: "Empathy — Discovering Pain Points & Brainstorming",
+    d2share: "Review & Recap",
+    d3market: "Market & Users",
+    d3discuss: "Discuss PRD / GDD, Lock Group Solutions",
+    d4planlo: "Business Plan · Storytelling",
+    d4planhi: "Business Plan · Three Models",
+    d5speak: "Pitch Class (Combined) → Group Mentoring",
+    d6show: "Project Roadshow",
+    d1ice: "Icebreaker Games · Grouping · Team Identity Triad",
+    d2blueprint: "Start Designing Your Business Blueprint",
+    d4pitchscript: "Roadshow Pitch Script Preparation",
+    d5refinement: "Continue Refining MVP and Pitch",
+    d6departure: "Camp Closing & Departure"
   }
 };
 
@@ -586,10 +561,10 @@ export function TimetablePage() {
       <style>{`
         .timetable-grid {
           display: grid;
-          grid-template-columns: 54px repeat(6, minmax(168px, 1fr));
+          grid-template-columns: 54px repeat(6, minmax(238px, 1fr));
           column-gap: 8px;
           row-gap: 6px;
-          min-width: 1120px;
+          min-width: 1520px;
         }
         .rlabel {
           writing-mode: vertical-rl;
@@ -606,20 +581,24 @@ export function TimetablePage() {
         .cell {
           display: flex;
           flex-direction: column;
-          gap: 0;
+          gap: 5px;
         }
         .cell .blk {
+          flex: 0 0 auto;
+        }
+        .cell .blk.grow {
           flex: 1 1 auto;
         }
-        .cell .blk:not(:first-child) {
-          border-top-left-radius: 0;
-          border-top-right-radius: 0;
-          border-top: 0;
-          margin-top: 0;
+        .cell > .blk:only-child {
+          flex: 1 1 auto;
         }
-        .cell .blk:not(:last-child) {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
+        .cell > .pair:last-child, .cell > .pair.grow {
+          flex: 1 1 auto;
+        }
+        .cell .blk.grow, .cell > .blk:only-child {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
         .blk {
           border: 1px solid #e6e1d9;
@@ -755,127 +734,487 @@ export function TimetablePage() {
           border: 1px dashed #e6e1d9;
           border-radius: 8px;
           min-height: 38px;
-          opacity: 0.5;
+          opacity: 0.55;
+          flex: 1 1 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 10px;
+          font-size: 11px;
+          color: #5f5e5e;
+          letter-spacing: 1px;
+        }
+        .pair {
+          display: flex;
+          gap: 6px;
+          align-items: stretch;
+          width: 100%;
+        }
+        .subbox {
+          flex: 1 1 0;
+          min-width: 0;
+          border: 1px solid #e6e1d9;
+          border-left-width: 3px;
+          border-radius: 8px;
+          background: #ffffff;
+          padding: 10px 10px;
+          position: relative;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          transition: transform .12s ease, border-color .12s ease, background .12s ease;
+        }
+        .subbox:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+          z-index: 2;
+        }
+        .subbox .age {
+          align-self: flex-start;
+          margin-bottom: 4px;
+        }
+        .subbox.cat-biz {
+          border-left-color: #D06A4C;
+          background: rgba(208, 106, 76, 0.03);
+        }
+        .subbox.cat-biz:hover {
+          background: rgba(208, 106, 76, 0.08);
+          border-color: #D06A4C;
+        }
+        .subbox.cat-ai {
+          border-left-color: #3CA685;
+          background: rgba(60, 166, 133, 0.03);
+        }
+        .subbox.cat-ai:hover {
+          background: rgba(60, 166, 133, 0.08);
+          border-color: #3CA685;
+        }
+        .subbox .arrow {
+          position: absolute;
+          top: 8px;
+          right: 9px;
+          color: #D06A4C;
+          font-size: 13px;
+          opacity: 0;
+          transition: opacity .12s ease;
+        }
+        .subbox:hover .arrow {
+          opacity: 0.7;
+        }
+        .subbox .bt {
+          font-size: 12px;
+          line-height: 1.4;
+          color: #141413;
+          font-weight: 600;
+        }
+        .age {
+          font-family: var(--font-mono);
+          font-size: 9.5px;
+          font-weight: 700;
+          letter-spacing: .5px;
+          padding: 2px 6px;
+          border-radius: 4px;
+          display: inline-block;
+        }
+        .age.lo {
+          background: rgba(74, 137, 200, 0.12);
+          color: #4A89C8;
+        }
+        .age.hi {
+          background: rgba(212, 163, 19, 0.12);
+          color: #D4A313;
+        }
+        .bar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          font-family: var(--font-mono);
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+        .bar.meal {
+          background: rgba(176, 152, 94, 0.04);
+          border: 1px solid #e6e1d9;
+          border-left: 3px solid #B0985E;
+          color: #8A733F;
+          font-size: 12px;
+          padding: 11px;
+        }
+        .bar.thin {
+          background: #fbfaf6;
+          border: 1px dashed #e6e1d9;
+          color: #8C887A;
+          font-size: 10px;
+          padding: 5px;
+          letter-spacing: 2.5px;
+        }
+        .quote {
+          border-left: 3px solid #D06A4C;
+          background: rgba(208, 106, 76, 0.04);
+          padding: 12px 16px;
+          border-radius: 0 8px 8px 0;
+          font-size: 14px;
+          line-height: 1.8;
+          margin: 14px 0;
+          color: #8A503F;
+          font-style: italic;
         }
       `}</style>
 
       <Header variant="white" />
       <main className="max-w-screen-xl mx-auto px-4 md:px-gutter py-24 mt-4">
         <header className="flex flex-col items-center text-center gap-md mb-16 max-w-4xl mx-auto">
-          <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight text-stone-900">
+          <div className="text-xs font-semibold tracking-[0.2em] text-primary uppercase font-mono mb-2">{t.kicker}</div>
+          <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight text-stone-900 font-serif">
             {t.title}<span className="text-primary font-black">{t.titleHighlight}</span>
           </h1>
-          <p className="text-body-lg text-secondary max-w-2xl">
+          <p className="text-body-lg text-secondary max-w-2xl mt-4">
             {t.subtitle}
           </p>
         </header>
 
+        {/* Legend */}
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-8 select-none">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 font-mono">
-            <span className="w-3 h-3 rounded bg-primary" /> {t.catBiz}
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="w-3 h-3 rounded bg-primary" /> {t.legendBiz}
           </span>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 font-mono">
-            <span className="w-3 h-3 rounded bg-[#3CA685]" /> {t.catTech}
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="w-3 h-3 rounded bg-[#3CA685]" /> {t.legendTech}
           </span>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 font-mono">
-            <span className="w-3 h-3 rounded bg-[#D4A313]" /> {t.catTeam}
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="w-3 h-3 rounded bg-[#D4A313]" /> {t.legendTeam}
           </span>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 font-mono">
-            <span className="w-3 h-3 rounded bg-[#4A89C8]" /> {t.catShare}
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="w-3 h-3 rounded bg-[#4A89C8]" /> {t.legendShare}
           </span>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 font-mono">
-            <span className="w-3 h-3 rounded bg-[#9B70C8]" /> {t.catPresent}
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="w-3 h-3 rounded bg-[#9B70C8]" /> {t.legendPresent}
           </span>
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-stone-500 font-mono">
-            <span className="w-3 h-3 rounded bg-[#B0985E]" /> {t.catCream}
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="w-3 h-3 rounded bg-[#B0985E]" /> {t.legendCream}
+          </span>
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="age lo" style={{ margin: 0 }}>{t.legendLo}</span> {t.legendLoRange}
+          </span>
+          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-stone-500 font-mono">
+            <span className="age hi" style={{ margin: 0 }}>{t.legendHi}</span> {t.legendHiRange}
           </span>
         </div>
 
+        {/* Timetable Grid Container */}
         <div className="overflow-x-auto pb-4 mb-20 bg-stone-50/50 p-4 rounded-2xl border border-stone-200/50">
           <div className="timetable-grid">
             {/* Header row */}
             <div className="corner" />
-            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm"><div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay1}</div><div className="text-xs text-stone-500 mt-1">{t.subDay1}</div></div>
-            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm"><div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay2}</div><div className="text-xs text-stone-500 mt-1">{t.subDay2}</div></div>
-            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm"><div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay3}</div><div className="text-xs text-stone-500 mt-1">{t.subDay3}</div></div>
-            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm"><div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay4}</div><div className="text-xs text-stone-500 mt-1">{t.subDay4}</div></div>
-            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm"><div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay5}</div><div className="text-xs text-stone-500 mt-1">{t.subDay5}</div></div>
-            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm"><div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay6}</div><div className="text-xs text-stone-500 mt-1">{t.subDay6}</div></div>
+            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm">
+              <div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay1}</div>
+              <div className="text-xs text-stone-500 mt-1">{t.subDay1}</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm">
+              <div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay2}</div>
+              <div className="text-xs text-stone-500 mt-1">{t.subDay2}</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm">
+              <div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay3}</div>
+              <div className="text-xs text-stone-500 mt-1">{t.subDay3}</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm">
+              <div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay4}</div>
+              <div className="text-xs text-stone-500 mt-1">{t.subDay4}</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm">
+              <div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay5}</div>
+              <div className="text-xs text-stone-500 mt-1">{t.subDay5}</div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-lg p-3 shadow-sm">
+              <div className="font-mono font-bold text-base tracking-wide text-stone-800">{t.colDay6}</div>
+              <div className="text-xs text-stone-500 mt-1">{t.subDay6}</div>
+            </div>
 
-            {/* Row: 晨间 */}
+            {/* Row: 晨间 (Morning) */}
             <div className="rlabel">{t.rowMorning}</div>
+            {/* Day 1 */}
             <div className="cell"><div className="empty" /></div>
-            <div className="cell"><div className="blk click c-cream" onClick={() => setSelectedKey('fin')}><span className="arrow">›</span><span className="tag">Morning</span><div className="ttl">{t.fin1}</div><div className="meta">5 Min</div></div></div>
-            <div className="cell"><div className="blk click c-cream" onClick={() => setSelectedKey('fin')}><span className="arrow">›</span><span className="tag">Morning</span><div className="ttl">{t.fin2}</div><div className="meta">5 Min</div></div></div>
-            <div className="cell"><div className="blk click c-cream" onClick={() => setSelectedKey('fin')}><span className="arrow">›</span><span className="tag">Morning</span><div className="ttl">{t.fin3}</div><div className="meta">5 Min</div></div></div>
-            <div className="cell"><div className="blk click c-cream" onClick={() => setSelectedKey('fin')}><span className="arrow">›</span><span className="tag">Morning</span><div className="ttl">{t.fin4}</div><div className="meta">5 Min</div></div></div>
-            <div className="cell"><div className="empty" /></div>
+            {/* Day 2 */}
+            <div className="cell">
+              <div className="blk c-cream">
+                <span className="tag">Morning</span>
+                <div className="ttl">{t.warmup}</div>
+              </div>
+            </div>
+            {/* Day 3 */}
+            <div className="cell">
+              <div className="blk c-cream">
+                <span className="tag">Morning</span>
+                <div className="ttl">{t.warmup}</div>
+              </div>
+            </div>
+            {/* Day 4 */}
+            <div className="cell">
+              <div className="blk click star c-biz" onClick={() => setSelectedKey('d4_survey')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendBiz}</span>
+                <div className="ttl">{t.surveyTitle}</div>
+                <div className="meta">{t.surveyMeta}</div>
+              </div>
+            </div>
+            {/* Day 5 */}
+            <div className="cell">
+              <div className="pair">
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey('d5_lo')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.loAIPrep}</div>
+                </div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey('d5_hi')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.hiAIPrep}</div>
+                </div>
+              </div>
+            </div>
+            {/* Day 6 */}
+            <div className="cell">
+              <div className="blk c-cream">
+                <span className="tag">Morning</span>
+                <div className="ttl">{t.warmup}</div>
+              </div>
+            </div>
 
-            {/* Row: 上午 */}
+            {/* Row: 上午 (AM) */}
             <div className="rlabel">{t.rowMorningSession}</div>
+            {/* Day 1 */}
             <div className="cell"><div className="empty" /></div>
+            {/* Day 2 */}
             <div className="cell">
-              <div className="blk click star c-biz" onClick={() => setSelectedKey('d2jiexi')}><span className="arrow">›</span><span className="tag">{t.catBiz}</span><div className="ttl">{t.d2jiexiTtl}</div><div className="meta">{t.d2jiexiMeta}</div></div>
-              <div className="blk click star c-biz" onClick={() => setSelectedKey('d2biz')}><span className="arrow">›</span><span className="tag">{t.catBiz}</span><div className="ttl">{t.d2bizTtl}</div><div className="meta">{t.d2bizMeta}</div></div>
+              <div className="blk click c-biz" onClick={() => setSelectedKey('d2_jiexi')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendBiz}</span>
+                <div className="ttl">{t.d2jiexi}</div>
+              </div>
+              <div className="pair grow">
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey('d2_lo_ai')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.d2loai}</div>
+                </div>
+                <div className="subbox hi cat-biz" onClick={() => setSelectedKey('d2_hi_biz2')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.d2hibiz2}</div>
+                </div>
+              </div>
             </div>
+            {/* Day 3 */}
             <div className="cell">
-              <div className="blk click star c-biz" onClick={() => setSelectedKey('d3market')}><span className="arrow">›</span><span className="tag">{t.catBiz}</span><div className="ttl">{t.d3marketTtl}</div><div className="meta">{t.d3marketMeta}</div></div>
-              <div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.seedIdeaTtl}</div></div>
+              <div className="pair">
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey('d3_vibe_games')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.d3vibegames}</div>
+                </div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey('d3_vibe_web')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.d3vibeweb}</div>
+                </div>
+              </div>
             </div>
+            {/* Day 4 */}
             <div className="cell">
-              <div className="blk click star c-biz" onClick={() => setSelectedKey('d4analysis')}><span className="arrow">›</span><span className="tag">{t.catBiz}</span><div className="ttl">{t.competitorTtl}</div><div className="meta">{t.competitorMeta}</div></div>
-              <div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.gddPrdTtl}</div></div>
+              <div className="blk click c-team" onClick={() => setSelectedKey('d_mvp')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.dmvp}</div>
+              </div>
             </div>
+            {/* Day 5 */}
             <div className="cell">
-              <div className="blk click star c-biz" onClick={() => setSelectedKey('d5pitch')}><span className="arrow">›</span><span className="tag">{t.catBiz}</span><div className="ttl">{t.narrativeTtl}</div><div className="meta">{t.narrativeMeta}</div></div>
-              <div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.slidesTtl}</div></div>
+              <div className="blk c-team">
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.d5completeAI}</div>
+              </div>
+              <div className="blk click c-team grow" onClick={() => setSelectedKey('d_mvp')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.dmvp}</div>
+              </div>
             </div>
+            {/* Day 6 */}
             <div className="cell">
-              <div className="blk c-present"><span className="tag">{t.catPresent}</span><div className="ttl">{t.pitchBootcamp}</div></div>
+              <div className="blk click c-present" onClick={() => setSelectedKey('d6rehearsal')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendPresent}</span>
+                <div className="ttl">{t.d6rehearsal}</div>
+              </div>
             </div>
 
-            {/* Row: 下午 */}
+            {/* Row: 中午 (Lunch) */}
+            <div className="rlabel">{t.rowNoonSession}</div>
+            <div className="cell"><div className="empty" /></div>
+            <div className="bar meal" style={{ gridColumn: "span 5" }}>{t.lunchRecess}</div>
+
+            {/* Row: 下午 (PM) */}
             <div className="rlabel">{t.rowAfternoonSession}</div>
+            {/* Day 1 */}
             <div className="cell">
-              <div className="blk click c-biz" onClick={() => setSelectedKey('d1open')}><span className="arrow">›</span><span className="tag">Opening</span><div className="ttl">{t.openingManualTtl}</div><div className="meta">{t.openingManualMeta}</div></div>
+              <div className="blk click c-biz" onClick={() => setSelectedKey('d1open')}>
+                <span className="arrow">›</span>
+                <span className="tag">Opening</span>
+                <div className="ttl">{t.d1open}</div>
+                <div className="meta">{t.d1openMeta}</div>
+              </div>
             </div>
+            {/* Day 2 */}
             <div className="cell">
-              <div className="blk c-tech"><span className="tag">{t.catTech}</span><div className="ttl">{t.aiBasicsTtl}</div></div>
-              <div className="blk click star c-biz" onClick={() => setSelectedKey('d2empathy')}><span className="arrow">›</span><span className="tag">{t.catBiz}</span><div className="ttl">{t.empathyTtl}</div></div>
+              <div className="pair">
+                <div className="subbox lo cat-biz" onClick={() => setSelectedKey('d2pm_lo')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.d2hibiz2}</div>
+                </div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey('d2pm_hi')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.d2loai}</div>
+                </div>
+              </div>
+              <div className="blk click star c-biz grow" onClick={() => setSelectedKey('d2empathy')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendBiz}</span>
+                <div className="ttl">{t.d2empathy}</div>
+              </div>
+              <div className="blk c-share">
+                <span className="tag">{t.legendShare}</span>
+                <div className="ttl">{t.d2share}</div>
+              </div>
             </div>
+            {/* Day 3 */}
             <div className="cell">
-              <div className="blk c-tech"><span className="tag">{t.catTech}</span><div className="ttl">{t.vibeCodingGames}</div></div>
-              <div className="blk c-tech"><span className="tag">{t.catTech}</span><div className="ttl">{t.vibeCodingWeb}</div></div>
-              <div className="blk c-share"><span className="tag">{t.catShare}</span><div className="ttl">{t.favAppReview}</div></div>
+              <div className="pair">
+                <div className="subbox lo cat-biz" onClick={() => setSelectedKey('d3_market')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.d3market}</div>
+                </div>
+                <div className="subbox hi cat-biz" onClick={() => setSelectedKey('d3_market')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.d3market}</div>
+                </div>
+              </div>
+              <div className="blk c-team grow">
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.d3discuss}</div>
+              </div>
             </div>
+            {/* Day 4 */}
             <div className="cell">
-              <div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.buildMvp}</div></div>
-              <div className="blk c-share"><span className="tag">{t.catShare}</span><div className="ttl">{t.syncReview}</div></div>
+              <div className="pair">
+                <div className="subbox lo cat-biz" onClick={() => setSelectedKey('d4plan_lo')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.d4planlo}</div>
+                </div>
+                <div className="subbox hi cat-biz" onClick={() => setSelectedKey('d4plan_hi')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.d4planhi}</div>
+                </div>
+              </div>
+              <div className="blk click c-team grow" onClick={() => setSelectedKey('d_mvp')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.dmvp}</div>
+              </div>
+              <div className="blk c-share">
+                <span className="tag">{t.legendShare}</span>
+                <div className="ttl">{t.d2share}</div>
+              </div>
             </div>
+            {/* Day 5 */}
             <div className="cell">
-              <div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.iterateMvp}</div></div>
-              <div className="blk c-share"><span className="tag">{t.catShare}</span><div className="ttl">{t.syncReview}</div></div>
+              <div className="blk click star c-present grow" onClick={() => setSelectedKey('d5speak')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendPresent}</span>
+                <div className="ttl">{t.d5speak}</div>
+              </div>
+              <div className="blk c-share">
+                <span className="tag">{t.legendShare}</span>
+                <div className="ttl">{t.d2share}</div>
+              </div>
             </div>
+            {/* Day 6 */}
             <div className="cell">
-              <div className="blk c-show"><span className="tag">Showtime</span><div className="ttl">{t.projectRoadshow}</div></div>
+              <div className="blk click c-show" onClick={() => setSelectedKey('d6show')}>
+                <span className="arrow">›</span>
+                <span className="tag">Showtime</span>
+                <div className="ttl">{t.d6show}</div>
+              </div>
             </div>
 
-            {/* Row: 晚间 */}
+            {/* Row: 晚餐 (Dinner) */}
+            <div className="rlabel">{t.rowDinnerSession}</div>
+            <div className="bar meal" style={{ gridColumn: "span 5" }}>{t.dinnerRecess}</div>
+            <div className="cell"><div className="empty" /></div>
+
+            {/* Row: 晚间 (Night) */}
             <div className="rlabel">{t.rowEveningSession}</div>
+            {/* Day 1 */}
             <div className="cell">
-              <div className="blk click c-biz" onClick={() => setSelectedKey('d1ice')}><span className="arrow">›</span><span className="tag">Ice Breaking</span><div className="ttl">{t.icebreakBranding}</div><div className="meta">{t.openingManualMeta}</div></div>
+              <div className="blk click c-biz" onClick={() => setSelectedKey('d1ice')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.d1ice}</div>
+              </div>
             </div>
-            <div className="cell"><div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.draftBlueprint}</div></div></div>
-            <div className="cell"><div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.writeGddPrd}</div></div></div>
-            <div className="cell"><div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.buildMvp}</div></div></div>
-            <div className="cell"><div className="blk c-team"><span className="tag">{t.catTeam}</span><div className="ttl">{t.iterateMvp}</div></div></div>
+            {/* Day 2 */}
+            <div className="cell">
+              <div className="blk click c-team" onClick={() => setSelectedKey('d2_blueprint')}>
+                <span className="arrow">›</span>
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.d2blueprint}</div>
+              </div>
+            </div>
+            {/* Day 3 */}
+            <div className="cell">
+              <div className="blk c-share">
+                <span className="tag">{t.legendShare}</span>
+                <div className="ttl">{t.d2share}</div>
+              </div>
+            </div>
+            {/* Day 4 */}
+            <div className="cell">
+              <div className="blk c-present">
+                <span className="tag">{t.legendPresent}</span>
+                <div className="ttl">{t.d4pitchscript}</div>
+              </div>
+            </div>
+            {/* Day 5 */}
+            <div className="cell">
+              <div className="blk c-team">
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.d5refinement}</div>
+              </div>
+            </div>
+            {/* Day 6 */}
+            <div className="cell">
+              <div className="empty">{t.d6departure}</div>
+            </div>
+
+            {/* Row: Family time (No label) */}
+            <div className="rlabel" />
+            <div className="bar thin" style={{ gridColumn: "span 5" }}>{t.familyTime}</div>
             <div className="cell"><div className="empty" /></div>
           </div>
         </div>
       </main>
 
       {/* Overlay Modal */}
-      {selectedKey && (
+      {selectedKey && DETAILS[selectedKey] && (
         <div
           className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-start justify-center p-4 md:p-8 overflow-y-auto"
           onClick={(e) => {
@@ -893,7 +1232,7 @@ export function TimetablePage() {
             <div className="text-label-md text-primary font-mono tracking-widest mb-1.5 font-bold uppercase">
               {DETAILS[selectedKey].tag}
             </div>
-            <h2 className="text-headline-lg text-stone-900 font-bold mb-1 leading-tight">
+            <h2 className="text-headline-lg text-stone-900 font-bold mb-1 leading-tight font-serif">
               {DETAILS[selectedKey].title}
             </h2>
             <div className="text-body-sm text-stone-500 mb-6 font-mono border-b border-stone-200 pb-3">
