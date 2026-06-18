@@ -96,35 +96,30 @@ export function IncubatorPage() {
         </section>
 
         <section className="bg-white border-y border-outline-variant">
-          <div className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
-            <div className="space-y-md">
-              <h2 className="text-display-md text-inverse-surface">{t.incubatingTitle}</h2>
-              <p className="text-body-md text-on-surface-variant leading-relaxed">
-                {t.incubatingDesc}
+          <div className="max-w-screen-md mx-auto px-4 md:px-gutter py-xxl text-center space-y-md">
+            <h2 className="text-display-md text-inverse-surface">{t.incubatingTitle}</h2>
+            <p className="text-body-md text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
+              {t.incubatingDesc}
+            </p>
+            <div className="border-y border-outline-variant/60 py-4 max-w-lg mx-auto my-4">
+              <p className="text-label-md text-primary uppercase tracking-widest mb-xs">
+                {t.academicRestraint}
               </p>
-              <div className="knowledge-block-thin pl-md">
-                <p className="text-label-md text-primary uppercase tracking-widest mb-xs">
-                  {t.academicRestraint}
-                </p>
-                <p className="text-body-sm text-secondary italic">
-                  &quot;{t.quote}&quot;
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-md pt-md">
-                <div className="p-md border border-outline-variant rounded-xl">
-                  <MaterialIcon name="school" className="text-primary mb-sm" />
-                  <p className="text-headline-md">{t.mentorship}</p>
-                  <p className="text-body-sm text-secondary">{t.mentorshipDesc}</p>
-                </div>
-                <div className="p-md border border-outline-variant rounded-xl">
-                  <MaterialIcon name="terminal" className="text-primary mb-sm" />
-                  <p className="text-headline-md">{t.techSupport}</p>
-                  <p className="text-body-sm text-secondary">{t.techSupportDesc}</p>
-                </div>
-              </div>
+              <p className="text-body-sm text-secondary italic">
+                &quot;{t.quote}&quot;
+              </p>
             </div>
-            <div className="relative aspect-square rounded-full overflow-hidden border-8 border-surface-container-high">
-              <Image src={images.incubatorRound} alt="Research lab" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md pt-md max-w-2xl mx-auto">
+              <div className="p-md border border-outline-variant rounded-xl flex flex-col items-center">
+                <MaterialIcon name="school" className="text-primary mb-sm" />
+                <p className="text-headline-md">{t.mentorship}</p>
+                <p className="text-body-sm text-secondary">{t.mentorshipDesc}</p>
+              </div>
+              <div className="p-md border border-outline-variant rounded-xl flex flex-col items-center">
+                <MaterialIcon name="terminal" className="text-primary mb-sm" />
+                <p className="text-headline-md">{t.techSupport}</p>
+                <p className="text-body-sm text-secondary">{t.techSupportDesc}</p>
+              </div>
             </div>
           </div>
         </section>
