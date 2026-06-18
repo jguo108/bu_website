@@ -146,11 +146,8 @@ export function IncubatorPage() {
 
         <section className="bg-surface-container py-xxl">
           <div className="max-w-screen-xl mx-auto px-4 md:px-gutter">
-            <div className="flex justify-between items-end mb-xl">
-              <div>
-                <p className="text-label-md text-primary uppercase tracking-widest mb-xs">{t.showcase}</p>
-                <h2 className="text-display-md text-inverse-surface">{t.alumniTitle}</h2>
-              </div>
+            <div className="text-center mb-xl">
+              <h2 className="text-display-md text-inverse-surface">{t.alumniTitle}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
               {ventures.map((v) => (
