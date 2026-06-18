@@ -84,6 +84,10 @@ const content = {
     incubatorDuration: "Semester",
     incubatorTitle: "Incubator Lab",
     incubatorDesc: "For builders who seek complete validation. We take raw tech prototypes and guide them through customer interviews, data structures, deployment, and seed iterations.",
+    academyTag: "Full-Year Track",
+    academyDuration: "30 Weeks / 2 Semesters",
+    academyTitle: "Founders Academy",
+    academyDesc: "A comprehensive 30-week journey spanned across two semesters, teaching about AI and entrepreneurship. Students learn advanced AI models, design systems, and launch functional startups.",
     missionTitle: "Dare to Think, Dare to Act.",
     missionDesc: "We believe that the best way to learn is by doing. BoundaryUnknown provides the space, mentorship, and cloud compute nodes for young minds to transform curiosity into ventures."
   },
@@ -120,6 +124,10 @@ const content = {
     incubatorDuration: "单学期",
     incubatorTitle: "孵化实验室",
     incubatorDesc: "专为追求完整商业验证的创造者设计。我们以原始的技术原型为起点，引导他们进行真实用户访谈、数据架构设计、项目部署及种子用户迭代。",
+    academyTag: "学年路线",
+    academyDuration: "30 周 / 双学期",
+    academyTitle: "创始人学院",
+    academyDesc: "跨越两个学期、共 30 周的系统性深度项目，全面传授 AI 技术与创业方法论。学员将深入理解前沿 AI 模型，设计系统架构，并真正发布落地自己的创新企业。",
     missionTitle: (
       <>
         <span className="inline-block">无创造，</span>
@@ -253,11 +261,11 @@ export function LandingPage() {
               </h2>
             </div>
 
-            {/* Twin Program Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* Program Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               
               {/* Card 1: Innovathon Camps */}
-              <div className="bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 backdrop-blur-lg rounded-[32px] p-8 md:p-12 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+              <div className="bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 backdrop-blur-lg rounded-[32px] p-6 md:p-8 xl:p-10 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-[#FF751F]/5 blur-[64px] rounded-full group-hover:bg-[#FF751F]/10 transition-colors duration-500" />
                 <div>
                   <div className="flex justify-between items-start mb-8">
@@ -268,7 +276,7 @@ export function LandingPage() {
                       {t.campsDuration}
                     </span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase text-white mb-6">
+                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-white mb-6 tracking-tight whitespace-nowrap">
                     {t.campsTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
@@ -291,7 +299,7 @@ export function LandingPage() {
               </div>
 
               {/* Card 2: Incubator */}
-              <div className="bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 backdrop-blur-lg rounded-[32px] p-8 md:p-12 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+              <div className="bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 backdrop-blur-lg rounded-[32px] p-6 md:p-8 xl:p-10 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-[#D06A4C]/3 blur-[64px] rounded-full group-hover:bg-[#D06A4C]/8 transition-colors duration-500" />
                 <div>
                   <div className="flex justify-between items-start mb-8">
@@ -302,7 +310,7 @@ export function LandingPage() {
                       {t.incubatorDuration}
                     </span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase text-white mb-6">
+                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-white mb-6 tracking-tight whitespace-nowrap">
                     {t.incubatorTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
@@ -313,6 +321,40 @@ export function LandingPage() {
                 <div className="pt-6 border-t border-zinc-900 flex justify-between items-center">
                   <Link
                     href="/programs/incubator"
+                    className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-white hover:text-[#FF751F] transition-colors"
+                  >
+                    {t.learnMore}
+                    <MaterialIcon
+                      name="arrow_forward"
+                      className="text-xs group-hover/link:translate-x-1.5 transition-transform"
+                    />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Card 3: AI Founders Academy */}
+              <div className="bg-zinc-950/40 border border-zinc-900 hover:border-zinc-800 backdrop-blur-lg rounded-[32px] p-6 md:p-8 xl:p-10 flex flex-col justify-between group transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#FF751F]/4 blur-[64px] rounded-full group-hover:bg-[#FF751F]/8 transition-colors duration-500" />
+                <div>
+                  <div className="flex justify-between items-start mb-8">
+                    <span className="text-[10px] uppercase font-mono tracking-widest text-[#FF751F] border border-[#FF751F]/30 px-3 py-1 rounded-full bg-[#FF751F]/5">
+                      {t.academyTag}
+                    </span>
+                    <span className="text-zinc-500 font-mono text-sm uppercase">
+                      {t.academyDuration}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-white mb-6 tracking-tight whitespace-nowrap">
+                    {t.academyTitle}
+                  </h3>
+                  <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
+                    {t.academyDesc}
+                  </p>
+                </div>
+
+                <div className="pt-6 border-t border-zinc-900 flex justify-between items-center">
+                  <Link
+                    href="/programs/academy"
                     className="inline-flex items-center gap-2 group/link text-xs font-bold uppercase tracking-widest text-white hover:text-[#FF751F] transition-colors"
                   >
                     {t.learnMore}

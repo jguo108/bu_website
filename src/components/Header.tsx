@@ -14,6 +14,7 @@ const navItems = [
     children: [
       { href: "/programs/camps", labelKey: "nav.camps" as const },
       { href: "/programs/incubator", labelKey: "nav.incubator" as const },
+      { href: "/programs/academy", labelKey: "nav.academy" as const },
     ],
   },
   { href: "/about", labelKey: "nav.about" as const },
