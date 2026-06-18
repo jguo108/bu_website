@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaterialIcon } from "@/components/MaterialIcon";
-import { images } from "@/lib/images";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const objectivesEn = [
@@ -128,35 +126,27 @@ export function CampsPage() {
         </section>
 
         <section className="bg-white border-y border-outline-variant py-xxl">
-          <div className="max-w-screen-xl mx-auto px-4 md:px-gutter grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
-            <div className="space-y-md">
+          <div className="max-w-3xl mx-auto px-4 md:px-gutter text-center space-y-lg">
+            <div className="flex flex-col items-center">
               <h2 className="text-display-md text-inverse-surface">{t.foundersTitle}</h2>
-              <p className="text-body-md text-on-surface-variant leading-relaxed">
-                {t.foundersDesc}
-              </p>
-              <div className="knowledge-block-thin pl-md">
-                <p className="text-label-md text-primary uppercase tracking-widest mb-xs">
-                  {t.systemsMindset}
-                </p>
-                <p className="text-body-sm text-secondary italic">
-                  &quot;{t.quote}&quot;
-                </p>
-              </div>
+              <div className="h-1 w-24 bg-primary mt-sm" />
             </div>
-            <div className="relative aspect-square rounded-full overflow-hidden border-8 border-surface-container-high">
-              <Image
-                src={images.campsHero}
-                alt="Camp venue"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <p className="text-body-md text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
+              {t.foundersDesc}
+            </p>
+            <div className="pt-sm max-w-xl mx-auto">
+              <p className="text-label-md text-primary uppercase tracking-widest mb-xs">
+                {t.systemsMindset}
+              </p>
+              <p className="text-body-sm text-secondary italic">
+                &quot;{t.quote}&quot;
+              </p>
             </div>
           </div>
         </section>
 
         <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl">
-          <div className="mb-xl">
+          <div className="mb-xl flex flex-col items-center text-center">
             <h2 className="text-display-md text-inverse-surface">
               {t.coreObjectives}
             </h2>
