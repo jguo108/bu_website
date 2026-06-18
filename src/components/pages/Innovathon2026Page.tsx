@@ -8,47 +8,7 @@ import { RegisterButton } from "@/components/RegisterButton";
 import { images } from "@/lib/images";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const tracksEn = [
-  {
-    icon: "diversity_1",
-    title: "AI for Good",
-    description:
-      "Designing intelligent systems that solve urgent global challenges—from climate modeling to accessible healthcare distribution.",
-  },
-  {
-    icon: "potted_plant",
-    title: "AI for Fun",
-    description:
-      "Unlocking creative potential through generative art, procedural storytelling, and new forms of interactive digital play.",
-  },
-  {
-    icon: "school",
-    title: "AI for Learning",
-    description:
-      "Redefining pedagogy with personalized AI tutors, immersive history simulations, and cognitive augmentation tools.",
-  },
-];
 
-const tracksZh = [
-  {
-    icon: "diversity_1",
-    title: "AI for Good (技术向善)",
-    description:
-      "设计智能系统以解决紧迫的全球性挑战——从气候建模到无障碍医疗资源的普惠分配。",
-  },
-  {
-    icon: "potted_plant",
-    title: "AI for Fun (创意无界)",
-    description:
-      "通过生成式艺术、程序化叙事以及全新的数字互动娱乐形式，释放并激发无尽的创意潜能。",
-  },
-  {
-    icon: "school",
-    title: "AI for Learning (认知革命)",
-    description:
-      "用个性化 AI 导师、沉浸式历史模拟以及认知增强工具，重新定义未来的教学与学习范式。",
-  },
-];
 
 const faqsEn = [
   {
@@ -96,8 +56,6 @@ const content = {
     availableDates: "Available Dates",
     date1: "Session 1: July 5-10, 2026",
     date2: "Session 2: August 2-7, 2026",
-    coreCurriculum: "Core Curriculum",
-    viewTimetable: "View Timetable",
     faqTitle: "Frequently Asked Questions",
     readyTitle: (
       <>
@@ -124,8 +82,6 @@ const content = {
     availableDates: "开营日期",
     date1: "第一期：2026 年 7 月 5 - 10 日",
     date2: "第二期：2026 年 8 月 2 - 7 日",
-    coreCurriculum: "核心学习板块",
-    viewTimetable: "查看日程课表",
     faqTitle: "常见问题",
     readyTitle: (
       <>
@@ -140,7 +96,6 @@ const content = {
 
 export function Innovathon2026Page() {
   const { language } = useLanguage();
-  const tracks = language === "zh" ? tracksZh : tracksEn;
   const faqs = language === "zh" ? faqsZh : faqsEn;
   const t = content[language];
 
@@ -186,36 +141,7 @@ export function Innovathon2026Page() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-4 md:px-6 mb-xxl">
-          <div className="mb-xl">
-            <h2 className="text-display-md text-inverse-surface">
-              {t.coreCurriculum}
-            </h2>
-            <div className="h-1 w-24 bg-primary mt-sm" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
-            {tracks.map((track) => (
-              <div
-                key={track.title}
-                className="bg-stone-950 text-stone-50 p-xl rounded-[32px] flex flex-col items-center text-center"
-              >
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-md">
-                  <MaterialIcon name={track.icon} className="text-white text-3xl" />
-                </div>
-                <h3 className="text-headline-lg mb-sm">{track.title}</h3>
-                <p className="text-body-sm text-stone-400">{track.description}</p>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-xl">
-            <Link
-              href="/programs/camps/timetable"
-              className="inline-flex items-center gap-xs bg-stone-900 text-white hover:bg-stone-800 px-8 py-3 rounded-full text-md font-bold tracking-tight transition-all active:scale-95 shadow-md hover:shadow-lg"
-            >
-              {t.viewTimetable} <MaterialIcon name="arrow_forward" className="text-lg" />
-            </Link>
-          </div>
-        </section>
+
 
         <section className="max-w-7xl mx-auto px-4 md:px-6 py-xxl border-t border-outline-variant/30">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-xl">
