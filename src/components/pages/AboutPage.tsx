@@ -49,16 +49,19 @@ const foundersEn = [
     name: "Cece Fang",
     role: "Co-founder",
     image: "/images/team/cece_fang.png",
+    intro: "Founder of Boundary Unknown. With over a decade of experience in the investment industry, Cece has partnered with and analyzed countless entrepreneurs. Her deep insights into entrepreneurial talent led to the creation of Boundary Unknown, a program designed to foster the next generation of 'super individuals' capable of thriving in the AI era through real-world execution.",
   },
   {
     name: "Lexie Wu",
     role: "Co-founder",
     image: "/images/team/lexie_wu.png",
+    intro: "Co-founder of Boundary Unknown. Lexie is an experienced educator and program designer who specializes in experiential learning and project-based curricula. She is passionate about creating environments where kids can build real projects, test their limits, and learn how to navigate uncertainty with confidence.",
   },
   {
     name: "Jing Guo",
     role: "AI Advisor",
     image: "/images/team/jing_guo.png",
+    intro: "AI Advisor for Boundary Unknown. Jing is a senior AI research scientist and tech leader with extensive experience in machine learning and cognitive architectures. He advises on our technical curriculum, ensuring that students learn to build AI-first prototypes using modern development frameworks and real-world workflows.",
   },
 ];
 
@@ -67,16 +70,19 @@ const foundersZh = [
     name: "Cece Fang",
     role: "联合创始人",
     image: "/images/team/cece_fang.png",
+    intro: "Boundary Unknown 创始人。拥有十余年投资行业经验，曾与无数创业者深度合作。她对创业者特质的深刻洞察促成了 Boundary Unknown 的创立，旨在通过真实商业环境的锤炼，培养在 AI 时代敢想敢为的“超级个体”。",
   },
   {
     name: "Lexie Wu",
     role: "联合创始人",
     image: "/images/team/lexie_wu.png",
+    intro: "Boundary Unknown 联合创始人。资深教育家与项目设计专家，专注于体验式学习与项目制课程研发。她致力于为孩子们创造动手实践的真实场景，引导他们在不确定性中建立自信与解决问题的能力。",
   },
   {
     name: "Jing Guo",
     role: "AI 顾问",
     image: "/images/team/jing_guo.png",
+    intro: "Boundary Unknown AI 顾问。资深人工智能科学家与技术领袖，在机器学习和认知架构领域拥有丰富经验。他为技术课程提供专业指导，确保学员能够掌握最新的 AI 工具，在真实开发流程中构建以 AI 为核心的原型产品。",
   },
 ];
 
@@ -229,24 +235,37 @@ export function AboutPage() {
               </h2>
               <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-xl justify-items-center">
+            <div className="max-w-5xl mx-auto flex flex-col gap-lg md:gap-xl">
               {founders.map((member) => (
-                <div key={member.name} className="flex flex-col items-center text-center group">
-                  <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-border/85 group-hover:border-primary transition-all duration-500 shadow-md group-hover:shadow-xl group-hover:scale-105 mb-md bg-card">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                      sizes="(max-width: 768px) 240px, 288px"
-                    />
+                <div
+                  key={member.name}
+                  className="flex flex-col md:flex-row items-center md:items-stretch gap-lg md:gap-xl p-lg rounded-2xl bg-card border border-border group hover:border-primary/30 transition-all duration-300 sticker-card"
+                >
+                  {/* Left Column: Photo + Name + Role */}
+                  <div className="flex flex-col items-center text-center w-60 shrink-0">
+                    <div className="relative w-44 h-44 rounded-2xl overflow-hidden border-4 border-border/85 group-hover:border-primary transition-all duration-500 shadow-md group-hover:shadow-xl group-hover:scale-105 mb-sm bg-card">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                        sizes="176px"
+                      />
+                    </div>
+                    <h3 className="text-headline-lg text-on-surface mb-xs transition-colors duration-300 group-hover:text-primary">
+                      {member.name}
+                    </h3>
+                    <p className="text-body-md text-on-surface-variant font-medium">
+                      {member.role}
+                    </p>
                   </div>
-                  <h3 className="text-headline-lg text-on-surface mb-xs transition-colors duration-300 group-hover:text-primary">
-                    {member.name}
-                  </h3>
-                  <p className="text-body-md text-on-surface-variant font-medium">
-                    {member.role}
-                  </p>
+
+                  {/* Right Column: Intro */}
+                  <div className="flex-1 flex items-center text-center md:text-left px-sm md:px-lg">
+                    <p className="text-body-md text-secondary leading-relaxed">
+                      {member.intro}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
