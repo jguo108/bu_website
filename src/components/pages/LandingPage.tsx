@@ -67,6 +67,7 @@ const content = {
       </>
     ),
     cta: "EXPLORE PROGRAMS",
+    philosophyTitle: "Philosophy",
     f1Title: "Founder Mindset",
     f1Desc: "Identify systemic challenges, perform rapid target user validation, analyze metrics, and design dynamic feedback loops.",
     f2Title: "AI-First Development",
@@ -102,6 +103,7 @@ const content = {
       </>
     ),
     cta: "探索项目课程",
+    philosophyTitle: "教学理念",
     f1Title: "创始人思维",
     f1Desc: "识别系统性挑战，进行快速的真实用户验证，分析商业数据指标，并设计动态的反馈闭环。",
     f2Title: "AI 优先开发",
@@ -193,6 +195,11 @@ export function LandingPage() {
         {/* CORE METHODOLOGY HIGHLIGHTS */}
         <section className="py-12 md:py-20 border-t border-zinc-900 bg-zinc-950/20 backdrop-blur-sm rounded-[32px] px-6 md:px-12 mb-24">
           <div ref={featuresReveal.ref} className={featuresReveal.className}>
+            <div className="mb-16 text-center">
+              <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
+                {t.philosophyTitle}
+              </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               
               <div className="flex flex-col gap-4 group">
