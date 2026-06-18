@@ -17,7 +17,7 @@ export const translations = {
       faq: "FAQ",
       terms: "Terms of Service",
       privacy: "Privacy Policy",
-      rights: "© 2024 BoundaryUnknown. All rights reserved.",
+      rights: "© 2026 BoundaryUnknown. All rights reserved.",
     },
     register: {
       title: "Join BoundaryUnknown",
@@ -50,7 +50,7 @@ export const translations = {
       faq: "常见问题",
       terms: "服务条款",
       privacy: "隐私政策",
-      rights: "© 2024 BoundaryUnknown. 保留所有权利。",
+      rights: "© 2026 BoundaryUnknown. 保留所有权利。",
     },
     register: {
       title: "加入 BoundaryUnknown",
