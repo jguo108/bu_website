@@ -188,24 +188,28 @@ export function AboutPage() {
             </div>
             <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-xl lg:gap-24 relative">
               <div className="relative w-[340px] h-[340px] md:w-[480px] md:h-[480px] shrink-0">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-2/3 border-2 border-primary bg-primary/5 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-500">
+                {/* Heart Circle */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-2/3 bg-[#D06A4C]/12 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-500">
                   <div className="text-center mb-20">
-                    <MaterialIcon name="favorite" className="text-primary text-3xl mb-1 block mx-auto" />
-                    <p className="text-label-md font-bold uppercase tracking-widest text-primary">Heart</p>
+                    <MaterialIcon name="favorite" className="text-[#D06A4C] text-3xl mb-1 block mx-auto" />
+                    <p className="text-label-md font-bold uppercase tracking-widest text-[#D06A4C]">Heart</p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-2/3 h-2/3 border-2 border-primary bg-primary/5 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-500">
+                {/* Head Circle */}
+                <div className="absolute bottom-0 left-0 w-2/3 h-2/3 bg-[#3CA685]/12 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-500">
                   <div className="text-center mt-16 mr-16">
-                    <MaterialIcon name="psychology" className="text-primary text-3xl mb-1 block mx-auto" />
-                    <p className="text-label-md font-bold uppercase tracking-widest text-primary">Head</p>
+                    <MaterialIcon name="psychology" className="text-[#2E8268] text-3xl mb-1 block mx-auto" />
+                    <p className="text-label-md font-bold uppercase tracking-widest text-[#2E8268]">Head</p>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-2/3 h-2/3 border-2 border-primary bg-primary/5 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-500">
+                {/* Hand Circle */}
+                <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-[#4A89C8]/12 rounded-full flex items-center justify-center transition-transform hover:scale-105 duration-500">
                   <div className="text-center mt-16 ml-16">
-                    <MaterialIcon name="front_hand" className="text-primary text-3xl mb-1 block mx-auto" />
-                    <p className="text-label-md font-bold uppercase tracking-widest text-primary">Hand</p>
+                    <MaterialIcon name="front_hand" className="text-[#3D7CB5] text-3xl mb-1 block mx-auto" />
+                    <p className="text-label-md font-bold uppercase tracking-widest text-[#3D7CB5]">Hand</p>
                   </div>
                 </div>
+                {/* Central Circle */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 bg-primary rounded-full flex items-center justify-center shadow-2xl z-10 animate-pulse border-4 border-white/20">
                   <p className="text-white font-bold text-center uppercase px-4 leading-tight text-sm">
                     {t.integratedMastery}
@@ -213,15 +217,18 @@ export function AboutPage() {
                 </div>
               </div>
               <div className="flex-1 space-y-md text-left w-full">
-                {philosophy.map((item) => (
-                  <div
-                    key={item.title}
-                    className={`p-lg rounded-2xl sticker-card bg-card border border-border ${item.offset ? "ml-0 lg:ml-8" : ""}`}
-                  >
-                    <h4 className="text-headline-lg text-primary mb-2">{item.title}</h4>
-                    <p className="text-body-md text-on-surface-variant">{item.desc}</p>
-                  </div>
-                ))}
+                {philosophy.map((item, idx) => {
+                  const headingColors = ["text-[#D06A4C]", "text-[#2E8268]", "text-[#3D7CB5]"];
+                  return (
+                    <div
+                      key={item.title}
+                      className={`p-lg rounded-2xl sticker-card bg-card border border-border ${item.offset ? "ml-0 lg:ml-8" : ""}`}
+                    >
+                      <h4 className={`text-headline-lg ${headingColors[idx]} mb-2`}>{item.title}</h4>
+                      <p className="text-body-md text-on-surface-variant">{item.desc}</p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

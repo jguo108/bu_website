@@ -97,7 +97,10 @@ export function IncubatorPage() {
 
         <section className="bg-white border-y border-outline-variant">
           <div className="max-w-screen-md mx-auto px-4 md:px-gutter py-xxl text-center space-y-md">
-            <h2 className="text-display-md text-inverse-surface">{t.incubatingTitle}</h2>
+            <div className="text-center">
+              <h2 className="text-display-md text-inverse-surface mb-sm">{t.incubatingTitle}</h2>
+              <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+            </div>
             <p className="text-body-md text-on-surface-variant leading-relaxed max-w-2xl mx-auto">
               {t.incubatingDesc}
             </p>
@@ -125,9 +128,12 @@ export function IncubatorPage() {
         </section>
 
         <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl">
-          <h2 className="text-display-md text-inverse-surface text-center mb-xl">
-            {t.pathTitle}
-          </h2>
+          <div className="text-center mb-xl">
+            <h2 className="text-display-md text-inverse-surface mb-sm">
+              {t.pathTitle}
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
             {steps.map((step) => (
               <div
@@ -147,7 +153,8 @@ export function IncubatorPage() {
         <section className="bg-surface-container py-xxl">
           <div className="max-w-screen-xl mx-auto px-4 md:px-gutter">
             <div className="text-center mb-xl">
-              <h2 className="text-display-md text-inverse-surface">{t.alumniTitle}</h2>
+              <h2 className="text-display-md text-inverse-surface mb-sm">{t.alumniTitle}</h2>
+              <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
               {ventures.map((v) => (
