@@ -49,13 +49,12 @@ export function Header({ variant = "default" }: { variant?: "default" | "white" 
   return (
     <header className={`w-full border-b sticky top-0 z-50 ${bg}`}>
       <nav className="flex justify-between items-center px-4 md:px-8 py-5 w-full max-w-screen-2xl mx-auto tracking-tight antialiased text-sm uppercase">
-        <Link
-          href="/"
-          className={`text-xl font-bold tracking-tighter ${
-            variant === "dark" ? "text-white" : "text-stone-900"
-          }`}
-        >
-          BoundaryUnknown
+        <Link href="/" className="flex items-center">
+          <img
+            src={pathname === "/" ? "/images/white_logo.png" : "/images/black_logo.png"}
+            alt="BoundaryUnknown"
+            className="h-5 md:h-6 w-auto object-contain"
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
