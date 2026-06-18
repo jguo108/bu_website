@@ -84,7 +84,7 @@ const content = {
     incubatorDuration: "Semester",
     incubatorTitle: "Incubator Lab",
     incubatorDesc: "For builders who seek complete validation. We take raw tech prototypes and guide them through customer interviews, data structures, deployment, and seed iterations.",
-    missionTitle: "Empowering the next generation of founders to build with AI.",
+    missionTitle: "Dare to Think, Dare to Act.",
     missionDesc: "We believe that the best way to learn is by doing. BoundaryUnknown provides the space, mentorship, and cloud compute nodes for young minds to transform curiosity into ventures."
   },
   zh: {
@@ -122,8 +122,8 @@ const content = {
     incubatorDesc: "专为追求完整商业验证的创造者设计。我们以原始的技术原型为起点，引导他们进行真实用户访谈、数据架构设计、项目部署及种子用户迭代。",
     missionTitle: (
       <>
-        <span className="inline-block">赋能下一代创造者，</span>
-        <span className="inline-block">与 AI 协同共建。</span>
+        <span className="inline-block">无创造，</span>
+        <span className="inline-block">不少年。</span>
       </>
     ),
     missionDesc: "我们相信，最好的学习方式就是动手实践。BoundaryUnknown 为年轻人提供探索空间、导师指导以及云端计算资源，将抽象的好奇心转化为真正的创新实践。"
