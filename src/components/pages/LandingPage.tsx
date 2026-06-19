@@ -68,12 +68,12 @@ const content = {
     ),
     cta: "EXPLORE PROGRAMS",
     philosophyTitle: "Philosophy",
-    f1Title: "Founder Mindset",
-    f1Desc: "Identify systemic challenges, perform rapid target user validation, analyze metrics, and design dynamic feedback loops.",
-    f2Title: "AI-First Development",
-    f2Desc: "Stay in the driver's seat. Harness the power of generative AI, prompt engineering, and LLM orchestration to translate thoughts into codebase.",
-    f3Title: "Working Prototypes",
-    f3Desc: "No empty theories. Students assemble, iterate, and publish fully functional web architectures or robotics MVPs ready to showcase.",
+    f1Title: "Heart (Empathy)",
+    f1Desc: "Deep emotional resonance ensures we solve problems that actually matter to human lives, feeling customer pain points at a visceral level.",
+    f2Title: "Head (Knowledge)",
+    f2Desc: "Systematic knowledge and analytical rigor across AI, business, and finance guide our actions toward technical and market reality.",
+    f3Title: "Hand (Action)",
+    f3Desc: "Iterative feedback and relentless execution. We build, test, and act again with increased precision to bridge theory and the world.",
     programsTitle: "Our Programs",
     campsTag: "Intensive Sprint",
     campsDuration: "6 Days",
@@ -108,12 +108,12 @@ const content = {
     ),
     cta: "探索项目课程",
     philosophyTitle: "教学理念",
-    f1Title: "创始人思维",
-    f1Desc: "识别系统性挑战，进行快速的真实用户验证，分析商业数据指标，并设计动态的反馈闭环。",
-    f2Title: "AI 优先开发",
-    f2Desc: "保持主导地位。利用生成式 AI、提示词工程和 LLM 编排，将头脑中的想法转化为真正的代码库。",
-    f3Title: "可运行的原型",
-    f3Desc: "拒绝空谈理论。学员们亲自动手组装、迭代并发布功能完备的 Web 架构或机器人 MVP 原型。",
+    f1Title: "心 (共情)",
+    f1Desc: "深度的情感共鸣，确保我们解决对人类生活真正有价值的痛点，深刻感知用户的真实处境。",
+    f2Title: "脑 (认知)",
+    f2Desc: "在人工智能、商业和金融领域具备系统性知识与严谨的分析能力，引导我们走向技术和市场现实。",
+    f3Title: "手 (行动)",
+    f3Desc: "快速迭代的反馈与坚定不移的执行力。我们在实践中构建、测试并再次行动，不断提升精度以连接理论与真实世界。",
     programsTitle: "项目课程",
     campsTag: "短期冲刺营",
     campsDuration: "6 天",
@@ -208,39 +208,75 @@ export function LandingPage() {
                 {t.philosophyTitle}
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               
-              <div className="flex flex-col gap-4 group">
-                <span className="text-4xl font-mono font-extrabold text-zinc-800 group-hover:text-[#FF751F] transition-colors duration-300">
-                  01
-                </span>
-                <h3 className="text-xl font-bold uppercase text-white tracking-tight">
-                  {t.f1Title}
-                </h3>
+              {/* Card 1: Heart */}
+              <div className="flex flex-col gap-6 p-8 rounded-[24px] bg-zinc-950/40 border border-zinc-900/80 hover:border-[#D06A4C]/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#D06A4C]/5 blur-[48px] rounded-full group-hover:bg-[#D06A4C]/10 transition-colors duration-500" />
+                
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#D06A4C]/10 flex items-center justify-center border border-[#D06A4C]/20 group-hover:border-[#D06A4C]/40 transition-colors">
+                      <MaterialIcon name="favorite" className="text-[#D06A4C] text-2xl transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <h3 className="text-xl font-bold uppercase text-white tracking-tight transition-colors duration-300 group-hover:text-[#D06A4C]">
+                      {t.f1Title}
+                    </h3>
+                  </div>
+                  <span className="text-4xl font-mono font-black text-zinc-800/60 group-hover:text-[#D06A4C] transition-colors duration-500">
+                    01
+                  </span>
+                </div>
+                
                 <p className="text-zinc-400 text-sm leading-relaxed">
                   {t.f1Desc}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4 group">
-                <span className="text-4xl font-mono font-extrabold text-zinc-800 group-hover:text-[#FF751F] transition-colors duration-300">
-                  02
-                </span>
-                <h3 className="text-xl font-bold uppercase text-white tracking-tight">
-                  {t.f2Title}
-                </h3>
+              {/* Card 2: Head */}
+              <div className="flex flex-col gap-6 p-8 rounded-[24px] bg-zinc-950/40 border border-zinc-900/80 hover:border-[#2E8268]/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#2E8268]/5 blur-[48px] rounded-full group-hover:bg-[#2E8268]/10 transition-colors duration-500" />
+                
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#2E8268]/10 flex items-center justify-center border border-[#2E8268]/20 group-hover:border-[#2E8268]/40 transition-colors">
+                      <MaterialIcon name="psychology" className="text-[#2E8268] text-2xl transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <h3 className="text-xl font-bold uppercase text-white tracking-tight transition-colors duration-300 group-hover:text-[#2E8268]">
+                      {t.f2Title}
+                    </h3>
+                  </div>
+                  <span className="text-4xl font-mono font-black text-zinc-800/60 group-hover:text-[#2E8268] transition-colors duration-500">
+                    02
+                  </span>
+                </div>
+                
                 <p className="text-zinc-400 text-sm leading-relaxed">
                   {t.f2Desc}
                 </p>
               </div>
 
-              <div className="flex flex-col gap-4 group">
-                <span className="text-4xl font-mono font-extrabold text-zinc-800 group-hover:text-[#FF751F] transition-colors duration-300">
-                  03
-                </span>
-                <h3 className="text-xl font-bold uppercase text-white tracking-tight">
-                  {t.f3Title}
-                </h3>
+              {/* Card 3: Hand */}
+              <div className="flex flex-col gap-6 p-8 rounded-[24px] bg-zinc-950/40 border border-zinc-900/80 hover:border-[#3D7CB5]/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#3D7CB5]/5 blur-[48px] rounded-full group-hover:bg-[#3D7CB5]/10 transition-colors duration-500" />
+                
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#3D7CB5]/10 flex items-center justify-center border border-[#3D7CB5]/20 group-hover:border-[#3D7CB5]/40 transition-colors">
+                      <MaterialIcon name="front_hand" className="text-[#3D7CB5] text-2xl transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <h3 className="text-xl font-bold uppercase text-white tracking-tight transition-colors duration-300 group-hover:text-[#3D7CB5]">
+                      {t.f3Title}
+                    </h3>
+                  </div>
+                  <span className="text-4xl font-mono font-black text-zinc-800/60 group-hover:text-[#3D7CB5] transition-colors duration-500">
+                    03
+                  </span>
+                </div>
+                
                 <p className="text-zinc-400 text-sm leading-relaxed">
                   {t.f3Desc}
                 </p>
