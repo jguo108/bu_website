@@ -14,393 +14,635 @@ interface Detail {
 
 const DETAILS_ZH: Record<string, Detail> = {
   d2_lo_ai: {
-    tag: "AI Boost · 低龄",
-    when: "Day 2 · 上午",
+    tag: "Creator · AI Boost（AI 老师）",
+    when: "Day 2 上午 · 第 2 段 · Creator班",
     title: "What is AI? vibe coding 101",
     html: `
-      <p>孩子将<b>初步认识 AI</b>：它大概是怎么工作的、如今能做到哪些事，以及——<b>怎样和 AI 有效地对话</b>。</p>
-      <div class="quote">课程目标：建立对 AI 的整体认识，学会"好好提问"，为后面动手用 AI 打下基础。</div>
+      <p>这节课带大家<b>初步了解 AI 是怎么工作的</b>，看看现在的 AI 都有哪些能力，以及——<b>怎么和 AI 有效地对话</b>。</p>
+      <ul>
+        <li>AI 大概是怎么"思考"、怎么回答问题的（不讲深原理，先建直觉）</li>
+        <li>现在的 AI 能做到哪些事（看几个最新例子）</li>
+        <li>怎么"好好说话"，AI 才听得懂、给得准——有效对话 / prompting 入门</li>
+      </ul>
+      <div class="quote">AI 老师动线：<b>上午 → Creator</b>。Innovator的同一节放到<b>下午</b>，一个老师不撞车。</div>
+      <div class="tools">为 Day 3 的 vibe coding 打底　|　AI 工具：<b>Claude / 豆包</b> 等</div>
     `
   },
   d2_jiexi: {
-    tag: "创业思维",
-    when: "Day 2 · 上午",
+    tag: "合班 · 创业思维",
+    when: "Day 2 上午 · 第 1 节 · 两班一起上",
     title: "主题拆解 · 创业思维",
     html: `
-      <p>用一组真实又有趣的例子，带孩子认识 AI 能做的三类事：让生活更有趣（<b>fun</b>）、帮助学习（<b>learning</b>）、让世界更好（<b>good</b>）。</p>
-      <div class="quote">课程目标：打开视野，理解"AI 可以用来做很多有意义的事"，并找到自己最感兴趣的方向。</div>
+      <p>Day 2 第一节<b>两班合上</b>，一起拆解"AI 能做什么"，用同一组例子，按年龄给到不同深度。</p>
+      <div class="cards">
+        <div class="card">
+          <div class="h">体验层（面向Creator）</div>
+          <ul>
+            <li><b>AI for fun</b>：把照片变成会动的动漫角色</li>
+            <li><b>AI for good</b>：Be My Eyes —— AI 帮盲人"看见"</li>
+            <li><b>AI for learning</b>：用 AI 问难题，看它怎么教</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="h">批判层（面向Innovator）</div>
+          <ul>
+            <li><b>fun</b>：谁从你"刷到停不下来"里赚钱？</li>
+            <li><b>good</b>：AI 看错了，谁负责？</li>
+            <li><b>learning</b>：给答案 vs 教你思考，哪个真帮你？</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote">结尾：投票"我最想做哪一类 AI"。这一节之后<b>分头上课</b>：Creator上 prompting，Innovator上商业素养课。</div>
+      <div class="tools">AI 工具：<b>即梦 / 可灵</b>（演示）· <b>Claude / 豆包</b></div>
     `
   },
   d2_hi_biz2: {
-    tag: "创业思维 · 高龄",
-    when: "Day 2 · 上午",
+    tag: "Innovator · 商业素养课",
+    when: "Day 2 上午 · 第 2 节 · Innovator班",
     title: "商业素养课",
     html: `
-      <p>通过一局「<b>商业侦探</b>」桌游，在玩中搞清楚一家 company 是怎么运转的：CEO、CFO、CTO、CMO 各自做什么，公司靠哪些关键指标判断好坏。</p>
-      <div class="quote">课程目标：建立简单的商业"sense"，理解公司就像一台需要分工配合的"团队机器"。</div>
+      <p>一起来玩一局「<b>商业侦探</b>」桌游——不讲大道理，在游戏里把"一家公司是怎么回事"摸清楚。</p>
+      <h3>在游戏里搞懂</h3>
+      <ul>
+        <li><b>四个 C 各管什么</b>：CEO（掌舵做决定）/ CFO（管钱）/ CTO（管技术、做产品）/ CMO（管市场、把东西卖出去）</li>
+        <li><b>公司怎么运转</b>：一个产品从想法 → 做出来 → 卖出去 → 赚到钱，中间谁在出力、环环怎么扣</li>
+        <li><b>要盯哪些关键指标</b>：有多少用户、东西好不好卖、赚不赚钱……一家公司靠哪些数字判断好坏</li>
+      </ul>
+      <div class="quote">课程目标：不是背名词，而是让小朋友建立简单的商业 <b>"sense"</b>——知道一家公司就像一台需要分工配合的"团队机器"。</div>
+      <div class="tools">教具：商业侦探桌游　|　配套见项目里的《商业素养课_公司里的四个C》</div>
     `
   },
   d2pm_hi: {
-    tag: "AI Boost · 高龄",
-    when: "Day 2 · 下午",
+    tag: "Innovator · AI Boost（AI 老师）",
+    when: "Day 2 下午 · 前段 · Innovator班",
     title: "What is AI? vibe coding 101",
     html: `
-      <p>孩子将<b>初步认识 AI</b>：它大概是怎么工作的、如今能做到哪些事、怎样和 AI 有效对话，并以更具思辨的视角看待 AI 的能力与边界。</p>
-      <div class="quote">课程目标：建立对 AI 的整体认识与判断力，学会"好好提问"，为动手用 AI 打基础。</div>
+      <p>下午前段 <b>AI 老师转到Innovator</b>，上同一节——和上午Creator<b>错开时间</b>，一个 AI 老师就够。</p>
+      <p><b>初步了解 AI 是怎么工作的</b>，看看现在 AI 的能力，以及<b>怎么和 AI 有效地对话</b>。</p>
+      <ul>
+        <li>AI 大概怎么"思考"、能做到哪一步（结合批判视角：答案要不要照单全收）</li>
+        <li>现在 AI 的能力边界在哪</li>
+        <li>怎么和 AI 有效对话、写出好 prompt</li>
+      </ul>
+      <div class="quote">AI 老师动线：<b>上午 → Creator</b>，<b>下午 → Innovator</b>。</div>
+      <div class="tools">为 Day 3 的 vibe coding 打底　|　AI 工具：<b>Claude / 豆包</b></div>
     `
   },
   d2pm_lo: {
-    tag: "创业思维 · 低龄",
-    when: "Day 2 · 下午",
+    tag: "Creator · 商业素养课",
+    when: "Day 2 下午 · 前段 · Creator班",
     title: "商业素养课",
     html: `
-      <p>通过一局「<b>商业侦探</b>」桌游，在玩中搞清楚一家公司是怎么运转的：CEO、CFO、CTO、CMO 各自做什么，公司靠哪些关键指标判断好坏。</p>
-      <div class="quote">课程目标：建立简单的商业"sense"，理解公司就像一台需要分工配合的"团队机器"。</div>
+      <p>Innovator上午上过的同一节，Creator放到下午（和 AI 课错峰）。一起来玩一局「<b>商业侦探</b>」桌游——在游戏里把"一家公司是怎么回事"摸清楚。</p>
+      <h3>在游戏里搞懂</h3>
+      <ul>
+        <li><b>四个 C 各管什么</b>：CEO（掌舵做决定）/ CFO（管钱）/ CTO（管技术、做产品）/ CMO（管市场、把东西卖出去）</li>
+        <li><b>公司怎么运转</b>：一个产品从想法 → 做出来 → 卖出去 → 赚到钱，中间谁在出力、环环怎么扣</li>
+        <li><b>要盯哪些关键指标</b>：有多少用户、东西好不好卖、赚不赚钱……一家公司靠哪些数字判断好坏</li>
+      </ul>
+      <div class="quote">课程目标：让小朋友建立简单的商业 <b>"sense"</b>——知道一家公司就像一台需要分工配合的"团队机器"。后段两班合回来一起上<b>共情力</b>。</div>
+      <div class="tools">教具：商业侦探桌游　|　配套见《商业素养课_公司里的四个C》</div>
     `
   },
   d2empathy: {
-    tag: "创业思维",
-    when: "Day 2 · 下午",
+    tag: "创业思维 · 合班",
+    when: "Day 2 下午 · 后段 · 两班合回来",
     title: "共情力 — 发现痛点、头脑风暴",
     html: `
-      <p>好的创意，来自对生活的观察和对痛点的捕捉。这节课带孩子一起头脑风暴：<b>生活里有哪些"问题"？哪些是你最想改变的？</b></p>
-      <div class="quote">课程目标：培养观察力与共情力，学会"先看见问题，再谈点子"，为项目找到真实的出发点。</div>
+      <p>好的创意，往往来自<b>对生活的观察</b>和<b>对痛点的捕捉</b>。这节课我们和小朋友一起 brainstorming：<b>生活里有哪些"问题"？哪些是你最想改变的东西？</b></p>
+      <p>这接住了 Day 1 收尾埋的钩子——"最好的产品，都是从'讨厌'开始的"。我们不急着想点子，先把"不爽"找出来。</p>
+      <h3>怎么玩</h3>
+      <ul>
+        <li><b>吐槽时间</b>：每个孩子写下 3 件"最近让我抓狂 / 麻烦 / 不方便"的事——在家、在学校、在路上都算</li>
+        <li><b>找共鸣</b>：小组轮流分享，圈出"原来大家都烦这个"的<b>共同痛点</b></li>
+        <li><b>换位想一想</b>：这件事除了我，还有谁也被困扰？他们是什么感受？（练"共情"）</li>
+        <li><b>AI 帮发散</b>：选 1-2 个痛点，用 AI 一起头脑风暴"可能怎么解决"，越多越好、先不评判</li>
+      </ul>
+      <div class="quote">带走一句话：<b>"先看见问题，再谈点子。"</b> 这里产出的痛点，正是 Day 3 选用户、Day 4 市场问卷要去验证的对象。</div>
+      <div class="tools">AI 工具：<b>Claude / 豆包</b>（围绕痛点发散解法）　|　产出：每组一张"痛点清单"</div>
     `
   },
   d2_blueprint: {
     tag: "Teamwork",
-    when: "Day 2 · 晚间",
+    when: "Day 2 晚间 · 小组",
     title: "开始策划你的创业蓝图",
     html: `
-      <p>晚间小组时间：从三大主题（AI for <b>fun</b> / <b>learning</b> / <b>good</b>）里，讨论并定下自己小组想做的"创业主题"。</p>
-      <div class="quote">课程目标：完成从"我喜欢"到"我们要做什么"的第一步，凝聚小组方向。</div>
+      <p>今天晚上，小组要从我们的<b>三大主题</b>里，讨论并定下自己想做的"<b>创业主题</b>"：</p>
+      <ul>
+        <li><b>AI for fun</b>：让人开心、好玩的</li>
+        <li><b>AI for learning</b>：帮人学东西、变厉害的</li>
+        <li><b>AI for good</b>：帮到别人、让世界更好一点的</li>
+      </ul>
+      <div class="quote">先选大方向，再往里填想法——这就是你们小组接下来几天要一起做的事。</div>
     `
   },
   d6show: {
     tag: "Showtime",
-    when: "Day 6 · 下午",
+    when: "Day 6 下午",
     title: "项目路演",
     html: `
-      <p><b>It's your show time!</b> 六天的努力在这一刻登场——每个小组上台讲出自己的项目，并展示亲手做出的作品。</p>
-      <div class="quote">课程目标：在真实舞台上自信表达，为自己的创造感到骄傲。</div>
+      <p><b>It's your show time!</b></p>
+      <p>六天的努力，在这一刻登场——每个小组上台讲出自己的项目：解决什么问题、给谁用、怎么做出来的，然后亮出你们的 demo。</p>
+      <div class="quote">放松、自信、为自己骄傲。这是属于你们的舞台！</div>
     `
   },
   d_mvp: {
     tag: "Teamwork",
-    when: "Day 4 / Day 5",
+    when: "Day 4 / Day 5 · 小组",
     title: "打造 MVP",
     html: `
-      <p>小组开始动手打造自己的 <b>MVP</b>（最小可用产品）——借助 AI 工具，实现<b>从 0 到 1 的突破</b>。</p>
-      <div class="quote">课程目标：把想法变成一个能展示、能讲清楚的真实作品。</div>
+      <p>开始打造小组的 <b>MVP</b>（最小可用产品）——使用 AI 工具，实现<b>从 0 到 1 的突破！</b></p>
+      <ul>
+        <li>把"想做的东西"砍到<b>最小、能跑、能演示</b>的版本</li>
+        <li>用 vibe coding / AI 工具，边说边做、快速出第一版</li>
+        <li>做出来 → 自己玩一遍 → 发现问题 → 再改</li>
+      </ul>
+      <div class="quote">不求完美，只求<b>"能给别人看、能讲清楚我做了什么"</b>。Day 4-5 反复打磨，Day 6 拿去路演。</div>
+      <div class="tools">AI 工具：<b>Claude</b> 等　|　产出：小组可演示的 MVP</div>
     `
   },
   d3_vibe_games: {
-    tag: "AI Boost · 低龄",
-    when: "Day 3 · 上午",
+    tag: "Vibe Coding · Games",
+    when: "Day 3 · 上午（两班同款）",
     title: "Vibe Coding · Games",
     html: `
-      <p>会打游戏，不等于会做游戏。这节课从<b>分析经典游戏</b>入手，看看一个好游戏背后有哪些关键设计，并用 AI 工具动手做出自己的小游戏。</p>
-      <div class="quote">课程目标：理解游戏设计的基本思路，并亲手做出一个能玩的小游戏。</div>
+      <p>大家都打过游戏，那么怎么样"<b>做</b>"一个游戏呢？一个好的游戏，需要哪些关键的"<b>设计</b>"呢？</p>
+      <p>这节课，我们从<b>分析经典游戏</b>入手，让大家知道——<b>会打游戏 ≠ 会做游戏</b>。</p>
+      <ul>
+        <li>拆解一款经典游戏：好玩在哪、规则怎么设计、难度怎么把控</li>
+        <li>用 vibe coding "边说边做"，让 AI 帮你把游戏点子变成能玩的 demo</li>
+        <li>做出来 → 自己试玩 → 调整，体会"设计"的力量</li>
+      </ul>
+      <div class="tools">AI 工具：<b>Claude</b> 等　|　产出：一个能玩的小游戏 demo</div>
     `
   },
   d3_vibe_web: {
-    tag: "AI Boost · 高龄",
-    when: "Day 3 · 上午",
-    title: "Vibe Coding · Web & Apps",
+    tag: "Vibe Coding · Apps/Website",
+    when: "Day 3 · 下午（两班同款）",
+    title: "Vibe Coding · Apps / Website",
     html: `
-      <p>做一个网站不是天方夜谭。这节课一起看看<b>经典网站是怎么诞生的</b>，并用 AI 工具动手搭建属于自己项目的网页或小应用。</p>
-      <div class="quote">课程目标：理解一个"受欢迎"的网站从何而来，并搭出自己项目的第一版网页。</div>
+      <p>做一个网站是天方夜谭吗？怎样搭建一个"<b>受欢迎</b>"的网站？</p>
+      <p>这节课，我们一起看看<b>经典网站是如何诞生的</b>，以及我们可以利用<b>什么工具</b>来搭建网站。</p>
+      <ul>
+        <li>看几个经典网站 / 应用：它们解决了什么问题、为什么有人用</li>
+        <li>认识能"边说边做"搭网站 / 小应用的 AI 工具</li>
+        <li>动手搭出自己项目的第一版网页，迭代改进</li>
+      </ul>
+      <div class="tools">AI 工具：<b>Claude</b> 等　|　产出：一个可访问的网页 / 小应用</div>
     `
   },
   d3_market: {
-    tag: "创业思维",
-    when: "Day 3 · 下午",
+    tag: "市场与用户 · 分班",
+    when: "Day 3 下午 · 两班同时（分龄）",
     title: "市场与用户",
     html: `
-      <p>一句话搞懂市场和用户：<b>市场 = 一群有相同需求的人，用户 = 具体的那个人。</b>孩子将思考"我的东西到底给谁用"，并借助 AI 描绘目标用户画像。</p>
-      <div class="quote">课程目标：建立"为真实用户而做"的意识，明确自己项目的目标人群。</div>
+      <p>Day 3 下午两班<b>同时</b>上市场与用户。核心一句话：<b>市场 = 一群有相同需求的人；用户 = 具体的那个人。</b>同样的东西，给对了人才卖得动。</p>
+      <ul>
+        <li>每队回答："我的东西给谁？他们会在哪出现？"</li>
+        <li>用 Claude / 豆包生成<b>用户画像</b>（年龄、喜好、烦恼）</li>
+        <li>用 AI 推演这群人最可能的<b>痛点 / 需求</b></li>
+      </ul>
+      <div class="quote">真实问卷验证放到 <b>Day 4 晨间「市场问卷调查」</b>；当天<b>下午</b>动手做 apps/website，<b>晚上</b>讨论 PRD/GDD、确定方案。</div>
+      <div class="tools">AI 工具：<b>Claude / 豆包</b>　|　产出：用户画像 + 确定项目</div>
     `
   },
   d4_survey: {
-    tag: "创业思维",
-    when: "Day 4 · 晨间 + 午休",
+    tag: "两班同时 · 统一一版（不分龄）",
+    when: "Day 4 晨间 · 约 60 分钟 + 午休实战",
     title: "市场问卷调查",
     html: `
-      <p><b>做之前先问，别猜。</b>每个小组设计一份属于自己的问卷，午休时走出去采访营地里的其他小朋友，收集真实的反馈。</p>
-      <div class="quote">课程目标：学会用调研倾听真实用户的声音，为产品和路演积累一手依据。</div>
+      <p>最终任务：<b>每个小组合作设计一份属于本组的问卷</b>，午休时组员分头<b>去找营地里其他营的小朋友</b>，全组合计完成<b>至少 5 份</b>调研。核心理念：<b>做之前先问，别猜。</b></p>
+      <div class="cards">
+        <div class="card"><div class="h">① 钩子（5min）</div><p>全班秘密投票"最爱的零食口味"，摊开发现五花八门——<b>市场=一群口味不同的人，先问别猜</b>。</p></div>
+        <div class="card"><div class="h">② 挑刺（15min）</div><p>统一案例"卖新口味辣条"，好坏问题投票。口诀：<b>别夸自己、别问是非、一次一个。</b></p></div>
+        <div class="card"><div class="h">③ 调查员秘籍（5min）</div><p>六条小贴士：问"做过什么"不问"会不会"、少说多听、别带节奏、记原话、别只问好朋友、问完说谢谢。</p></div>
+        <div class="card"><div class="h">④ 设计问卷（22min）</div><p><b>最终任务</b>：每组定稿一份本组共用的问卷。填空骨架：筛选 / 行为 / 偏好 / 痛点 / 开放。</p></div>
+      </div>
+      <p><b>⑤ 搭话演练 + 记录单（8min）</b>：开场白脚本 + 互练一次；强调被拒很正常；发记录单、定"全组合计 ≥5 份"目标。</p>
+      <div class="quote">午休实战：两人一组、指定区域、老师看得见。真实回答 = 下午写商业计划书 + Day 6 路演说服评委的弹药。</div>
+      <div class="tools">配套：<b>问卷骨架 + 调查员秘籍 + 记录单</b>三合一工作纸　|　产出：<b>每组一份问卷</b> + 全组 ≥5 份一手调研</div>
     `
   },
   d4plan_lo: {
-    tag: "创业思维 · 低龄",
-    when: "Day 4 · 下午",
+    tag: "Creator · 商业计划书（分班）",
+    when: "Day 4 下午 · Creator班",
     title: "商业计划书 · 填故事",
     html: `
-      <p>用<b>讲故事</b>的方式，把自己的小公司说清楚：卖什么、给谁、解决什么烦恼、怎么让别人知道……一句一个角度，轻松完成。</p>
-      <div class="quote">课程目标：用孩子能懂的方式完成人生第一份"商业计划"，也是路演稿的雏形。</div>
+      <p>用<b>填故事</b>的方法，把自己的公司故事讲出来——老师一句句带读，念到空格停下来问、孩子填，<b>一句话＝一个角度</b>，8 句走完 8 个角度，谁都不漏。</p>
+      <p><b>故事单 8 句</b>＝① 卖什么 / ② 给谁用 / ③ 什么烦恼 / ④ 有多少人要 / ⑤ 哪里不一样 / ⑥ 怎么赚钱 / ⑦ 怎么让人知道 / ⑧ 谁来做。第 ④ 句"很多 / 一点点"即可；"别人也有什么"接上午问卷里见过的同类东西。</p>
+      <div class="quote">填好的故事单能<b>念出来</b>——这就是孩子最早的路演，也是当晚路演讲稿的底稿。</div>
+      <div class="tools">配套：<b>故事单工作纸</b>（见「商业计划书_板块设计」）　|　产出：每人/每组一张填好的公司故事单</div>
     `
   },
   d4plan_hi: {
-    tag: "创业思维 · 高龄",
-    when: "Day 4 · 下午",
+    tag: "Innovator · 商业计划书（分班）",
+    when: "Day 4 下午 · Innovator班",
     title: "商业计划书 · 三模型",
     html: `
-      <p>像专业人士一样，用 <b>SWOT、PEST、Porter</b> 三个"放大镜"从不同角度看清自己的生意，并在 AI 辅助下整合成一份完整的商业计划书。</p>
-      <div class="quote">课程目标：学会用分析工具支撑决策，产出一份有说服力的商业计划书。</div>
+      <p>专业人士看商业计划书不拍脑袋，用<b>模型当放大镜</b>从不同角度看清生意。给三个放大镜，Claude 辅助填，每个提炼<b>一句结论</b>：</p>
+      <div class="cards">
+        <div class="card"><div class="h">SWOT · 看自己</div><p>优势 / 劣势 / 机会 / 威胁</p></div>
+        <div class="card"><div class="h">PEST · 看大环境</div><p>政治 / 经济 / 社会 / 技术</p></div>
+        <div class="card"><div class="h">Porter 精简 · 看战场</div><p>现有对手 / 替代品 / 新玩家（砍掉两个偏抽象的议价力）</p></div>
+      </div>
+      <p><b>整合成计划书</b>：三条结论收进骨架——市场段 ← PEST，竞争段 ← Porter + SWOT 对手对比，"为什么我们能赢" ← SWOT 优势 + 机会；再补产品 / 用户痛点（用<b>上午问卷</b>真实声音）/ 盈利 / 团队。</p>
+      <div class="quote">这份计划书 Day 5 直接喂 Claude「改写成 3 分钟路演稿」——模型分析越扎实，路演稿越有说服力。</div>
+      <div class="tools">AI 工具：<b>Claude</b>　|　配套：<b>三模型 + 整合骨架工作纸</b>　|　产出：每组一份商业计划书</div>
     `
   },
   d5_lo: {
-    tag: "路演准备 · 低龄",
-    when: "Day 5 · 上午",
+    tag: "Creator · AI 工具 · 路演准备",
+    when: "Day 5 上午 · Creator班（本日 2 位老师，可同时进行）",
     title: "AI 工具 · 路演准备",
     html: `
-      <p>用 AI 工具帮助<b>梳理路演结构</b>，甚至制作属于自己的"<b>产品广告</b>"，让项目更打动人。</p>
-      <div class="quote">课程目标：把项目讲清楚、讲生动，准备好属于自己的路演稿的雏形。</div>
+      <p>使用 AI 工具帮助<b>梳理路演结构</b>，甚至制作自己的"<b>产品广告</b>"！</p>
+      <ul>
+        <li>用 AI 把"我要讲什么"理成清楚的顺序（故事线 / 路演结构）</li>
+        <li>最简英雄结构：有个人遇到麻烦 → 用了我的产品 → 变开心了</li>
+        <li>用 AI 出几格<b>产品广告 / 漫画</b>，让项目更打动人</li>
+      </ul>
+      <div class="quote">路演重心：要讲出<b>"我访谈的那个人是谁、他说了什么"</b>——用户的真实声音是说服评委的最强武器。</div>
+      <div class="tools">AI 工具：<b>即梦 / Midjourney / Claude</b> 等　|　产出：路演结构 + 产品广告</div>
     `
   },
   d5_hi: {
-    tag: "路演准备 · 高龄",
-    when: "Day 5 · 上午",
+    tag: "Innovator · AI 工具 · 路演准备",
+    when: "Day 5 上午 · Innovator班（本日 2 位老师，可同时进行）",
     title: "AI 工具 · 路演准备",
     html: `
-      <p>用 AI 工具梳理路演逻辑，并制作<b>路演 slides、产品广告</b>等，让表达更专业、更有说服力。</p>
-      <div class="quote">课程目标：高效产出专业的路演材料，把项目的价值讲明白。</div>
+      <p>使用 AI 工具帮助<b>梳理路演结构</b>，制作<b>路演 slides、广告</b>等。</p>
+      <ul>
+        <li>用 AI 把项目理成清晰的路演逻辑（问题 → 方案 → 用户 → 效果）</li>
+        <li>用 Claude 生成 <b>HTML slides</b>，自己改标题、配色、加动画</li>
+        <li>顺手做一版<b>产品广告</b>，让路演更有说服力</li>
+      </ul>
+      <div class="quote">路演重心：要讲出<b>"我访谈的那个人是谁、他说了什么"</b>——用户的真实声音是说服评委的最强武器。</div>
+      <div class="tools">AI 工具：<b>Claude</b>（slides）· 即梦 等　|　产出：路演 slides + 广告</div>
     `
   },
   d5speak: {
-    tag: "路演准备",
-    when: "Day 5 · 下午",
-    title: "演讲课",
+    tag: "演讲表达 · 先合班后分组",
+    when: "Day 5 下午",
+    title: "演讲课（合班）→ 小组单独辅导",
     html: `
-      <p>专业的演讲课：先一起学习开场、肢体、声音、控场等表达技巧，再分小组针对各自的稿子做单独辅导。</p>
-      <div class="quote">课程目标：克服上台紧张，自信清晰地把项目讲给别人听。</div>
+      <p>下午演讲课<b>先合班一起上</b>，把通用的表达技巧讲透；再<b>拆到各组单独辅导</b>，针对每组的稿子打磨。</p>
+      <div class="cards">
+        <div class="card"><div class="h">① 合班 · 演讲课</div><p>开场 hook、肢体与眼神、声音节奏、控场、忘词怎么办。</p></div>
+        <div class="card"><div class="h">② 分组 · 单独辅导</div><p>过稿、计时、分工补位，老师逐组给反馈。</p></div>
+      </div>
+      <div class="quote">衔接 Day 6 上午<b>彩排及路演准备</b>。</div>
     `
   },
   d6rehearsal: {
-    tag: "路演准备",
-    when: "Day 6 · 上午",
+    tag: "Showtime 准备",
+    when: "Day 6 上午",
     title: "彩排及路演准备",
     html: `
-      <p>正式路演前的彩排：完整走一遍流程、调试设备、演练评委可能问到的问题，确保下午的路演万无一失。</p>
-      <div class="quote">课程目标：让每个孩子都准备充分、信心满满地登上舞台。</div>
+      <p>Day 6 上午从"演讲集训"改为<b>彩排及路演准备</b>：把流程跑顺，确保下午正式路演不掉链子。</p>
+      <ul>
+        <li>全流程<b>走台</b>一遍，卡时间</li>
+        <li>设备 / 投屏 / demo <b>联调</b></li>
+        <li>评委可能问什么——<b>Q&A 演练</b></li>
+        <li>各组互相试讲、补位救场</li>
+      </ul>
+      <div class="quote">下午即正式<b>项目路演</b>。</div>
     `
   },
   d1open: {
     tag: "Opening",
-    when: "Day 1 · 15:00 入营 / 16:00 开营",
+    when: "Day 1 · 15:00 入营 → 16:00 开营仪式",
     title: "入营 + 开营仪式",
-    html: `
-      <p>15:00 入营报到；约 16:00 举行开营仪式：开营魔法秀、六天目标介绍，以及由孩子们一起<b>共创营地规则</b>。</p>
-      <div class="quote">课程目标：正式开启六天的创客之旅，让孩子从第一刻起就成为营地的主人。</div>
-    `
+    html: `<p><b>15:00</b> 营员入营报到；<b>约 16:00</b> 开营仪式：开营魔法秀、6 天目标介绍、营地规则共创（孩子自己定规矩、签字按手印）。</p>
+      <p>Day 1 晨间与上午不安排课程（营员尚未到齐）。</p>
+      <div class="quote">这一环节已有完整执行手册 —— 见项目里的 <b>Day1_执行手册</b>。</div>`
   },
   d1ice: {
-    tag: "Teamwork",
-    when: "Day 1 · 晚间",
+    tag: "Ice Breaking",
+    when: "Day 1 晚间",
     title: "破冰游戏 · 分组 · 队伍三件套",
-    html: `
-      <p>晚间破冰：名字大轮转、AI 猜猜猜、找朋友 Bingo，然后分组并共创队名、队徽、队歌。</p>
-      <div class="quote">课程目标：快速破冰、结识新朋友，组建接下来并肩作战的小队。</div>
-    `
+    html: `<p>名字大轮转、AI 猜猜猜、找朋友 Bingo、分组揭晓、队名/队徽/队歌三件套。</p>
+      <div class="quote">这一环节已有完整执行手册 —— 见项目里的 <b>Day1_执行手册</b>。</div>`
   }
 };
 
 const DETAILS_EN: Record<string, Detail> = {
   d2_lo_ai: {
-    tag: "AI Boost · Younger Cohort",
-    when: "Day 2 · Morning",
+    tag: "Creator · AI Boost (AI Teacher)",
+    when: "Day 2 AM · Session 2 · Creator Cohort",
     title: "What is AI? Vibe Coding 101",
     html: `
-      <p>Children will <b>get to know AI</b>: how it works, what it can do today, and—most importantly—<b>how to converse with AI effectively</b>.</p>
-      <div class="quote">Course Objective: Develop a general understanding of AI, learn how to ask "good questions," and build a foundation for hands-on AI creation.</div>
+      <p>This class introduces students to <b>how AI works</b>, showcases its current capabilities, and teaches <b>how to converse with AI effectively</b>.</p>
+      <ul>
+        <li>How AI "thinks" and answers questions (building intuition without heavy theory)</li>
+        <li>What AI can do today (exploring latest real-world examples)</li>
+        <li>How to "talk properly" so AI understands and gives precise answers—intro to effective prompting</li>
+      </ul>
+      <div class="quote">AI Teacher's Schedule: <b>Morning → Creator</b>. The same session for Innovator is shifted to the <b>afternoon</b>, avoiding schedule conflicts for a single teacher.</div>
+      <div class="tools">Laying the foundation for Day 3 vibe coding | AI Tools: <b>Claude / Doubao</b> etc.</div>
     `
   },
   d2_jiexi: {
-    tag: "Founder Mindset",
-    when: "Day 2 · Morning",
+    tag: "Combined · Founder Mindset",
+    when: "Day 2 AM · Session 1 · Joint Class",
     title: "Topic Deconstruction · Founder Mindset",
     html: `
-      <p>Through a series of real and engaging examples, children will discover three categories of things AI can do: make life more fun (<b>fun</b>), assist learning (<b>learning</b>), and make the world a better place (<b>good</b>).</p>
-      <div class="quote">Course Objective: Expand their horizons, understand that "AI can be used to do many meaningful things," and identify their direction of interest.</div>
+      <p>Day 2 Session 1 is a <b>joint class</b>. We will deconstruct "what AI can do" using the same set of examples, adapted to different depths based on age groups.</p>
+      <div class="cards">
+        <div class="card">
+          <div class="h">Experience Level (for Creator)</div>
+          <ul>
+            <li><b>AI for fun</b>: Turn photos into animated anime characters</li>
+            <li><b>AI for good</b>: Be My Eyes —— AI helping the blind "see"</li>
+            <li><b>AI for learning</b>: Ask AI difficult questions and observe how it teaches</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="h">Critical Thinking Level (for Innovator)</div>
+          <ul>
+            <li><b>fun</b>: Who profits when you "can't stop scrolling"?</li>
+            <li><b>good</b>: When AI makes a mistake, who is responsible?</li>
+            <li><b>learning</b>: Giving answers vs. teaching you how to think—which one truly helps?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="quote">Ending: Vote on "Which type of AI I want to build the most." After this session, the classes <b>split up</b>: Creator moves to prompting, while Innovator moves to Business Literacy.</div>
+      <div class="tools">AI Tools: <b>Jimeng / Kuaishou Kling</b> (demos) · <b>Claude / Doubao</b></div>
     `
   },
   d2_hi_biz2: {
-    tag: "Founder Mindset · Older Cohort",
-    when: "Day 2 · Morning",
+    tag: "Innovator · Business Literacy",
+    when: "Day 2 AM · Session 2 · Innovator Cohort",
     title: "Business Literacy",
     html: `
-      <p>Through a round of the "<b>Business Detective</b>" board game, children will learn how a company operates in a play-based setting: what the CEO, CFO, CTO, and CMO do, and what key metrics determine success.</p>
-      <div class="quote">Course Objective: Build basic business "sense" and understand that a company is like a "team machine" requiring division of labor and collaboration.</div>
+      <p>Let's play the "<b>Business Detective</b>" board game—no boring theories, just learning how a company functions through gameplay.</p>
+      <h3>Learn through play:</h3>
+      <ul>
+        <li><b>What the 4 Cs do</b>: CEO (decision-maker), CFO (manages finance), CTO (technology & product), and CMO (marketing & sales)</li>
+        <li><b>How a company operates</b>: The lifecycle of a product from idea → production → sales → revenue, and how teams cooperate</li>
+        <li><b>Key metrics to watch</b>: User count, sales performance, profitability... how numbers indicate a company's health</li>
+      </ul>
+      <div class="quote">Course Goal: Instead of memorizing terms, kids develop a basic business <b>"sense"</b>—viewing a company as a collaborative "team machine".</div>
+      <div class="tools">Props: Business Detective board game | Refer to "Business Literacy_4 Cs in Company" in project.</div>
     `
   },
   d2pm_hi: {
-    tag: "AI Boost · Older Cohort",
-    when: "Day 2 · Afternoon",
+    tag: "Innovator · AI Boost (AI Teacher)",
+    when: "Day 2 PM · First Session · Innovator Cohort",
     title: "What is AI? Vibe Coding 101",
     html: `
-      <p>Students will <b>develop an initial understanding of AI</b>: how it works, what it is capable of today, how to converse with AI effectively, and view AI's capabilities and boundaries through a critical lens.</p>
-      <div class="quote">Course Objective: Establish a holistic understanding and judgment of AI, learn how to "ask good questions," and lay a solid foundation for hands-on AI usage.</div>
+      <p>In the afternoon, the <b>AI teacher shifts to the Innovator cohort</b> to deliver the same session—<b>peak-shifted</b> with Creator's morning slot to optimize resources.</p>
+      <p>Gain an <b>initial understanding of how AI works</b>, explore its current capabilities, and learn <b>how to construct effective prompts</b>.</p>
+      <ul>
+        <li>How AI "thinks" and what it can achieve (combined with a critical perspective: should we blindly accept its answers?)</li>
+        <li>Where the boundaries of AI's capabilities lie today</li>
+        <li>How to write effective prompts for better AI responses</li>
+      </ul>
+      <div class="quote">AI Teacher's Schedule: <b>Morning → Creator</b>, <b>Afternoon → Innovator</b>.</div>
+      <div class="tools">Laying the foundation for Day 3 vibe coding | AI Tools: <b>Claude / Doubao</b></div>
     `
   },
   d2pm_lo: {
-    tag: "Founder Mindset · Younger Cohort",
-    when: "Day 2 · Afternoon",
+    tag: "Creator · Business Literacy",
+    when: "Day 2 PM · First Session · Creator Cohort",
     title: "Business Literacy",
     html: `
-      <p>Through a round of the "<b>Business Detective</b>" board game, children will learn how a company operates in a play-based setting: what the CEO, CFO, CTO, and CMO do, and what key metrics determine success.</p>
-      <div class="quote">Course Objective: Build basic business "sense" and understand that a company is like a "team machine" requiring division of labor and collaboration.</div>
+      <p>The same session that Innovator attended in the morning is delivered to Creator in the afternoon (peak-shifted with the AI class). Play the "<b>Business Detective</b>" board game to understand how a company operates.</p>
+      <h3>Learn through play:</h3>
+      <ul>
+        <li><b>What the 4 Cs do</b>: CEO (decision-maker), CFO (manages finance), CTO (technology & product), and CMO (marketing & sales)</li>
+        <li><b>How a company operates</b>: Product lifecycle from idea → production → sales → revenue, and team coordination</li>
+        <li><b>Key metrics to watch</b>: User count, sales performance, profitability... how numbers indicate a company's health</li>
+      </ul>
+      <div class="quote">Course Goal: Help kids develop basic business <b>"sense"</b>—viewing a company as a collaborative "team machine". The cohorts recombine later for the <b>Empathy</b> session.</div>
+      <div class="tools">Props: Business Detective board game | Refer to "Business Literacy_4 Cs in Company" in project.</div>
     `
   },
   d2empathy: {
-    tag: "Founder Mindset",
-    when: "Day 2 · Afternoon",
+    tag: "Founder Mindset · Joint Class",
+    when: "Day 2 PM · Second Session · Joint Class",
     title: "Empathy — Discovering Pain Points & Brainstorming",
     html: `
-      <p>Great ideas come from observing life and identifying pain points. This session guides children to brainstorm together: <b>What "problems" exist in daily life? Which ones do you want to change the most?</b></p>
-      <div class="quote">Course Objective: Foster observation skills and empathy, learn to "identify the problem first, then brainstorm ideas," and find a real starting point for their project.</div>
+      <p>Great ideas stem from <b>observing life</b> and <b>capturing pain points</b>. In this session, we will brainstorm with the kids: <b>What problems exist in daily life? Which ones do you want to solve the most?</b></p>
+      <p>This connects back to the hook planted at the end of Day 1: "The best products start from 'annoyances'." We don't jump to solutions yet; we find the problems first.</p>
+      <h3>How it works:</h3>
+      <ul>
+        <li><b>Gripe Time</b>: Each child writes down 3 things that "recently drove me crazy / caused trouble / were inconvenient"—at home, school, or on the road.</li>
+        <li><b>Finding Resonance</b>: Teams take turns sharing, circling <b>shared pain points</b> that annoy everyone.</li>
+        <li><b>Walk in Their Shoes</b>: Who else suffers from this problem besides me? How do they feel? (Practicing empathy)</li>
+        <li><b>AI-Assisted Ideation</b>: Select 1-2 pain points and use AI to brainstorm possible solutions—quantity over quality, with no judgment.</li>
+      </ul>
+      <div class="quote">Takeaway: <b>"See the problem first, then talk about ideas."</b> The pain points defined here will be validated through user research on Day 3 and 4.</div>
+      <div class="tools">AI Tools: <b>Claude / Doubao</b> (to expand solutions around pain points) | Output: A "Pain Point List" for each group.</div>
     `
   },
   d2_blueprint: {
     tag: "Teamwork",
-    when: "Day 2 · Evening",
+    when: "Day 2 Evening · Group Session",
     title: "Start Designing Your Business Blueprint",
     html: `
-      <p>Evening group time: Discuss and select the team's "venture theme" from the three main domains (AI for <b>fun</b> / <b>learning</b> / <b>good</b>).</p>
-      <div class="quote">Course Objective: Complete the first step of transitioning from "what I like" to "what we will build," aligning the team's direction.</div>
+      <p>Tonight, teams will discuss and choose their target <b>"venture theme"</b> from our three main domains:</p>
+      <ul>
+        <li><b>AI for fun</b>: Making people happy, entertaining</li>
+        <li><b>AI for learning</b>: Helping people learn and improve</li>
+        <li><b>AI for good</b>: Helping others, making the world a bit better</li>
+      </ul>
+      <div class="quote">Pick a direction first, then fill in details—this is what your team will work on together in the coming days.</div>
     `
   },
   d6show: {
     tag: "Showtime",
-    when: "Day 6 · Afternoon",
+    when: "Day 6 Afternoon",
     title: "Project Roadshow",
     html: `
-      <p><b>It's your showtime!</b> Six days of hard work culminate in this moment—each team will pitch their project on stage and demonstrate the product they built from scratch.</p>
-      <div class="quote">Course Objective: Deliver a confident presentation on a real stage and take pride in their creation.</div>
+      <p><b>It's your show time!</b></p>
+      <p>Six days of hard work culminate in this moment—each team pitches their project: what problem it solves, who it is for, how it was made, and showcases their demo.</p>
+      <div class="quote">Relax, be confident, and be proud of yourself. This is your stage!</div>
     `
   },
   d_mvp: {
     tag: "Teamwork",
-    when: "Day 4 / Day 5",
+    when: "Day 4 / Day 5 · Group Session",
     title: "Build MVP",
     html: `
-      <p>Teams begin building their own <b>MVP</b> (Minimum Viable Product)—leveraging AI tools to achieve a <b>0 to 1 breakthrough</b>.</p>
-      <div class="quote">Course Objective: Turn ideas into a real, presentable, and well-explained product.</div>
+      <p>Begin building the team's <b>MVP</b> (Minimum Viable Product)—utilizing AI tools to achieve a <b>breakthrough from 0 to 1</b>!</p>
+      <ul>
+        <li>Cut the product scope down to the <b>smallest, working, and presentable</b> version.</li>
+        <li>Use vibe coding and AI tools to create the first version rapidly by talking to the computer.</li>
+        <li>Build it → playtest it → adjust, experiencing the power of game design.</li>
+      </ul>
+      <div class="quote">Don't aim for perfection; aim for a <b>"visible, explorable demo that clearly explains your creation"</b>. Refine repeatedly on Day 4-5 for the Day 6 roadshow.</div>
+      <div class="tools">AI Tools: <b>Claude</b> etc. | Output: A playable/showable MVP.</div>
     `
   },
   d3_vibe_games: {
-    tag: "AI Boost · Younger Cohort",
-    when: "Day 3 · Morning",
+    tag: "Vibe Coding · Games",
+    when: "Day 3 AM · Joint Curriculum (Both Cohorts)",
     title: "Vibe Coding · Games",
     html: `
-      <p>Knowing how to play games is not the same as knowing how to build them. This session starts by <b>analyzing classic games</b>, exploring key design principles, and using AI tools to build their own mini-games.</p>
-      <div class="quote">Course Objective: Understand the fundamentals of game design and build a playable mini-game from scratch.</div>
+      <p>We all play games, but how do you <b>make</b> one? What critical <b>designs</b> go into a good game?</p>
+      <p>This class starts with <b>analyzing classic games</b> to show that <b>playing games ≠ making games</b>.</p>
+      <ul>
+        <li>Deconstruct a classic game: why is it fun, how are rules designed, and how is difficulty balanced?</li>
+        <li>Use vibe coding to write code through chat, letting AI turn game ideas into playable demos.</li>
+        <li>Build it → playtest it → adjust, experiencing the power of game design.</li>
+      </ul>
+      <div class="tools">AI Tools: <b>Claude</b> etc. | Output: A playable mini-game demo.</div>
     `
   },
   d3_vibe_web: {
-    tag: "AI Boost · Older Cohort",
-    when: "Day 3 · Morning",
-    title: "Vibe Coding · Web & Apps",
+    tag: "Vibe Coding · Apps/Website",
+    when: "Day 3 PM · Joint Curriculum (Both Cohorts)",
+    title: "Vibe Coding · Apps / Website",
     html: `
-      <p>Building a website is not out of reach. In this session, we will explore <b>how classic websites are created</b> and use AI tools to build web pages or mini-apps for their projects.</p>
-      <div class="quote">Course Objective: Understand what makes a website popular and build the first web page of their project.</div>
+      <p>Is making a website a pipe dream? How do you build a <b>popular</b> website?</p>
+      <p>In this class, we'll examine <b>how classic websites were born</b> and explore the <b>AI tools</b> we can use to build them.</p>
+      <ul>
+        <li>Analyze classic websites/apps: what problems they solved, and why people used them</li>
+        <li>Learn about AI tools that allow you to build web pages and apps by describing them in chat</li>
+        <li>Get hands-on to build the first version of your web project and iterate.</li>
+      </ul>
+      <div class="tools">AI Tools: <b>Claude</b> etc. | Output: An accessible web page / mini-app.</div>
     `
   },
   d3_market: {
-    tag: "Founder Mindset",
-    when: "Day 3 · Afternoon",
+    tag: "Market & Users · Cohorts Split",
+    when: "Day 3 PM · Concurrent Sessions (Age-Targeted)",
     title: "Market & Users",
     html: `
-      <p>Understand markets and users in one sentence: <b>Market = a group of people with the same need; User = that specific individual.</b> Students will think about "who my product is for" and use AI to create target user personas.</p>
-      <div class="quote">Course Objective: Cultivate a "build for real users" mindset and clarify the target audience for their projects.</div>
+      <p>Day 3 afternoon features <b>concurrent</b> sessions on Market & Users. Key takeaway: <b>Market = a group of people with the same need; User = that specific individual.</b> The same product only sells when targeted at the right people.</p>
+      <ul>
+        <li>Each team answers: "Who is my product for? Where do they hang out?"</li>
+        <li>Use Claude / Doubao to generate <b>user personas</b> (age, preferences, annoyances)</li>
+        <li>Use AI to deduce the most probable <b>pain points / requirements</b> of this target audience</li>
+      </ul>
+      <div class="quote">Real questionnaire validation takes place during <b>Day 4 Morning "Market Survey"</b>; on Day 3, teams build apps/website in the <b>afternoon</b> and discuss PRD/GDD to lock solutions in the <b>evening</b>.</div>
+      <div class="tools">AI Tools: <b>Claude / Doubao</b> | Output: User personas + locked project scope.</div>
     `
   },
   d4_survey: {
-    tag: "Founder Mindset",
-    when: "Day 4 · Morning & Lunch Break",
+    tag: "Concurrent · Unified Lesson (Joint)",
+    when: "Day 4 Morning · ~60 min + Lunch Break Practice",
     title: "Market Survey",
     html: `
-      <p><b>Ask before you build, don't guess.</b> Each team will design their own survey and interview other campers during lunch break to gather real-world feedback.</p>
-      <div class="quote">Course Objective: Learn to listen to real users through research, accumulating first-hand insights for the product and pitch.</div>
+      <p>Final Task: <b>Each group designs their own questionnaire</b>. During lunch break, members disperse to <b>survey kids from other camps</b>, aiming for <b>at least 5 completed forms</b> per team. Core concept: <b>Ask before you make, don't guess.</b></p>
+      <div class="cards">
+        <div class="card"><div class="h">① The Hook (5 min)</div><p>Secret vote on "favorite snack flavor"—results vary wildly. Takeaway: <b>Market = a crowd of different tastes. Ask, don't guess.</b></p></div>
+        <div class="card"><div class="h">② Critique (15 min)</div><p>Analyze a case study on "selling new flavor spicy gluten strips". Rule of thumb: <b>Don't boast, don't ask yes/no questions, ask one thing at a time.</b></p></div>
+        <div class="card"><div class="h">③ Surveyor's Bible (5 min)</div><p>6 tips: Ask "what they did" instead of "would they", listen more than talk, don't lead, write verbatim, don't just ask close friends, say thank you.</p></div>
+        <div class="card"><div class="h">④ Design (22 min)</div><p><b>Final Task</b>: Finalize one questionnaire per group. Skeleton: Screener / Behavior / Preference / Pain Points / Open-ended.</p></div>
+      </div>
+      <p><b>⑤ Roleplay & Logging Sheets (8 min)</b>: Pitch scripts + partner practice; normalize rejection; hand out logs; set team goal of ≥5 completed surveys.</p>
+      <div class="quote">Lunch Break Fieldwork: Pairs in designated areas monitored by teachers. Real responses = ammunition for PM business plans + Day 6 pitches to convince judges.</div>
+      <div class="tools">Materials: 3-in-1 worksheet (Survey Skeleton + Guide + Log) | Output: <b>One questionnaire per group</b> + ≥5 primary surveys.</div>
     `
   },
   d4plan_lo: {
-    tag: "Founder Mindset · Younger Cohort",
-    when: "Day 4 · Afternoon",
+    tag: "Creator · Business Plan (Cohorts Split)",
+    when: "Day 4 PM · Creator Cohort",
     title: "Business Plan · Storytelling",
     html: `
-      <p>Explain their mini-company through <b>storytelling</b>: what they sell, to whom, what problems they solve, and how they get noticed... wrapping it up step by step.</p>
-      <div class="quote">Course Objective: Complete their first-ever "business plan" in a kid-friendly way, laying the groundwork for their pitch script.</div>
+      <p>Write your company profile by <b>filling in a story</b>. The teacher leads sentence by sentence, pausing at blanks for kids to fill in. <b>1 sentence = 1 angle</b>, covering 8 dimensions systematically.</p>
+      <p><b>8 Story Sentences</b> = ① What to sell / ② Who uses it / ③ What annoyance / ④ How many need it / ⑤ What is unique / ⑥ How to make money / ⑦ How to promote / ⑧ Who is on the team. Sentence ④ can be answered as "many / a few"; competitors connect to real answers from the morning survey.</p>
+      <div class="quote">The completed story worksheet can be read aloud—it forms the child's earliest roadshow pitch and serves as the draft for that night's script.</div>
+      <div class="tools">Materials: <b>Story Worksheet</b> (refer to "Business Plan_Block Design") | Output: One completed story worksheet per person/group.</div>
     `
   },
   d4plan_hi: {
-    tag: "Founder Mindset · Older Cohort",
-    when: "Day 4 · Afternoon",
+    tag: "Innovator · Business Plan (Cohorts Split)",
+    when: "Day 4 PM · Innovator Cohort",
     title: "Business Plan · Three Models",
     html: `
-      <p>Like a professional, use <b>SWOT, PEST, and Porter's Five Forces</b> as analytical lenses to evaluate their venture, integrating them into a comprehensive business plan with AI assistance.</p>
-      <div class="quote">Course Objective: Learn to back decisions with analytical tools, producing a persuasive business plan.</div>
+      <p>Professionals don't guess; they use <b>frameworks as magnifying glasses</b> to scrutinize a business. We use three models (with Claude's assistance) to derive <b>one core conclusion</b> each:</p>
+      <div class="cards">
+        <div class="card"><div class="h">SWOT · Internal View</div><p>Strengths / Weaknesses / Opportunities / Threats</p></div>
+        <div class="card"><div class="h">PEST · External View</div><p>Political / Economic / Social / Technological</p></div>
+        <div class="card"><div class="h">Porter's Mini · Battlefield View</div><p>Current Competitors / Substitutes / New Entrants (simplified by cutting bargaining powers)</p></div>
+      </div>
+      <p><b>Consolidation into Plan</b>: Integrate the 3 conclusions into a template—Market section ← PEST, Competition section ← Porter + SWOT competitor comparison, "Why we win" ← SWOT strengths + opportunities. Add product specs, user pain points (utilizing real quotes from <b>morning surveys</b>), business model, and team profile.</p>
+      <div class="quote">This plan will be fed directly to Claude on Day 5 to "rewrite into a 3-minute pitch script"—solid framework analysis yields a highly persuasive pitch.</div>
+      <div class="tools">AI Tools: <b>Claude</b> | Materials: <b>3-Model + Consolidation Worksheet</b> | Output: One business plan per group.</div>
     `
   },
   d5_lo: {
-    tag: "Roadshow Prep · Younger Cohort",
-    when: "Day 5 · Morning",
+    tag: "Creator · AI Tools & Pitch Prep",
+    when: "Day 5 AM · Creator Cohort (Concurrent, 2 Teachers)",
     title: "AI Tools · Roadshow Prep",
     html: `
-      <p>Use AI tools to help <b>structure their roadshow pitches</b>, and even create their own "<b>product commercials</b>" to make their project more compelling.</p>
-      <div class="quote">Course Objective: Present their projects clearly and vividly, preparing their roadshow materials.</div>
+      <p>Use AI tools to <b>structure your pitch</b> and even create your own <b>product commercial</b>!</p>
+      <ul>
+        <li>Use AI to organize "what I want to say" into a logical order (storyline / roadshow structure).</li>
+        <li>Simplest Hero's Journey: Someone faces a problem → uses our product → becomes happy.</li>
+        <li>Generate a few panels of <b>product ads / comics</b> using AI to make the pitch more engaging.</li>
+      </ul>
+      <div class="quote">Pitch Focus: Make sure to highlight <b>"who we interviewed and what they said"</b>—real user feedback is the strongest weapon to convince judges.</div>
+      <div class="tools">AI Tools: <b>Jimeng / Midjourney / Claude</b> etc. | Output: Pitch structure + product commercial.</div>
     `
   },
   d5_hi: {
-    tag: "Roadshow Prep · Older Cohort",
-    when: "Day 5 · Morning",
+    tag: "Innovator · AI Tools & Pitch Prep",
+    when: "Day 5 AM · Innovator Cohort (Concurrent, 2 Teachers)",
     title: "AI Tools · Roadshow Prep",
     html: `
-      <p>Use AI tools to map out roadshow logic, and create professional materials like <b>pitch slides and product commercials</b> to make presentations persuasive.</p>
-      <div class="quote">Course Objective: Efficiently output professional roadshow materials that clearly articulate their project's value.</div>
+      <p>Use AI tools to <b>structure the roadshow pitch</b> and design <b>slides and commercials</b>.</p>
+      <ul>
+        <li>Use AI to organize project logic (Problem → Solution → Target User → Impact).</li>
+        <li>Use Claude to generate <b>HTML slides</b> where you can customize titles, colors, and animations.</li>
+        <li>Create a <b>product commercial</b> to make the presentation more convincing.</li>
+      </ul>
+      <div class="quote">Pitch Focus: Make sure to highlight <b>"who we interviewed and what they said"</b>—real user feedback is the strongest weapon to convince judges.</div>
+      <div class="tools">AI Tools: <b>Claude</b> (for slides), <b>Jimeng</b> etc. | Output: Roadshow slides + commercial.</div>
     `
   },
   d5speak: {
-    tag: "Roadshow Prep",
-    when: "Day 5 · Afternoon",
-    title: "Pitch Presentation Class",
+    tag: "Public Speaking · Joint then Split",
+    when: "Day 5 PM",
+    title: "Pitch Class (Combined) → Group Mentoring",
     html: `
-      <p>A professional public speaking class: learn presentation techniques like hooks, body language, vocal modulation, and stage presence, followed by group-specific individual coaching sessions.</p>
-      <div class="quote">Course Objective: Overcome stage fright, and pitch their project confidently and clearly to others.</div>
+      <p>The speech class starts with a <b>joint session</b> to cover general presentation techniques, and then <b>splits into teams for individual coaching</b> on specific scripts.</p>
+      <div class="cards">
+        <div class="card"><div class="h">① Joint Speech Class</div><p>Opening hooks, body language & eye contact, vocal variety, pace, and handling memory slips.</p></div>
+        <div class="card"><div class="h">② Group Coaching</div><p>Draft review, timing, role distribution, and personalized feedback from teachers.</p></div>
+      </div>
+      <div class="quote">Transitioning into Day 6 morning <b>rehearsals and final pitch preparation</b>.</div>
     `
   },
   d6rehearsal: {
     tag: "Roadshow Prep",
-    when: "Day 6 · Morning",
+    when: "Day 6 AM",
     title: "Rehearsal & Roadshow Prep",
     html: `
-      <p>Dress rehearsal before the official roadshow: walk through the entire flow, test equipment, and practice Q&As for judges' potential questions to ensure a smooth afternoon presentation.</p>
-      <div class="quote">Course Objective: Make sure every child is fully prepared and steps onto the stage with confidence.</div>
+      <p>Day 6 morning focuses on <b>rehearsal & pitch preparation</b> to run through the process and ensure smooth delivery in the afternoon.</p>
+      <ul>
+        <li>Full-flow <b>walkthrough</b> on stage with timing control.</li>
+        <li>Joint <b>hardware/software setup check</b> (devices, projection, demos).</li>
+        <li><b>Q&A drilling</b>: anticipating what judges might ask.</li>
+        <li>Peer review and group backup plans.</li>
+      </ul>
+      <div class="quote">Official <b>Project Roadshow</b> starts in the afternoon.</div>
     `
   },
   d1open: {
     tag: "Opening",
-    when: "Day 1 · 15:00 Check-in / 16:00 Ceremony",
+    when: "Day 1 · 15:00 Arrival → 16:00 Ceremony",
     title: "Camp Check-in & Opening Ceremony",
-    html: `
-      <p>15:00 Camp arrival and check-in; around 16:00 Opening Ceremony: opening magic show, overview of the 6-day goals, and co-creating camp rules together with the kids.</p>
-      <div class="quote">Course Objective: Kick off the 6-day maker journey, making children the masters of the camp from the very first moment.</div>
-    `
+    html: `<p><b>15:00</b> Camper arrival & check-in; <b>~16:00</b> Opening Ceremony: opening magic show, overview of 6-day goals, and co-creating camp rules (kids set their own boundaries and sign off with thumbprints).</p>
+      <p>No classes are scheduled for Day 1 morning/AM as campers are still arriving.</p>
+      <div class="quote">This session has a detailed execution manual—see <b>Day1_Manual</b> in the project.</div>`
   },
   d1ice: {
-    tag: "Teamwork",
-    when: "Day 1 · Evening",
+    tag: "Ice Breaking",
+    when: "Day 1 Evening",
     title: "Icebreaker Games · Grouping · Team Identity Triad",
-    html: `
-      <p>Evening icebreakers: name rotation game, "Guess the AI", and Friend Bingo. Followed by team division and co-creating team names, logos, and team songs.</p>
-      <div class="quote">Course Objective: Break the ice quickly, meet new friends, and establish the teams that will collaborate for the rest of the camp.</div>
-    `
+    html: `<p>Name Rotation, Guess the AI, Friend Bingo, team grouping announcement, and co-creation of team name, logo, and team song.</p>
+      <div class="quote">This session has a detailed execution manual—see <b>Day1_Manual</b> in the project.</div>`
   }
 };
 
 const content = {
   zh: {
-    title: "未知边界 · 2026 暑期创客松 ",
-    titleHighlight: "课程表",
-    subtitle: "6 天，从一个想法到一件能上台路演的真实作品。青色=AI 课，橙色=创业思维 / 商业课；点击任意板块查看课程内容与目标。",
+    title: "6 天课程表 · ",
+    titleHighlight: "商业板块（AI 课错峰版）",
+    subtitle: "Day 2 把Creator / Innovator的 AI 课错峰安排（只用 1 位 AI 老师）。青色=AI 课，橙色=创业思维 / 商业课；点击分班板块查看详细设计。",
     colDay1: "DAY 1",
     colDay2: "DAY 2",
     colDay3: "DAY 3",
@@ -409,7 +651,7 @@ const content = {
     colDay6: "DAY 6",
     subDay1: "开营 · 破冰",
     subDay2: "创业思维 × 初识 AI",
-    subDay3: "市场用户 × Vibe Coding",
+    subDay3: "市场用户 × Vibe（错峰）",
     subDay4: "市场调研 · 计划书",
     subDay5: "路演表达",
     subDay6: "路演日",
@@ -425,12 +667,12 @@ const content = {
     legendShare: "分享与复盘",
     legendPresent: "路演准备 / Showtime",
     legendCream: "Warm up",
-    legendLo: "低龄",
-    legendHi: "高龄",
+    legendLo: "Creator",
+    legendHi: "Innovator",
     legendLoRange: "<10 岁",
     legendHiRange: "10 岁+",
-    clickHint: "点击板块查看 课程详情 →",
-    kicker: "BoundaryUnknown · Summer Maker-thon 2026",
+    clickHint: "点击 橙色 / 分班板块 查看详细设计 →",
+    kicker: "AI × Entrepreneurship Bootcamp",
     lunchRecess: "午餐和午休 · Lunch & Recess",
     dinnerRecess: "晚餐及休息 · Dinner & Recess",
     familyTime: "家庭沟通 · Family Time",
@@ -443,7 +685,7 @@ const content = {
     d2loai: "What is AI? vibe coding 101",
     d2hibiz2: "商业素养课",
     d3vibegames: "Vibe Coding · Games",
-    d3vibeweb: "Vibe Coding · Web & Apps",
+    d3vibeweb: "Vibe Coding · Apps / Website",
     dmvp: "打造 MVP",
     d5completeAI: "用 AI 完成路演材料",
     d6rehearsal: "路演准备",
@@ -464,9 +706,9 @@ const content = {
     d6departure: "结营 · 离营"
   },
   en: {
-    title: "Boundary Unknown · 2026 Summer Maker-thon ",
-    titleHighlight: "Timetable",
-    subtitle: "6 days, from an idea to a real product ready for a stage pitch. Cyan = AI class, Orange = Entrepreneurial mindset / Business class. Click on any block to view course details and objectives.",
+    title: "6-Day Timetable · ",
+    titleHighlight: "Business Track (AI Peak-Shifting Version)",
+    subtitle: "Day 2 AI classes for Creator / Innovator are peak-shifted (using only 1 AI teacher). Cyan = AI classes, Orange = Entrepreneurship / Business classes; click on split-cohort blocks to view detailed design.",
     colDay1: "DAY 1",
     colDay2: "DAY 2",
     colDay3: "DAY 3",
@@ -475,7 +717,7 @@ const content = {
     colDay6: "DAY 6",
     subDay1: "Onboarding & Icebreaking",
     subDay2: "Founder Mindset × Intro to AI",
-    subDay3: "Market & User × Vibe Coding",
+    subDay3: "Market & User × Vibe (Peak-Shifted)",
     subDay4: "Market Research & Business Plan",
     subDay5: "Roadshow Pitching",
     subDay6: "Demo Day",
@@ -491,12 +733,12 @@ const content = {
     legendShare: "Review & Recap",
     legendPresent: "Roadshow Prep / Showtime",
     legendCream: "Warm up",
-    legendLo: "Younger",
-    legendHi: "Older",
+    legendLo: "Creator",
+    legendHi: "Innovator",
     legendLoRange: "< 10 years old",
     legendHiRange: "10 years+",
-    clickHint: "Click block to view Course Details →",
-    kicker: "BoundaryUnknown · Summer Maker-thon 2026",
+    clickHint: "Click orange / split-cohort blocks to view detailed design →",
+    kicker: "AI × Entrepreneurship Bootcamp",
     lunchRecess: "Lunch & Recess",
     dinnerRecess: "Dinner & Recess",
     familyTime: "Family Time",
@@ -509,7 +751,7 @@ const content = {
     d2loai: "What is AI? Vibe Coding 101",
     d2hibiz2: "Business Literacy",
     d3vibegames: "Vibe Coding · Games",
-    d3vibeweb: "Vibe Coding · Web & Apps",
+    d3vibeweb: "Vibe Coding · Apps / Website",
     dmvp: "Build MVP",
     d5completeAI: "Complete Roadshow Materials with AI",
     d6rehearsal: "Roadshow Prep",
@@ -862,6 +1104,52 @@ export function TimetablePage() {
           color: #8A503F;
           font-style: italic;
         }
+        .cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          margin: 16px 0;
+        }
+        .card {
+          border: 1px solid #e6e1d9;
+          border-radius: 12px;
+          padding: 16px;
+          background: #fbfaf6;
+        }
+        .card .h {
+          font-family: var(--font-mono);
+          font-size: 11px;
+          font-weight: bold;
+          letter-spacing: 1.5px;
+          color: #D06A4C;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        .card p, .card li {
+          font-size: 13px;
+          line-height: 1.7;
+        }
+        .tools {
+          font-family: var(--font-mono);
+          font-size: 12px;
+          color: #8C887A;
+          border-top: 1px dashed #e6e1d9;
+          margin-top: 22px;
+          padding-top: 14px;
+          line-height: 1.8;
+        }
+        .tools b {
+          color: #3CA685;
+        }
+        .prose b {
+          font-weight: 700;
+          color: #141413;
+        }
+        @media (max-width: 640px) {
+          .cards {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
 
       <Header variant="white" />
@@ -1016,10 +1304,10 @@ export function TimetablePage() {
                   <span className="age lo">{t.legendLo}</span>
                   <div className="bt">{t.d3vibegames}</div>
                 </div>
-                <div className="subbox hi cat-ai" onClick={() => setSelectedKey('d3_vibe_web')}>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey('d3_vibe_games')}>
                   <span className="arrow">›</span>
                   <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d3vibeweb}</div>
+                  <div className="bt">{t.d3vibegames}</div>
                 </div>
               </div>
             </div>
@@ -1106,9 +1394,17 @@ export function TimetablePage() {
                   <div className="bt">{t.d3market}</div>
                 </div>
               </div>
-              <div className="blk c-team grow">
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.d3discuss}</div>
+              <div className="pair grow">
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey('d3_vibe_web')}>
+                  <span className="arrow">›</span>
+                  <span className="age lo">{t.legendLo}</span>
+                  <div className="bt">{t.d3vibeweb}</div>
+                </div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey('d3_vibe_web')}>
+                  <span className="arrow">›</span>
+                  <span className="age hi">{t.legendHi}</span>
+                  <div className="bt">{t.d3vibeweb}</div>
+                </div>
               </div>
             </div>
             {/* Day 4 */}
@@ -1181,9 +1477,9 @@ export function TimetablePage() {
             </div>
             {/* Day 3 */}
             <div className="cell">
-              <div className="blk c-share">
-                <span className="tag">{t.legendShare}</span>
-                <div className="ttl">{t.d2share}</div>
+              <div className="blk c-team">
+                <span className="tag">{t.legendTeam}</span>
+                <div className="ttl">{t.d3discuss}</div>
               </div>
             </div>
             {/* Day 4 */}
