@@ -8,9 +8,11 @@ import { useLanguage } from "@/lib/LanguageContext";
 
 const teamEn = [
   {
-    title: "Our Teachers",
-    desc: "Former MIT Research Fellow specializing in cognitive architectures and the intersection of AI with classical ethics.",
-    role: "Faculty Lead",
+    title: "Our Mentors",
+    desc: "We believe children deserve exposure to the real business world.\
+Our mentors come from investment, banking, corporate management, and engineering. They bring years of firsthand experience: real decisions, real trade-offs, real consequences.\
+Their role here is a professional one — translating that experience into knowledge children can genuinely understand and apply.",
+    role: "Practical Mentor",
   },
   {
     title: "Our Linkers",
@@ -28,8 +30,10 @@ const teamEn = [
 const teamZh = [
   {
     title: "我们的导师",
-    desc: "前麻省理工学院（MIT）研究员，专注于认知架构以及人工智能与经典伦理学的交叉领域研究。",
-    role: "学术导师",
+    desc: "我们始终相信，孩子需要接触真实的世界。\
+所以，我们的导师团队来自投资、投行、企业管理与工程技术一线。他们在各自领域积累了多年的实战经验——真实的判断、真实的取舍、真实的代价。\
+他们来到这里，做一件专业的事：把这些经验严肃地转化为孩子能够理解和运用的知识。",
+    role: "实战导师",
   },
   {
     title: "我们的顾问",
@@ -121,27 +125,29 @@ const philosophyZh = [
 const content = {
   en: {
     title: "Who are we?",
-    bio: "The world is pushed forward, little by little, by those who dare to create.\
-YC distilled it into a single line — Make something people want. Lu Qi and MiraclePlus place their faith in walking alongside founders, using technology and innovation to create lasting value, from zero to one.\
-What we want to do is plant that same seed a little earlier.\
-BoundaryUnknown is an innovation-and-entrepreneurship camp for kids. We believe entrepreneurial thinking shouldn't wait until adulthood — at its heart, it's a way of facing the world: observing life, spotting a real problem, thinking clearly about 'who this matters to and who it can help,' then rolling up your sleeves to build the solution, and finally stepping onto the stage to tell the world about it.\
-Here, kids aren't fed empty concepts, nor taught slick sales talk. We hold to one thing only — great creation always begins with genuine care for real people: Who is your product for? Whose trouble does it solve? Our kids learn to spot opportunities like entrepreneurs, build like designers, and present with the confidence of a speaker — and through teamwork, to listen, to make hard choices, and to keep going.\
-From Boundary unknown, what each child takes home isn't just a finished project, but the quiet confidence that 'I, too, can create value for the world.'\
-What we hope to nurture is the next generation of people who make something people want.\
-The boundary is unknown — and that's exactly why it's worth exploring.",
+    bio: [
+      "The world is driven forward, bit by bit, by those who dare to create.",
+      "YC demands: 「Make something people want.」 MiraclePlus vows: 「From 0 to 1, create long-term value.」 Miracle Edge is here to plant this seed earlier.",
+      "Entrepreneurial thinking shouldn't wait for adulthood. It is a mindset for life: Spot a real problem. Build the solution. Stand on the stage and change the world.",
+      "As the ultimate 「connector,」 Miracle Edge bridges youth and the adult world to co-create a powerful innovation ecosystem.",
+      "Here, children don't just build projects—they forge the rock-solid belief: 「I, too, can create value for this world.」",
+      "The horizon is unknown. Explore it.",
+    ],
     philosophyTitle: "Our Philosophy:",
     integratedMastery: "Integrated Mastery",
     leadershipTitle: "Co-Founders & Leadership",
   },
   zh: {
     title: "我们是谁？",
-    bio: "世界，是被那些敢于创造的人「一点点推动的」。\
-    YC 把这件事浓缩成一句话——Make something people want（做出人们真正需要的东西）;陆奇和奇绩，则把信念放在「陪伴创业者，用技术与创新，从 0 到 1 地创造长期价值」。我们想做的，是把这颗种子,种得更早一点。\
-未知边界是一个面向孩子的创新创业营。我们相信，创业思维不该等到成年才学——它本质上是一种面对世界的方式:观察生活、发现一个真实的问题，想清楚「这件事对谁重要、能帮到谁」，再动手把解决办法做出来，最后站上舞台,把想法讲给世界听。\
-在这里，孩子不灌输空泛的概念，也不学「忽悠的话术」。我们只坚持一件事——好的创造，永远始于对真实的人的关心:你的东西给谁用?解决了谁的烦恼?他们会像创业者一样发现机会、像设计师一样动手实现、像演讲者一样自信表达，并在团队协作中学会倾听、取舍与坚持。\
-在未知边界，孩子带走的不只是一件作品，更是一份「我也能为世界创造价值」的底气。\
-我们想守护的，是下一代「做出人们真正想要的东西」的人。\
-边界未知，所以值得探索。",
+    bio: [
+      "世界，是被那些敢于创造的人「一点点推动的」。",
+      "YC 说：Make something people want（做人们真正需要的东西）；陆奇和奇绩则坚信：陪伴创业者，从 0 到 1 创造长期价值。",
+      "而未知边界想做的，是把这颗种子，种得更早一点。",
+      "我们坚信，创业思维不该等到成年才学——它本质上是一种面对世界的方式：发现真实问题，动手解决问题，最终站上舞台，把想法讲给世界听。",
+      "作为「链接者」，未知边界正打破边界，连接孩子与成人世界，共同构建一个充满活力的创新创业社区。",
+      "在这里，孩子们带走的不只是一件作品，更是一份「我也能为世界创造价值」的底气。",
+      "边界未知，所以值得探索。",
+    ],
     philosophyTitle: "我们的教育理念：",
     integratedMastery: "融会贯通",
     leadershipTitle: "联合创始人与领导团队",
@@ -163,9 +169,11 @@ export function AboutPage() {
           <h1 className="text-[40px] md:text-[64px] font-semibold leading-tight text-inverse-surface max-w-4xl mb-md">
             {t.title}
           </h1>
-          <p className="text-body-lg text-secondary max-w-3xl mb-xl leading-relaxed">
-            {t.bio}
-          </p>
+          <div className="text-body-lg text-secondary max-w-3xl mb-xl leading-relaxed space-y-md text-left">
+            {t.bio.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+          </div>
         </section>
 
         <section className="max-w-screen-2xl mx-auto px-4 md:px-8 pb-xxl">
