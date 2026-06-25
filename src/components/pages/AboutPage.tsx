@@ -121,14 +121,27 @@ const philosophyZh = [
 const content = {
   en: {
     title: "Who are we?",
-    bio: "Boundary Unknown was founded by Cece Fang. Having worked in the investment industry for over a decade, she has met countless entrepreneurs. From them, she observed many exceptional and rare qualities—qualities that we believe are crucial in the age of AI. That's why she founded Boundary Unknown: to give children the opportunity to continuously practice and iterate their abilities in real entrepreneurial environments, and to cultivate super individuals who dare to think and dare to act.",
+    bio: "The world is pushed forward, little by little, by those who dare to create.\
+YC distilled it into a single line — Make something people want. Lu Qi and MiraclePlus place their faith in walking alongside founders, using technology and innovation to create lasting value, from zero to one.\
+What we want to do is plant that same seed a little earlier.\
+BoundaryUnknown is an innovation-and-entrepreneurship camp for kids. We believe entrepreneurial thinking shouldn't wait until adulthood — at its heart, it's a way of facing the world: observing life, spotting a real problem, thinking clearly about 'who this matters to and who it can help,' then rolling up your sleeves to build the solution, and finally stepping onto the stage to tell the world about it.\
+Here, kids aren't fed empty concepts, nor taught slick sales talk. We hold to one thing only — great creation always begins with genuine care for real people: Who is your product for? Whose trouble does it solve? Our kids learn to spot opportunities like entrepreneurs, build like designers, and present with the confidence of a speaker — and through teamwork, to listen, to make hard choices, and to keep going.\
+From Boundary unknown, what each child takes home isn't just a finished project, but the quiet confidence that 'I, too, can create value for the world.'\
+What we hope to nurture is the next generation of people who make something people want.\
+The boundary is unknown — and that's exactly why it's worth exploring.",
     philosophyTitle: "Our Philosophy:",
     integratedMastery: "Integrated Mastery",
     leadershipTitle: "Co-Founders & Leadership",
   },
   zh: {
     title: "我们是谁？",
-    bio: "Boundary Unknown 由 Cece Fang 创立。在投资行业从业十余年的经历中，她遇到了无数的创业者，并从中观察到许多稀缺且优秀的品质——我们深信，这些品质在 AI 时代尤为关键。这也正是她创立 Boundary Unknown 的初衷：让孩子们能够在真实的创业环境中不断锻炼和迭代自己的能力，培养敢想、敢做的“超级个体”。",
+    bio: "世界，是被那些敢于创造的人「一点点推动的」。\
+    YC 把这件事浓缩成一句话——Make something people want（做出人们真正需要的东西）;陆奇和奇绩，则把信念放在「陪伴创业者，用技术与创新，从 0 到 1 地创造长期价值」。我们想做的，是把这颗种子,种得更早一点。\
+未知边界是一个面向孩子的创新创业营。我们相信，创业思维不该等到成年才学——它本质上是一种面对世界的方式:观察生活、发现一个真实的问题，想清楚「这件事对谁重要、能帮到谁」，再动手把解决办法做出来，最后站上舞台,把想法讲给世界听。\
+在这里，孩子不灌输空泛的概念，也不学「忽悠的话术」。我们只坚持一件事——好的创造，永远始于对真实的人的关心:你的东西给谁用?解决了谁的烦恼?他们会像创业者一样发现机会、像设计师一样动手实现、像演讲者一样自信表达，并在团队协作中学会倾听、取舍与坚持。\
+在未知边界，孩子带走的不只是一件作品，更是一份「我也能为世界创造价值」的底气。\
+我们想守护的，是下一代「做出人们真正想要的东西」的人。\
+边界未知，所以值得探索。",
     philosophyTitle: "我们的教育理念：",
     integratedMastery: "融会贯通",
     leadershipTitle: "联合创始人与领导团队",
