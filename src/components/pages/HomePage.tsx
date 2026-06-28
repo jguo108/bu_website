@@ -14,7 +14,7 @@ export function HomePage() {
         <section className="mb-xxl">
           <div className="max-w-3xl">
             <h1 className="text-display-lg mb-md text-on-surface">
-              Beyond the boundaries
+              Boundary Unknown
             </h1>
             <p className="text-body-lg text-secondary max-w-2xl">
               Boundary_unknown is a{" "}

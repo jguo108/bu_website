@@ -9,29 +9,24 @@ import { useLanguage } from "@/lib/LanguageContext";
 
 const objectivesEn = [
   {
-    icon: "insights",
-    title: "Think & Act Like an Entrepreneur",
-    body: "Kids don't just learn about entrepreneurship — they practice it. They identify real problems, make decisions under uncertainty, take smart risks, and iterate fast. The mindset of a founder is built through doing.",
+    icon: "auto_awesome",
+    title: "Cross-disciplinary Creativity",
+    body: "Real creation happens at the boundaries between disciplines. Kids blend business, technology, and creativity—using AI to turn cross-disciplinary ideas into things no one has seen before.",
   },
   {
     icon: "smart_toy",
-    title: "AI Literacy - Use it, Don't Fear it",
-    body: "AI is the defining tool of their generation. Kids learn to direct AI with intention — turning vague ideas into working products. They understand what AI can and can't do, how to prompt it effectively, and how to stay in the driver's seat.",
+    title: "AI Leadership",
+    body: "It's not about being replaced by AI, but getting things done with it. From knowing how to use it to knowing how to direct it, kids—like founders leading a team—make AI reliably produce the results they want.",
   },
   {
-    icon: "hub",
-    title: "System Thinking",
-    body: "Great entrepreneurs see the whole picture. Kids learn to map how pieces connect — users, problems, solutions, feedback loops — and understand why products succeed or fail as systems, not just features.",
+    icon: "diversity_3",
+    title: "Empathy & Collaboration",
+    body: "Good products begin with understanding others. Kids first read real people and real needs, then collaborate with peers and with AI to build, together, the things they care about.",
   },
   {
-    icon: "co_present",
-    title: "Communication & Pitch Confidence",
-    body: "An idea is only as powerful as your ability to share it. Kids learn to distill their work into a clear, compelling story — and present it live on Demo Day in front of a real audience.",
-  },
-  {
-    icon: "groups",
-    title: "Collaboration & Resilience",
-    body: "Kids work in teams, navigate disagreement, hit walls, and find ways through. They learn that failure is a data point, not a verdict.",
+    icon: "bolt",
+    title: "Self-Driven Motivation",
+    body: "When a project truly belongs to them, kids don't need to be pushed. Facing real users and real feedback, each takes responsibility for their own work and runs forward on their own.",
   },
 ];
 
@@ -136,10 +131,10 @@ const content = {
       <>
         Innovathon:
         <br />
-        <span className="text-primary font-black">Future Systems Design</span>
+        <span className="text-primary font-black">Youth Creator Hackathon</span>
       </>
     ),
-    heroSub: "A rigorous six-day intensive exploring the intersection of algorithmic thinking and entrepreneurial frameworks. Designed for curious minds ready to architect the next century.",
+    heroSub: "Innovathon = Innovation + Hackathon—a hackathon-style summer camp built around imagination and creation. In six intense days, kids form teams, think like founders, start from real-life pain points, build a product MVP through vibe coding, and pitch live to professional judges on Demo Day.",
     viewDetails: "View Details",
     foundersTitle: "Developing Future Founders",
     foundersDesc: "Our curriculum is designed to build the habits of system architects and tech founders. Through hands-on challenges, we cultivate skills that last a lifetime.",

@@ -9,21 +9,19 @@ import { useLanguage } from "@/lib/LanguageContext";
 const teamEn = [
   {
     title: "Our Mentors",
-    desc: "We believe children deserve exposure to the real business world.\
-Our mentors come from investment, banking, corporate management, and engineering. They bring years of firsthand experience: real decisions, real trade-offs, real consequences.\
-Their role here is a professional one — translating that experience into knowledge children can genuinely understand and apply.",
-    role: "Practical Mentor",
+    desc: "We've always believed children need contact with the real world. That's why our mentors come from the front lines of investment, banking, corporate management, and engineering. Each brings years of hands-on experience—real judgment, real trade-offs, real consequences. They're here to do one professional thing: seriously translate that experience into knowledge children can understand and apply.",
+    role: "The Real World",
   },
   {
-    title: "Our Linkers",
-    desc: "Expert in scaling deep-tech ventures, Elena ensures our systematic knowledge translates into feasible, global-scale plans.",
-    role: "Scale & Strategy",
+    title: "Our Students",
+    desc: "Our students are kids with passion in their hearts and ideas in their hands. They may be young, but they're no longer satisfied with ready-made answers—they've begun to wonder whether the world could be different. We walk with them to the boundary of the unknown, helping a passion or a spark grow, step by step, into a creation truly their own. Here, every child who seriously wants to make something is treated as a serious creator.",
+    role: "Passion & Perseverance",
     offset: true,
   },
   {
     title: "Our Community",
-    desc: "Leading the 'Hand' of our philosophy, Marcus converts complex theories into iterative code and hardware prototypes.",
-    role: "Product Lab",
+    desc: "What we treasure most are the people here. Parents who believe in the long game of education, mentors who've lived real entrepreneurship and industry, and a group of kids full of passion and ideas—they meet here and slowly grow into a warm, high-quality community. We're glad to be everyone's connector: gently bringing children into the real adult world, and linking good ideas to real opportunities.",
+    role: "Go Far, Go Together",
   },
 ];
 
@@ -51,21 +49,21 @@ const teamZh = [
 const foundersEn = [
   {
     name: "Cece Fang",
-    role: "Co-founder",
+    role: "Founder",
     image: "/images/team/cece_fang.png",
-    intro: "Founder of Boundary Unknown. With over a decade of experience in the investment industry, Cece has partnered with and analyzed countless entrepreneurs. Her deep insights into entrepreneurial talent led to the creation of Boundary Unknown, a program designed to foster the next generation of 'super individuals' capable of thriving in the AI era through real-world execution.",
+    intro: "Founder of Boundary Unknown. With over a decade of experience in investment banking and investment, Cece deeply understands how companies grow in value from startup to IPO. She believes both investing and education are practices in long-termism, and is committed to weaving entrepreneurial thinking into youth education—igniting the dream of the 'future super individual.'",
   },
   {
     name: "Lexie Wu",
     role: "Co-founder",
     image: "/images/team/lexie_wu.png",
-    intro: "Co-founder of Boundary Unknown. Lexie is an experienced educator and program designer who specializes in experiential learning and project-based curricula. She is passionate about creating environments where kids can build real projects, test their limits, and learn how to navigate uncertainty with confidence.",
+    intro: "Co-founder of Boundary Unknown. With over a decade in financial and transaction advisory, I've worked with many founders—and noticed a pattern: those who succeed aren't usually the smartest, but the most proactive—they find problems themselves, get hands-on, and try again after failing. We believe this ability can be cultivated from a young age. Boundary Unknown was built on that conviction—letting kids work hands-on in real projects, get feedback, and iterate. The best learning always happens in real practice.",
   },
   {
     name: "Jing Guo",
-    role: "AI Advisor",
+    role: "Co-founder",
     image: "/images/team/jing_guo.png",
-    intro: "AI Advisor for Boundary Unknown. Jing is a senior AI research scientist and tech leader with extensive experience in machine learning and cognitive architectures. He advises on our technical curriculum, ensuring that students learn to build AI-first prototypes using modern development frameworks and real-world workflows.",
+    intro: "Co-founder of Boundary Unknown. A PhD in Computer Science and former Bloomberg engineer, he brings a systematic engineering-thinking framework to the curriculum, ensuring the tools and workflows students use are aligned with real industry—from AI tool selection to prototype building, every step grounded in sound reasoning.",
   },
 ];
 
@@ -126,16 +124,17 @@ const content = {
   en: {
     title: "Who are we?",
     bio: [
-      "The world is driven forward, bit by bit, by those who dare to create.",
-      "YC demands: 「Make something people want.」 MiraclePlus vows: 「From 0 to 1, create long-term value.」 Miracle Edge is here to plant this seed earlier.",
-      "Entrepreneurial thinking shouldn't wait for adulthood. It is a mindset for life: Spot a real problem. Build the solution. Stand on the stage and change the world.",
-      "As the ultimate 「connector,」 Miracle Edge bridges youth and the adult world to co-create a powerful innovation ecosystem.",
-      "Here, children don't just build projects—they forge the rock-solid belief: 「I, too, can create value for this world.」",
-      "The horizon is unknown. Explore it.",
+      "The world is pushed forward, bit by bit, by those who dare to create.",
+      "YC says: 「Make something people want.」 Lu Qi and MiraclePlus firmly believe in walking alongside founders to create long-term value from 0 to 1.",
+      <strong key="seed" className="font-bold text-on-surface">What Boundary Unknown wants to do is plant that seed a little earlier.</strong>,
+      "We firmly believe entrepreneurial thinking shouldn't wait until adulthood—it is essentially a way of facing the world: spot real problems, solve them hands-on, and ultimately step onto the stage to share your ideas with the world.",
+      "As the 「connector,」 Boundary Unknown is breaking boundaries—linking children with the adult world to build a vibrant community of innovation and entrepreneurship.",
+      "Here, children leave not just with a project, but with the conviction: 「I, too, can create value for this world.」",
+      <strong key="explore" className="font-bold text-on-surface">The boundary is unknown—so it's worth exploring.</strong>,
     ],
     philosophyTitle: "Our Philosophy:",
-    integratedMastery: "Integrated Mastery",
-    leadershipTitle: "Co-Founders & Leadership",
+    integratedMastery: "Super Individual",
+    leadershipTitle: "Our Team",
   },
   zh: {
     title: "我们是谁？",

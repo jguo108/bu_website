@@ -7,7 +7,7 @@ import { images } from "@/lib/images";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const stepsEn = [
-  { icon: "query_stats", title: "Validation", desc: "Stress-testing your core hypothesis against market realities and technical constraints." },
+  { icon: "query_stats", title: "Market Research", desc: "What product do users actually want? How do you run effective market research? Start from real needs and build the product blueprint." },
   { icon: "precision_manufacturing", title: "Prototype", desc: "Iterative development cycles focusing on MVP functionality and scalable architecture." },
   { icon: "rocket_launch", title: "Launch", desc: "Strategic GTM planning, investor pitching, and full-scale deployment to users." },
 ];

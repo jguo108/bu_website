@@ -54,17 +54,18 @@ const content = {
   en: {
     heroTitle: (
       <>
-        Beyond the{" "}
+        Boundary{" "}
         <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
-          Boundaries
+          Unknown
         </span>
       </>
     ),
     heroSub: (
-      <>
-        Where curious minds bring a raw idea, learn to think like startup founders, and leverage cutting-edge{" "}
-        <span className="text-white font-semibold">AI systems</span> to architect real, working products.
-      </>
+      <span className="italic">
+        <span className="block">As the &ldquo;connector,&rdquo; Boundary Unknown is breaking boundaries—linking children with the adult world to build a vibrant community of innovation and entrepreneurship.</span>
+        <span className="block mt-4">Here, children leave not just with a project, but with the conviction: &ldquo;I, too, can create value for this world.&rdquo;</span>
+        <span className="block mt-4">The boundary is unknown—and worth exploring.</span>
+      </span>
     ),
     cta: "EXPLORE PROGRAMS",
     formula: (
@@ -73,28 +74,35 @@ const content = {
         <span className="inline-block text-[1.3em] align-middle px-1">∞</span> Vitality
       </>
     ),
-    philosophyTitle: "Philosophy",
+    philosophyTitle: (
+      <>
+        Boundary Unknown
+        <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
+          {" "}3H Mindset Theory
+        </span>
+      </>
+    ),
     f1Title: "Heart (Empathy)",
-    f1Desc: "Deep emotional resonance ensures we solve problems that actually matter to human lives, feeling customer pain points at a visceral level.",
-    f2Title: "Head (Knowledge)",
-    f2Desc: "Systematic knowledge and analytical rigor across AI, business, and finance guide our actions toward technical and market reality.",
-    f3Title: "Hand (Action)",
-    f3Desc: "Iterative feedback and relentless execution. We build, test, and act again with increased precision to bridge theory and the world.",
+    f1Desc: "Start from empathy. Step into others' situations, feel the real pain points, and make sure we're solving the problems that truly matter to people.",
+    f2Title: "Head (Methodology)",
+    f2Desc: "Think with a systematic methodology. Build clear analytical frameworks and sound judgment so that every decision follows a method.",
+    f3Title: "Hand (Execution)",
+    f3Desc: "Turn ideas into reality with strong execution. Build hands-on, iterate fast, and keep acting—closing in on the real world through practice.",
     programsTitle: "Our Programs",
-    campsTag: "Intensive Sprint",
+    campsTag: "Hackathon Bootcamp",
     campsDuration: "6 Days",
-    campsTitle: "Innovathon Camps",
-    campsDesc: "In six fast-paced days, kids form teams, think like founders, write prompts to build product MVPs, and present live pitches on Demo Day to professional judges.",
+    campsTitle: "Innovathon Camp",
+    campsDesc: "Innovathon = Innovation + Hackathon—a hackathon-style summer camp built around imagination and creation. In six intense days, kids form teams, think like founders, start from real-life pain points, build a product MVP through vibe coding, and pitch live to professional judges on Demo Day.",
     learnMore: "LEARN MORE",
-    incubatorTag: "Long-Term Track",
-    incubatorDuration: "Semester",
+    incubatorTag: "From 0 to 1",
+    incubatorDuration: "Project-Based",
     incubatorTitle: "Incubator Lab",
-    incubatorDesc: "For builders who seek complete validation. We take raw tech prototypes and guide them through customer interviews, data structures, deployment, and seed iterations.",
-    academyTag: "Full-Year Track",
-    academyDuration: "30 Weeks / 2 Semesters",
+    incubatorDesc: "How does an MVP become a real “product”—and then a business? The Incubator is for partners ready to iterate their product further and pursue real commercial potential.",
+    academyTag: "miniMBA",
+    academyDuration: "Systematic Learning",
     academyTitle: "Founders Academy",
-    academyDesc: "A comprehensive 30-week journey spanned across two semesters, teaching about AI and entrepreneurship. Students learn advanced AI models, design systems, and launch functional startups.",
-    missionTitle: "Dare to Think, Dare to Act.",
+    academyDesc: "A course that systematically builds entrepreneurial thinking and AI engineering thinking. Starting from a real idea, kids use entrepreneurial thinking to clarify value and AI engineering thinking to make it real—growing into super individuals of the AI era.",
+    missionTitle: "No Creation, No Youth.",
   },
   zh: {
     heroTitle: (

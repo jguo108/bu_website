@@ -70,10 +70,10 @@ const content = {
       <>
         Founders Academy:
         <br />
-        <span className="text-primary font-black">The 30-Week Venture Journey</span>
+        <span className="text-primary font-black">Systematic AI Learning & Entrepreneurial Mindset</span>
       </>
     ),
-    heroSub: "A complete, two-semester curriculum designed to turn students into AI-first builders and system entrepreneurs. Learn advanced AI orchestration, validation, deployment, and GTM.",
+    heroSub: "Starting from a real idea, kids use entrepreneurial thinking to clarify value and AI engineering thinking to make it real—aiming to grow each child into a super individual of the AI era.",
     ladderTitle: "The AI Capability Ladder: User · Director · Independent Builder",
     comingSoon: "Coming soon...",
   },
