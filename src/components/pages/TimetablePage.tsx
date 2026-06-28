@@ -45,7 +45,7 @@ const DETAILS_ZH: Record<string, Detail> = {
     when: "Day 2 · 下午",
     title: "What is AI? vibe coding 101",
     html: `
-      <p>孩子将<b>初步认识 AI</b>：它大概是怎么工作的、如今能做到哪些事、怎样和 AI 有有效对话，并以更具思辨的视角看待 AI 的能力与边界。</p>
+      <p>孩子将<b>初步认识 AI</b>：它大概是怎么工作的、如今能做到哪些事、怎样和 AI 有效对话，并以更具思辨的视角看待 AI 的能力与边界。</p>
       <div class="quote">课程目标：建立对 AI 的整体认识与判断力，学会"好好提问"，为动手用 AI 打基础。</div>
     `
   },
@@ -117,7 +117,7 @@ const DETAILS_ZH: Record<string, Detail> = {
     when: "Day 3 · 下午",
     title: "市场与用户",
     html: `
-      <p>一句话搞懂市场与用户：<b>市场 = 一群有相同需求的人，用户 = 具体的那个人。</b>孩子将思考"我的东西到底给谁用"，并借助 AI 描绘目标用户画像。</p>
+      <p>一句话搞懂市场和用户：<b>市场 = 一群有相同需求的人，用户 = 具体的那个人。</b>孩子将思考"我的东西到底给谁用"，并借助 AI 描绘目标用户画像。</p>
       <div class="quote">课程目标：建立"为真实用户而做"的意识，明确自己项目的目标人群。</div>
     `
   },
@@ -127,7 +127,7 @@ const DETAILS_ZH: Record<string, Detail> = {
     title: "市场问卷调查",
     html: `
       <p><b>做之前先问，别猜。</b>每个小组设计一份属于自己的问卷，午休时走出去采访营地里的其他小朋友，收集真实的反馈。</p>
-      <div class="quote">课程目标：学会用调研倾听真实用户的声音，为产品 and 路演积累一手依据。</div>
+      <div class="quote">课程目标：学会用调研倾听真实用户的声音，为产品和路演积累一手依据。</div>
     `
   },
   d4plan_lo: {
@@ -402,7 +402,7 @@ const content = {
     title: "未知边界 · 2026 暑期创客松 ",
     titleHighlight: "课程表",
     subtitle: "6 天，从一个想法到一件能上台路演的真实作品。青色=AI 课，橙色=创业思维 / 商业课；点击任意板块查看课程内容与目标。",
-    clickHint: "点击板块查看 课程详情 →",
+    clickHint: "点击板块查看 <b>课程详情</b> →",
     legendBiz: "创业思维",
     legendTech: "AI Boost",
     legendTeam: "Teamwork",
@@ -469,7 +469,7 @@ const content = {
     title: "BoundaryUnknown · 2026 Summer Maker-thon ",
     titleHighlight: "Timetable",
     subtitle: "6 days, from an idea to a real project pitch on stage. Cyan = AI class, Orange = Entrepreneurship / Business class; click any block to view course details.",
-    clickHint: "Click a block to view details →",
+    clickHint: "Click a block to view <b>details</b> →",
     legendBiz: "Founder Mindset",
     legendTech: "AI Boost",
     legendTeam: "Teamwork",
@@ -608,43 +608,55 @@ export function TimetablePage() {
           max-width: 896px;
           margin-left: auto;
           margin-right: auto;
+          border-bottom: 1px solid var(--line);
+          padding-bottom: 24px;
         }
         .kicker {
           font-family: "JetBrains Mono", monospace;
           color: var(--hermes);
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.25em;
+          font-size: 13px;
+          letter-spacing: 5px;
           text-transform: uppercase;
+          font-weight: 600;
         }
-        .top h1 {
+        h1 {
           font-family: "Noto Serif SC", serif;
           font-weight: 700;
           margin: 10px 0 0;
-          font-size: 40px;
-          line-height: 1.15;
-          color: var(--ink);
-          letter-spacing: -0.02em;
+          font-size: 34px;
+          line-height: 1.25;
         }
         @media (min-width: 768px) {
-          .top h1 {
-            font-size: 64px;
+          h1 {
+            font-size: 44px;
           }
         }
-        .top h1 .em {
+        h1 .em {
           color: var(--hermes);
         }
         .sub {
           color: var(--muted);
-          font-size: 18px;
-          line-height: 1.6;
+          font-size: 14px;
           margin-top: 8px;
-          max-width: 672px;
+          max-width: 720px;
+          line-height: 1.7;
           margin-left: auto;
           margin-right: auto;
         }
         .sub b {
           color: var(--ink);
+        }
+        .hint {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 12px;
+          color: var(--muted);
+          border: 1px solid var(--line);
+          border-radius: 6px;
+          padding: 8px 12px;
+          white-space: nowrap;
+        }
+        .hint b {
+          color: var(--hermes);
         }
 
         /* ---------- legend ---------- */
@@ -785,7 +797,6 @@ export function TimetablePage() {
         .blk.click:hover {
           transform: translateY(-2px);
           z-index: 2;
-          border-color: var(--hermes-line);
         }
         .blk.click .arrow {
           position: absolute;
@@ -915,6 +926,43 @@ export function TimetablePage() {
         .age.hi {
           background: rgba(224,184,74,.18);
           color: var(--hi);
+        }
+        .chip-ai {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 9px;
+          background: var(--hermes-soft);
+          color: var(--hermes);
+          border: 1px solid var(--hermes-line);
+          border-radius: 4px;
+          padding: 1px 5px;
+          letter-spacing: 0.5px;
+        }
+        .ai-here {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 8.5px;
+          background: var(--hermes-soft);
+          color: var(--hermes);
+          border: 1px solid var(--hermes-line);
+          border-radius: 4px;
+          padding: 0 4px;
+          margin-left: 5px;
+          letter-spacing: 0.3px;
+          vertical-align: 1px;
+        }
+        .tbd {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 8.5px;
+          background: rgba(140, 136, 122, 0.18);
+          color: var(--muted);
+          border: 1px dashed var(--line);
+          border-radius: 4px;
+          padding: 0 4px;
+          margin-left: 5px;
+          letter-spacing: 0.3px;
+          vertical-align: 1px;
         }
 
         /* category tints */
@@ -1162,9 +1210,9 @@ export function TimetablePage() {
           color: #fff;
         }
         .close {
-          position: absolute;
-          top: 30px;
-          right: 34px;
+          position: sticky;
+          top: 0;
+          float: right;
           background: none;
           border: 1px solid var(--line);
           color: var(--muted);
@@ -1174,9 +1222,7 @@ export function TimetablePage() {
           cursor: pointer;
           font-size: 16px;
           line-height: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          margin: -6px -10px 0 0;
         }
         .close:hover {
           border-color: var(--hermes);
@@ -1198,11 +1244,23 @@ export function TimetablePage() {
             <span className="em">{t.titleHighlight}</span>
           </h1>
           <div className="sub">
-            6 天，从一个想法到一件能上台路演的真实作品。
-            <b style={{ color: "var(--tech)" }}>青色</b>=AI 课，
-            <b style={{ color: "var(--hermes)" }}>橙色</b>=创业思维 / 商业课；点击任意板块查看
-            <b>课程内容与目标</b>。
+            {language === "zh" ? (
+              <>
+                6 天，从一个想法到一件能上台路演的真实作品。
+                <b style={{ color: "var(--tech)" }}>青色</b>=AI 课，
+                <b style={{ color: "var(--hermes)" }}>橙色</b>=创业思维 / 商业课；点击任意板块查看
+                <b>课程内容与目标</b>。
+              </>
+            ) : (
+              <>
+                6 days, from an idea to a real project pitch on stage.{" "}
+                <b style={{ color: "var(--tech)" }}>Cyan</b>=AI class,{" "}
+                <b style={{ color: "var(--hermes)" }}>Orange</b>=Founder Mindset / Business class; click any block to view{" "}
+                <b>course details and goals</b>.
+              </>
+            )}
           </div>
+          <div className="hint" dangerouslySetInnerHTML={{ __html: t.clickHint }} />
         </div>
 
         <div className="legend">
@@ -1246,385 +1304,123 @@ export function TimetablePage() {
 
         <div className="scroll">
           <div className="grid">
-            {/* Header row */}
+            {/* header row */}
             <div className="corner"></div>
-            <div className="dhead">
-              <div className="dn">{t.colDay1}</div>
-              <div className="dt">{t.subDay1}</div>
-            </div>
-            <div className="dhead">
-              <div className="dn">{t.colDay2}</div>
-              <div className="dt">{t.subDay2}</div>
-            </div>
-            <div className="dhead">
-              <div className="dn">{t.colDay3}</div>
-              <div className="dt">{t.subDay3}</div>
-            </div>
-            <div className="dhead">
-              <div className="dn">{t.colDay4}</div>
-              <div className="dt">{t.subDay4}</div>
-            </div>
-            <div className="dhead">
-              <div className="dn">{t.colDay5}</div>
-              <div className="dt">{t.subDay5}</div>
-            </div>
-            <div className="dhead">
-              <div className="dn">{t.colDay6}</div>
-              <div className="dt">{t.subDay6}</div>
-            </div>
+            <div className="dhead"><div className="dn">{t.colDay1}</div><div className="dt">{t.subDay1}</div></div>
+            <div className="dhead"><div className="dn">{t.colDay2}</div><div className="dt">{t.subDay2}</div></div>
+            <div className="dhead"><div className="dn">{t.colDay3}</div><div className="dt">{t.subDay3}</div></div>
+            <div className="dhead"><div className="dn">{t.colDay4}</div><div className="dt">{t.subDay4}</div></div>
+            <div className="dhead"><div className="dn">{t.colDay5}</div><div className="dt">{t.subDay5}</div></div>
+            <div className="dhead"><div className="dn">{t.colDay6}</div><div className="dt">{t.subDay6}</div></div>
 
-            {/* Row: 晨间 */}
+            {/* 晨间 row */}
             <div className="rlabel">{t.rowMorning}</div>
-            <div className="cell">
-              <div className="empty"></div>
-            </div>
-            <div className="cell">
-              <div className="blk c-cream">
-                <span className="tag">Morning</span>
-                <div className="ttl">{t.warmup}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div className="blk c-cream">
-                <span className="tag">Morning</span>
-                <div className="ttl">{t.warmup}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div
-                className="blk click star c-biz"
-                onClick={() => setSelectedKey("d4_survey")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendBiz}</span>
-                <div className="ttl">{t.surveyTitle}</div>
-                <div className="meta">{t.surveyMeta}</div>
-              </div>
-            </div>
+            <div className="cell"><div className="empty"></div></div>
+            <div className="cell"><div className="blk c-cream"><span className="tag">Morning</span><div className="ttl">{t.warmup}</div></div></div>
+            <div className="cell"><div className="blk c-cream"><span className="tag">Morning</span><div className="ttl">{t.warmup}</div></div></div>
+            <div className="cell"><div className="blk click star c-biz" onClick={() => setSelectedKey("d4_survey")}><span className="arrow">›</span><span className="tag">{t.legendBiz}</span><div className="ttl">{t.surveyTitle}</div><div className="meta">{t.surveyMeta}</div></div></div>
             <div className="cell">
               <div className="pair">
-                <div
-                  className="subbox lo cat-ai"
-                  onClick={() => setSelectedKey("d5_lo")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.loAIPrep}</div>
-                </div>
-                <div
-                  className="subbox hi cat-ai"
-                  onClick={() => setSelectedKey("d5_hi")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.hiAIPrep}</div>
-                </div>
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey("d5_lo")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.loAIPrep}</div></div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey("d5_hi")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.hiAIPrep}</div></div>
               </div>
             </div>
-            <div className="cell">
-              <div className="blk c-cream">
-                <span className="tag">Morning</span>
-                <div className="ttl">{t.warmup}</div>
-              </div>
-            </div>
+            <div className="cell"><div className="blk c-cream"><span className="tag">Morning</span><div className="ttl">{t.warmup}</div></div></div>
 
-            {/* Row: 上午 */}
+            {/* 上午 row */}
             <div className="rlabel">{t.rowMorningSession}</div>
+            <div className="cell"><div className="empty"></div></div>
+            {/* D2 am */}
             <div className="cell">
-              <div className="empty"></div>
-            </div>
-            <div className="cell">
-              <div
-                className="blk click c-biz"
-                onClick={() => setSelectedKey("d2_jiexi")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendBiz}</span>
-                <div className="ttl">{t.d2jiexi}</div>
-              </div>
+              <div className="blk click c-biz" onClick={() => setSelectedKey("d2_jiexi")}><span className="arrow">›</span><span className="tag">{t.legendBiz}</span><div className="ttl">{t.d2jiexi}</div></div>
               <div className="pair grow">
-                <div
-                  className="subbox lo cat-ai"
-                  onClick={() => setSelectedKey("d2_lo_ai")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.d2loai}</div>
-                </div>
-                <div
-                  className="subbox hi cat-biz"
-                  onClick={() => setSelectedKey("d2_hi_biz2")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d2hibiz2}</div>
-                </div>
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey("d2_lo_ai")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.d2loai}</div></div>
+                <div className="subbox hi cat-biz" onClick={() => setSelectedKey("d2_hi_biz2")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.d2hibiz2}</div></div>
               </div>
             </div>
+            {/* D3 am */}
             <div className="cell">
               <div className="pair">
-                <div
-                  className="subbox lo cat-ai"
-                  onClick={() => setSelectedKey("d3_vibe_games")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.d3vibegames}</div>
-                </div>
-                <div
-                  className="subbox hi cat-ai"
-                  onClick={() => setSelectedKey("d3_vibe_games")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d3vibegames}</div>
-                </div>
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey("d3_vibe_games")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.d3vibegames}</div></div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey("d3_vibe_games")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.d3vibegames}</div></div>
               </div>
             </div>
+            {/* D4 am */}
             <div className="cell">
-              <div
-                className="blk click c-team"
-                onClick={() => setSelectedKey("d_mvp")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.dmvp}</div>
-              </div>
+              <div className="blk click c-team" onClick={() => setSelectedKey("d_mvp")}><span className="arrow">›</span><span className="tag">{t.legendTeam}</span><div className="ttl">{t.dmvp}</div></div>
             </div>
+            {/* D5 am */}
             <div className="cell">
-              <div className="blk c-team">
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.d5completeAI}</div>
-              </div>
-              <div
-                className="blk click c-team grow"
-                onClick={() => setSelectedKey("d_mvp")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.dmvp}</div>
-              </div>
+              <div className="blk c-team"><span className="tag">{t.legendTeam}</span><div className="ttl">{t.d5completeAI}</div></div>
+              <div className="blk click c-team grow" onClick={() => setSelectedKey("d_mvp")}><span className="arrow">›</span><span className="tag">{t.legendTeam}</span><div className="ttl">{t.dmvp}</div></div>
             </div>
-            <div className="cell">
-              <div
-                className="blk click c-present"
-                onClick={() => setSelectedKey("d6rehearsal")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendPresent}</span>
-                <div className="ttl">{t.d6rehearsal}</div>
-              </div>
-            </div>
+            {/* D6 am */}
+            <div className="cell"><div className="blk click c-present" onClick={() => setSelectedKey("d6rehearsal")}><span className="arrow">›</span><span className="tag">{t.legendPresent}</span><div className="ttl">{t.d6rehearsal}</div></div></div>
 
-            {/* Row: 中午 */}
+            {/* 中午 bar (Day 2-6) */}
             <div className="rlabel">{t.rowNoonSession}</div>
             <div></div>
-            <div className="bar meal" style={{ gridColumn: "span 5" }}>
-              {t.lunchRecess}
-            </div>
-            <div></div>
+            <div className="bar meal" style={{gridColumn:'span 5'}}>{t.lunchRecess}</div>
 
-            {/* Row: 下午 */}
+            {/* 下午 row */}
             <div className="rlabel">{t.rowAfternoonSession}</div>
-            <div className="cell">
-              <div
-                className="blk click c-biz"
-                onClick={() => setSelectedKey("d1open")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">Opening</span>
-                <div className="ttl">{t.d1open}</div>
-                <div className="meta">{t.d1openMeta}</div>
-              </div>
-            </div>
+            {/* D1 pm */}
+            <div className="cell"><div className="blk click c-biz" onClick={() => setSelectedKey("d1open")}><span className="arrow">›</span><span className="tag">Opening</span><div className="ttl">{t.d1open}</div><div className="meta">{t.d1openMeta}</div></div></div>
+            {/* D2 pm */}
             <div className="cell">
               <div className="pair">
-                <div
-                  className="subbox lo cat-biz"
-                  onClick={() => setSelectedKey("d2pm_lo")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.d2hibiz2}</div>
-                </div>
-                <div
-                  className="subbox hi cat-ai"
-                  onClick={() => setSelectedKey("d2pm_hi")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d2loai}</div>
-                </div>
+                <div className="subbox lo cat-biz" onClick={() => setSelectedKey("d2pm_lo")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.d2hibiz2}</div></div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey("d2pm_hi")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.d2loai}</div></div>
               </div>
-              <div
-                className="blk click star c-biz grow"
-                onClick={() => setSelectedKey("d2empathy")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendBiz}</span>
-                <div className="ttl">{t.d2empathy}</div>
-              </div>
-              <div className="blk c-share">
-                <span className="tag">{t.legendShare}</span>
-                <div className="ttl">{t.d2share}</div>
-              </div>
+              <div className="blk click star c-biz grow" onClick={() => setSelectedKey("d2empathy")}><span className="arrow">›</span><span className="tag">{t.legendBiz}</span><div className="ttl">{t.d2empathy}</div></div>
+              <div className="blk c-share"><span className="tag">{t.legendShare}</span><div className="ttl">{t.legendShare}</div></div>
             </div>
+            {/* D3 pm */}
             <div className="cell">
               <div className="pair">
-                <div
-                  className="subbox lo cat-biz"
-                  onClick={() => setSelectedKey("d3_market")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.d3market}</div>
-                </div>
-                <div
-                  className="subbox hi cat-biz"
-                  onClick={() => setSelectedKey("d3_market")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d3market}</div>
-                </div>
+                <div className="subbox lo cat-biz" onClick={() => setSelectedKey("d3_market")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.d3market}</div></div>
+                <div className="subbox hi cat-biz" onClick={() => setSelectedKey("d3_market")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.d3market}</div></div>
               </div>
               <div className="pair grow">
-                <div
-                  className="subbox lo cat-ai"
-                  onClick={() => setSelectedKey("d3_vibe_web")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.d3vibeweb}</div>
-                </div>
-                <div
-                  className="subbox hi cat-ai"
-                  onClick={() => setSelectedKey("d3_vibe_web")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d3vibeweb}</div>
-                </div>
+                <div className="subbox lo cat-ai" onClick={() => setSelectedKey("d3_vibe_web")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.d3vibeweb}</div></div>
+                <div className="subbox hi cat-ai" onClick={() => setSelectedKey("d3_vibe_web")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.d3vibeweb}</div></div>
               </div>
             </div>
+            {/* D4 pm */}
             <div className="cell">
               <div className="pair">
-                <div
-                  className="subbox lo cat-biz"
-                  onClick={() => setSelectedKey("d4plan_lo")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age lo">{t.legendLo}</span>
-                  <div className="bt">{t.d4planlo}</div>
-                </div>
-                <div
-                  className="subbox hi cat-biz"
-                  onClick={() => setSelectedKey("d4plan_hi")}
-                >
-                  <span className="arrow">›</span>
-                  <span className="age hi">{t.legendHi}</span>
-                  <div className="bt">{t.d4planhi}</div>
-                </div>
+                <div className="subbox lo cat-biz" onClick={() => setSelectedKey("d4plan_lo")}><span className="arrow">›</span><span className="age lo">{t.legendLo}</span><div className="bt">{t.d4planlo}</div></div>
+                <div className="subbox hi cat-biz" onClick={() => setSelectedKey("d4plan_hi")}><span className="arrow">›</span><span className="age hi">{t.legendHi}</span><div className="bt">{t.d4planhi}</div></div>
               </div>
-              <div
-                className="blk click c-team grow"
-                onClick={() => setSelectedKey("d_mvp")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.dmvp}</div>
-              </div>
-              <div className="blk c-share">
-                <span className="tag">{t.legendShare}</span>
-                <div className="ttl">{t.d2share}</div>
-              </div>
+              <div className="blk click c-team grow" onClick={() => setSelectedKey("d_mvp")}><span className="arrow">›</span><span className="tag">{t.legendTeam}</span><div className="ttl">{t.dmvp}</div></div>
+              <div className="blk c-share"><span className="tag">{t.legendShare}</span><div className="ttl">{t.legendShare}</div></div>
             </div>
+            {/* D5 pm */}
             <div className="cell">
-              <div
-                className="blk click star c-present grow"
-                onClick={() => setSelectedKey("d5speak")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendPresent}</span>
-                <div className="ttl">{t.d5speak}</div>
-              </div>
-              <div className="blk c-share">
-                <span className="tag">{t.legendShare}</span>
-                <div className="ttl">{t.d2share}</div>
-              </div>
+              <div className="blk click star c-present grow" onClick={() => setSelectedKey("d5speak")}><span className="arrow">›</span><span className="tag">{t.legendPresent}</span><div className="ttl">{t.d5speak}</div></div>
+              <div className="blk c-share"><span className="tag">{t.legendShare}</span><div className="ttl">{t.legendShare}</div></div>
             </div>
-            <div className="cell">
-              <div
-                className="blk click c-show"
-                onClick={() => setSelectedKey("d6show")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">Showtime</span>
-                <div className="ttl">{t.d6show}</div>
-              </div>
-            </div>
+            {/* D6 pm */}
+            <div className="cell"><div className="blk click c-show" onClick={() => setSelectedKey("d6show")}><span className="arrow">›</span><span className="tag">Showtime</span><div className="ttl">{t.d6show}</div></div></div>
 
-            {/* Row: 晚餐 */}
+            {/* 晚餐 bar (Day 1-5) */}
             <div className="rlabel">{t.rowDinnerSession}</div>
-            <div className="bar meal" style={{ gridColumn: "span 5" }}>
-              {t.dinnerRecess}
-            </div>
-            <div className="cell">
-              <div className="empty"></div>
-            </div>
+            <div className="bar meal" style={{gridColumn:'span 5'}}>{t.dinnerRecess}</div>
+            <div></div>
 
-            {/* Row: 晚间 */}
+            {/* 晚间 row */}
             <div className="rlabel">{t.rowEveningSession}</div>
-            <div className="cell">
-              <div
-                className="blk click c-biz"
-                onClick={() => setSelectedKey("d1ice")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.d1ice}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div
-                className="blk click c-team"
-                onClick={() => setSelectedKey("d2_blueprint")}
-              >
-                <span className="arrow">›</span>
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.d2blueprint}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div className="blk c-team">
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.d3discuss}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div className="blk c-present">
-                <span className="tag">{t.legendPresent}</span>
-                <div className="ttl">{t.d4pitchscript}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div className="blk c-team">
-                <span className="tag">{t.legendTeam}</span>
-                <div className="ttl">{t.d5refinement}</div>
-              </div>
-            </div>
-            <div className="cell">
-              <div className="empty">{t.d6departure}</div>
-            </div>
+            <div className="cell"><div className="blk click c-biz" onClick={() => setSelectedKey("d1ice")}><span className="arrow">›</span><span className="tag">{t.legendTeam}</span><div className="ttl">{t.d1ice}</div></div></div>
+            <div className="cell"><div className="blk click c-team" onClick={() => setSelectedKey("d2_blueprint")}><span className="arrow">›</span><span className="tag">{t.legendTeam}</span><div className="ttl">{t.d2blueprint}</div></div></div>
+            <div className="cell"><div className="blk c-team"><span className="tag">{t.legendTeam}</span><div className="ttl">{t.d3discuss}</div></div></div>
+            <div className="cell"><div className="blk c-present"><span className="tag">{t.legendPresent}</span><div className="ttl">{t.d4pitchscript}</div></div></div>
+            <div className="cell"><div className="blk c-team"><span className="tag">{t.legendTeam}</span><div className="ttl">{t.d5refinement}</div></div></div>
+            <div className="cell"><div className="empty">{t.d6departure}</div></div>
 
-            {/* Family Time Row */}
+            {/* 家庭沟通 bar (Day 1-5) */}
             <div className="rlabel"></div>
-            <div className="bar thin" style={{ gridColumn: "span 5" }}>
-              {t.familyTime}
-            </div>
-            <div className="cell">
-              <div className="empty"></div>
-            </div>
+            <div className="bar thin" style={{gridColumn:'span 5'}}>{t.familyTime}</div>
+            <div></div>
           </div>
         </div>
       </main>
@@ -1650,7 +1446,6 @@ export function TimetablePage() {
             <h2>{DETAILS[selectedKey].title}</h2>
             <div className="m-when">{DETAILS[selectedKey].when}</div>
             <div
-              className="prose max-w-none text-[#EDE7D7] space-y-4 font-sans"
               dangerouslySetInnerHTML={{ __html: DETAILS[selectedKey].html }}
             />
           </div>
