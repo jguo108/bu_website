@@ -37,8 +37,8 @@ export const translations = {
     nav: {
       home: "首页",
       programs: "项目课程",
-      camps: "创新营",
-      incubator: "孵化器",
+      camps: "少年创客松",
+      incubator: "孵化实验室",
       academy: "创始人学院",
       about: "关于我们",
       contact: "联系我们",

@@ -33,18 +33,18 @@ const teamZh = [
     desc: "我们始终相信，孩子需要接触真实的世界。\
 所以，我们的导师团队来自投资、投行、企业管理与工程技术一线。他们在各自领域积累了多年的实战经验——真实的判断、真实的取舍、真实的代价。\
 他们来到这里，做一件专业的事：把这些经验严肃地转化为孩子能够理解和运用的知识。",
-    role: "实战导师",
+    role: "真实世界",
   },
   {
-    title: "我们的顾问",
-    desc: "深科技创业孵化专家，协助学员将系统性的前沿知识转化为切实可行的全球化方案。",
-    role: "战略与规模拓展",
+    title: "我们的学员",
+    desc: "我们的学员，是一群心里有热爱、手里有想法的孩子。他们也许年纪还小，却已经不满足于现成的答案，开始好奇世界能不能不一样。我们陪他们走到未知的边界上，把一份热爱、一个念头，一步步探索成真正属于自己的创造——在这里，每一个认真想做点什么的孩子，都被当作认真的创造者对待。",
+    role: "热爱与坚持",
     offset: true,
   },
   {
     title: "我们的社区",
-    desc: "知行合一的实践引领者，协助学员将复杂的理论转化为可运行的代码和硬件原型。",
-    role: "产品实验室",
+    desc: "我们最珍惜的，是这里的人。认同「教育长期性」的家长，走过真实创业与行业的导师，还有一群有热爱、有想法的孩子——他们在这里相遇，慢慢长成一个温暖而优质的社区。我们愿做彼此的链接者：把孩子轻轻带进真实的成年世界，把一个个好想法，链接到真实的机会面前。",
+    role:"独行快，众行远",
   },
 ];
 
@@ -72,21 +72,21 @@ const foundersEn = [
 const foundersZh = [
   {
     name: "Cece Fang",
-    role: "联合创始人",
+    role: "创始人",
     image: "/images/team/cece_fang.png",
-    intro: "Boundary Unknown 创始人。拥有十余年投资行业经验，曾与无数创业者深度合作。她对创业者特质的深刻洞察促成了 Boundary Unknown 的创立，旨在通过真实商业环境的锤炼，培养在 AI 时代敢想敢为的“超级个体”。",
+    intro: "Boundary Unknown 创始人。拥有十余年投行及投资行业经验，深谙企业从初创到上市的价值成长逻辑，笃信投资与教育皆是长期主义的实践，致力于将创业思维，融入少年成长教育，点燃“未来超级个体”的梦想。",
   },
   {
     name: "Lexie Wu",
     role: "联合创始人",
     image: "/images/team/lexie_wu.png",
-    intro: "Boundary Unknown 联合创始人。资深教育家与项目设计专家，专注于体验式学习与项目制课程研发。她致力于为孩子们创造动手实践的真实场景，引导他们在不确定性中建立自信与解决问题的能力。",
+    intro: "Boundary Unknown 联合创始人。十余年财务及交易咨询经验。在过去的工作中，我接触过很多创始人，我发现，成功的人往往不是最聪明的，而是最有主动性的——自己找问题、自己动手、失败了再来。我们相信，这种能力，是可以从小培养的。未知边界基于这个判断建立——让孩子在真实项目里反复动手、拿到反馈、迭代。最好的学习，永远发生在真实的实践里。",
   },
   {
     name: "Jing Guo",
-    role: "AI 顾问",
+    role: "联合创始人",
     image: "/images/team/jing_guo.png",
-    intro: "Boundary Unknown AI 顾问。资深人工智能科学家与技术领袖，在机器学习和认知架构领域拥有丰富经验。他为技术课程提供专业指导，确保学员能够掌握最新的 AI 工具，在真实开发流程中构建以 AI 为核心的原型产品。",
+    intro: "Boundary Unknown联合创始人。计算机博士，前 Bloomberg 工程师。他为课程引入系统性的工程思维框架，确保学员所用的工具与开发流程与真实行业接轨——从 AI 工具选型到原型构建，每一步有据可依。",
   },
 ];
 
@@ -142,15 +142,15 @@ const content = {
     bio: [
       "世界，是被那些敢于创造的人「一点点推动的」。",
       "YC 说：Make something people want（做人们真正需要的东西）；陆奇和奇绩则坚信：陪伴创业者，从 0 到 1 创造长期价值。",
-      "而未知边界想做的，是把这颗种子，种得更早一点。",
+      <strong key="seed" className="font-bold text-on-surface">而未知边界想做的，是把这颗种子，种得更早一点。</strong>,
       "我们坚信，创业思维不该等到成年才学——它本质上是一种面对世界的方式：发现真实问题，动手解决问题，最终站上舞台，把想法讲给世界听。",
       "作为「链接者」，未知边界正打破边界，连接孩子与成人世界，共同构建一个充满活力的创新创业社区。",
       "在这里，孩子们带走的不只是一件作品，更是一份「我也能为世界创造价值」的底气。",
-      "边界未知，所以值得探索。",
+      <strong key="explore" className="font-bold text-on-surface">边界未知，所以值得探索。</strong>,
     ],
     philosophyTitle: "我们的教育理念：",
-    integratedMastery: "融会贯通",
-    leadershipTitle: "联合创始人与领导团队",
+    integratedMastery: "超级个体",
+    leadershipTitle: "我们的团队",
   }
 };
 
@@ -271,12 +271,12 @@ export function AboutPage() {
                 >
                   {/* Left Column: Photo + Name + Role */}
                   <div className="flex flex-col items-center text-center w-60 shrink-0">
-                    <div className="relative w-44 h-44 rounded-2xl overflow-hidden border-4 border-border/85 group-hover:border-primary transition-all duration-500 shadow-md group-hover:shadow-xl group-hover:scale-105 mb-sm bg-card">
+                    <div className="relative w-44 h-44 rounded-full overflow-hidden transition-all duration-500 shadow-md group-hover:shadow-xl group-hover:scale-105 mb-sm">
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                         sizes="176px"
                       />
                     </div>

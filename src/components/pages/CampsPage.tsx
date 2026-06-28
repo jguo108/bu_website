@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaterialIcon } from "@/components/MaterialIcon";
-import { RegisterButton } from "@/components/RegisterButton";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const objectivesEn = [
@@ -38,29 +37,24 @@ const objectivesEn = [
 
 const objectivesZh = [
   {
-    icon: "insights",
-    title: "像创业者一样思考与行动",
-    body: "学员们不仅仅是学习创业的理论——更是在实践中体会。他们需要识别真实问题、在不确定性中做出决策、承担合理的风险并快速迭代。创始人的思维方式正是通过“做”来建立的。",
+    icon: "auto_awesome",
+    title: "跨界创造力 · Cross-disciplinary Creativity",
+    body: "真正的创造发生在学科的边界上。孩子把商业、技术与创意揉到一起，用 AI 把跨界的想法，做成别人没见过的东西。",
   },
   {
     icon: "smart_toy",
-    title: "AI 素养：主导并妙用 AI，而非恐惧",
-    body: "AI 是这一代人的决定性工具。学员们将学会带着明确意图引导 AI——将抽象的想法转化为可运行的产品。他们将理解 AI 的边界、如何高效编写 Prompt，并在协作中始终坐在驾驶员的位置上。",
+    title: "AI 领导力 · AI Leadership",
+    body: "不是被 AI 取代，而是带着 AI 成事。从会用，到会指挥，孩子像创始人带团队一样，让 AI 稳定产出自己想要的结果。",
   },
   {
-    icon: "hub",
-    title: "系统性思维",
-    body: "优秀的创业者看重全局。学员们学习绘制各要素之间的连接图——用户、痛点、解决方案、反馈环，并从系统层面理解为什么一个产品会成功或失败，而不仅仅是堆砌功能。",
+    icon: "diversity_3",
+    title: "共情协作力 · Empathy & Collaboration",
+    body: "好产品始于对他人的理解。孩子先读懂真实的人、真实的需求，再与同伴、与 AI 协作，把在意的事一起做出来。",
   },
   {
-    icon: "co_present",
-    title: "沟通与路演表达的自信",
-    body: "创意的价值取决于你分享它的能力。学员们学习将复杂的项目工作提炼成一个清晰、引人入胜的故事，并在 Demo Day 站在真实观众面前进行路演展示。",
-  },
-  {
-    icon: "groups",
-    title: "团队协作与抗挫折力",
-    body: "在团队中紧密配合、面对分歧、跨越阻碍并找到出路。他们将认识到失败只是一个实验数据点，而非最终裁决。",
+    icon: "bolt",
+    title: "自驱型动力 · Self-Driven Motivation",
+    body: "当项目真正属于自己，孩子就不必被推着走。面对真实的用户和反馈，他为自己的作品负责，自己往前跑。",
   },
 ];
 
@@ -124,7 +118,7 @@ const faqsEn = [
 const faqsZh = [
   {
     q: "参与学员有年龄限制吗？",
-    a: "Innovathon 创新营面向 9-18 岁的学生开放。我们保持多元化的年龄分布，以鼓励同伴学习以及多视角的设计协作。",
+    a: "Innovathon少年创客松面向 9-18 岁的学生开放。我们保持多元化的年龄分布，以鼓励同伴学习以及多视角的设计协作。",
   },
   {
     q: "我需要有编程基础吗？",
@@ -155,31 +149,17 @@ const content = {
     objectiveLabel: "Objective 0",
     coreCurriculum: "Core Curriculum",
     viewTimetable: "View Timetable",
-    location: "Location",
-    locationDetail: "Global Innovation Hub, Shanghai",
-    locationAddr: "No. 188 Museum Lane, Jing'an District",
-    availableDates: "Available Dates",
-    date1: "Session 1: July 5-10, 2026",
-    date2: "Session 2: August 2-7, 2026",
     faqTitle: "Frequently Asked Questions",
-    readyTitle: (
-      <>
-        Ready to shape the <span className="whitespace-nowrap"><span className="italic font-light">future</span>?</span>
-      </>
-    ),
-    readySub: "Limited spots available for the 2026 cohort. Selection is based on passion, creativity, and a drive to solve hard problems.",
-    registerText: "Register for Session",
-    applicationsClose: "Applications close May 1st, 2026",
   },
   zh: {
     heroTitle: (
       <>
         Innovathon:
         <br />
-        <span className="text-primary font-black">未来系统设计营</span>
+        <span className="text-primary font-black">少年创客松</span>
       </>
     ),
-    heroSub: "为期六天的紧凑集训，深入探索算法思维与创业框架的融合。专为渴望架构下一个世纪的探求者设计。",
+    heroSub: "Innovathon=Innovation + Hackathon。以想象、创新为主题的黑客松式夏令营。在节奏紧凑的 6 天内，孩子们组建团队、像创始人一样思考、从真实生活中的痛点出发，通过vibe coding构建产品 MVP，并在 Demo Day 向专业评审进行现场路演。",
     viewDetails: "查看详情",
     foundersTitle: "培养未来的创始人",
     foundersDesc: "我们的课程旨在培养系统架构师和技术创始人的习惯。通过亲自动手的挑战，我们培养伴随一生的能力。",
@@ -189,21 +169,7 @@ const content = {
     objectiveLabel: "核心目标 0",
     coreCurriculum: "核心学习板块",
     viewTimetable: "查看日程课表",
-    location: "营地地点",
-    locationDetail: "上海全球创新中心",
-    locationAddr: "静安区博览路 188 号",
-    availableDates: "开营日期",
-    date1: "第一期：2026 年 7 月 5 - 10 日",
-    date2: "第二期：2026 年 8 月 2 - 7 日",
     faqTitle: "常见问题",
-    readyTitle: (
-      <>
-        准备好塑造 <span className="whitespace-nowrap"><span className="italic font-light">未来</span> 了吗？</span>
-      </>
-    ),
-    readySub: "2026 年夏季营名额有限。我们将基于学员的热情、创造力以及解决困难痛点的动力进行选拔。",
-    registerText: "申请报名",
-    applicationsClose: "申请截止日期：2026 年 5 月 1 日",
   }
 };
 
@@ -226,27 +192,6 @@ export function CampsPage() {
           <p className="text-body-lg text-secondary max-w-2xl">
             {t.heroSub}
           </p>
-        </section>
-
-        <section className="max-w-screen-xl mx-auto px-4 md:px-gutter mb-xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter bg-surface-container rounded-[32px] p-xl border border-outline-variant/30">
-            <div className="flex flex-col items-center text-center gap-xs">
-              <MaterialIcon name="location_on" className="text-primary text-3xl shrink-0" />
-              <h3 className="text-headline-md font-semibold mt-xs">{t.location}</h3>
-              <p className="text-body-md text-secondary mt-xs">
-                {t.locationDetail}
-              </p>
-              <p className="text-body-sm text-tertiary">
-                {t.locationAddr}
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center gap-xs">
-              <MaterialIcon name="calendar_month" className="text-primary text-3xl shrink-0" />
-              <h3 className="text-headline-md font-semibold mt-xs">{t.availableDates}</h3>
-              <p className="text-body-md text-secondary mt-xs">{t.date1}</p>
-              <p className="text-body-md text-secondary">{t.date2}</p>
-            </div>
-          </div>
         </section>
 
         <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl border-t border-outline-variant/30">
@@ -353,27 +298,6 @@ export function CampsPage() {
                   </div>
                 </details>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-screen-xl mx-auto px-4 md:px-gutter py-xxl border-t border-outline-variant/30">
-          <div className="bg-primary rounded-[32px] p-xl md:p-xxl flex flex-col md:flex-row items-center justify-between gap-xl">
-            <div className="text-white max-w-2xl">
-              <h2 className="text-display-lg leading-tight">
-                {t.readyTitle}
-              </h2>
-              <p className="text-body-lg text-white/90 mt-md">
-                {t.readySub}
-              </p>
-            </div>
-            <div className="flex flex-col items-center gap-md">
-              <RegisterButton className="bg-white text-primary px-12 py-5 rounded-full font-black text-xl hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/10">
-                {t.registerText}
-              </RegisterButton>
-              <span className="text-white/80 text-label-md text-sm">
-                {t.applicationsClose}
-              </span>
             </div>
           </div>
         </section>

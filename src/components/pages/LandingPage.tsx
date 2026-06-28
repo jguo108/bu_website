@@ -67,6 +67,12 @@ const content = {
       </>
     ),
     cta: "EXPLORE PROGRAMS",
+    formula: (
+      <>
+        <span className="italic">Creation</span><sup className="text-[0.5em] align-super font-bold text-[#FF751F] [-webkit-text-fill-color:#FF751F]">4P</sup> × (Business + Tech) ={" "}
+        <span className="inline-block text-[1.3em] align-middle px-1">∞</span> Vitality
+      </>
+    ),
     philosophyTitle: "Philosophy",
     f1Title: "Heart (Empathy)",
     f1Desc: "Deep emotional resonance ensures we solve problems that actually matter to human lives, feeling customer pain points at a visceral level.",
@@ -89,52 +95,64 @@ const content = {
     academyTitle: "Founders Academy",
     academyDesc: "A comprehensive 30-week journey spanned across two semesters, teaching about AI and entrepreneurship. Students learn advanced AI models, design systems, and launch functional startups.",
     missionTitle: "Dare to Think, Dare to Act.",
-    missionDesc: "We believe that the best way to learn is by doing. BoundaryUnknown provides the space, mentorship, and cloud compute nodes for young minds to transform curiosity into ventures."
   },
   zh: {
     heroTitle: (
       <>
-        超越
+        未知
         <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
           边界
         </span>
       </>
     ),
     heroSub: (
-      <>
-        在这里，好奇的心灵带着粗糙的创意而来，学习像初创创始人一样思考，并利用前沿的{" "}
-        <span className="text-white font-semibold">AI 系统</span> 架构真实、可运行的产品。
-      </>
+      <span className="italic">
+        <span className="block whitespace-nowrap">作为「链接者」，未知边界正打破边界，连接孩子与成人世界，共同构建一个充满活力的创新创业社区。</span>
+        <span className="block mt-4 whitespace-nowrap">在这里，孩子们带走的不只是一件作品，更是一份「我也能为世界创造价值」的底气。</span>
+        <span className="block mt-4 whitespace-nowrap">边界未知，期待探索。</span>
+      </span>
     ),
     cta: "探索项目课程",
-    philosophyTitle: "教学理念",
-    f1Title: "心 (共情)",
-    f1Desc: "深度的情感共鸣，确保我们解决对人类生活真正有价值的痛点，深刻感知用户的真实处境。",
-    f2Title: "脑 (认知)",
-    f2Desc: "在人工智能、商业和金融领域具备系统性知识与严谨的分析能力，引导我们走向技术和市场现实。",
-    f3Title: "手 (行动)",
-    f3Desc: "快速迭代的反馈与坚定不移的执行力。我们在实践中构建、测试并再次行动，不断提升精度以连接理论与真实世界。",
+    formula: (
+      <>
+        <span className="italic">创造</span><sup className="text-[0.5em] align-super font-bold text-[#FF751F] [-webkit-text-fill-color:#FF751F]">4P</sup> ×（商业 ＋ 科技）={" "}
+        <span className="inline-block text-[1.3em] align-middle px-1">∞</span> 生命力
+      </>
+    ),
+    philosophyTitle: (
+      <>
+        未知边界
+        <span className="bg-gradient-to-r from-[#FF751F] via-[#ff934f] to-[#fef9f0] bg-clip-text text-transparent">
+          「3H创业思维理论」
+        </span>
+      </>
+    ),
+    f1Title: "Heart「心」",
+    f1Desc: "以同理心出发，真正走进他人的处境，感受真实的痛点，确保我们解决的是对人真正重要的问题。",
+    f2Title: "Head「脑」",
+    f2Desc: "用系统的方法论思考问题，建立清晰的分析框架与判断逻辑，让每一个决策都有章可循。",
+    f3Title: "Hand「手」",
+    f3Desc: "以强大的执行力把想法落地，动手构建、快速迭代、持续行动，在实践中不断逼近真实世界。",
     programsTitle: "项目课程",
-    campsTag: "短期冲刺营",
+    campsTag: "黑客松式集训营",
     campsDuration: "6 天",
-    campsTitle: "Innovathon 创新营",
-    campsDesc: "在节奏紧凑的 6 天内，孩子们组建团队、像创始人一样思考、通过编写提示词构建产品 MVP，并在 Demo Day 向专业评审进行现场路演。",
+    campsTitle: "Innovathon 少年创客松",
+    campsDesc: "Innovathon=Innovation + Hackathon。以想象、创新为主题的黑客松式夏令营。在节奏紧凑的 6 天内，孩子们组建团队、像创始人一样思考、从真实生活中的痛点出发，通过vibe coding构建产品 MVP，并在 Demo Day 向专业评审进行现场路演。",
     learnMore: "了解更多",
-    incubatorTag: "长期路线",
-    incubatorDuration: "单学期",
+    incubatorTag: "From 0 to 1",
+    incubatorDuration: "项目制",
     incubatorTitle: "孵化实验室",
-    incubatorDesc: "专为追求完整商业验证的创造者设计。我们以原始的技术原型为起点，引导他们进行真实用户访谈、数据架构设计、项目部署及种子用户迭代。",
-    academyTag: "学年路线",
-    academyDuration: "30 周 / 双学期",
+    incubatorDesc: "从MVP，如何变成一个真正的「产品」？又如何实现商业化？孵化营正为想进一步迭代产品、寻求真正商业可能性的伙伴。",
+    academyTag: "miniMBA",
+    academyDuration: "系统性学习",
     academyTitle: "创始人学院",
-    academyDesc: "跨越两个学期、共 30 周的系统性深度项目，全面传授 AI 技术与创业方法论。学员将深入理解前沿 AI 模型，设计系统架构，并真正发布落地自己的创新企业。",
+    academyDesc: "这是一门系统培养创业思维与AI工程思维的课程。孩子从一个真实的想法出发，用创业思维想清楚价值，用 AI 工程思维把价值做出来——培养孩子成为AI时代的超级个体。",
     missionTitle: (
       <>
         <span className="inline-block">无创造，</span>
         <span className="inline-block">不少年。</span>
       </>
     ),
-    missionDesc: "我们相信，最好的学习方式就是动手实践。BoundaryUnknown 为年轻人提供探索空间、导师指导以及云端计算资源，将抽象的好奇心转化为真正的创新实践。"
   }
 };
 
@@ -183,7 +201,7 @@ export function LandingPage() {
             </h1>
 
             {/* Subtext */}
-            <p className="text-body-lg text-zinc-400 max-w-2xl leading-relaxed mb-12">
+            <p className="text-body-lg text-zinc-400 w-full leading-relaxed mb-12 text-center">
               {t.heroSub}
             </p>
 
@@ -197,6 +215,28 @@ export function LandingPage() {
                 {t.cta}
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* CREATION FORMULA */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes formula-shimmer {
+            0%, 100% { background-position: 0% center; opacity: 0.8; }
+            50% { background-position: 200% center; opacity: 1; }
+          }
+          .formula-shimmer {
+            background: linear-gradient(90deg, #ffffff 0%, #FF751F 25%, #ffffff 50%, #FF751F 75%, #ffffff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: formula-shimmer 3.5s ease-in-out infinite;
+          }
+        `}} />
+        <section className="flex justify-center py-12 md:py-20 mb-12">
+          <div className="formula-shimmer text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-center leading-tight">
+            {t.formula}
           </div>
         </section>
 
@@ -312,7 +352,7 @@ export function LandingPage() {
                       {t.campsDuration}
                     </span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-white mb-6 tracking-tight whitespace-nowrap">
+                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-[#FF751F] mb-6 tracking-tight whitespace-nowrap">
                     {t.campsTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
@@ -346,7 +386,7 @@ export function LandingPage() {
                       {t.incubatorDuration}
                     </span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-white mb-6 tracking-tight whitespace-nowrap">
+                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-[#FF751F] mb-6 tracking-tight whitespace-nowrap">
                     {t.incubatorTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
@@ -380,7 +420,7 @@ export function LandingPage() {
                       {t.academyDuration}
                     </span>
                   </div>
-                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-white mb-6 tracking-tight whitespace-nowrap">
+                  <h3 className="text-2xl md:text-3xl lg:text-xl xl:text-2xl font-black uppercase text-[#FF751F] mb-6 tracking-tight whitespace-nowrap">
                     {t.academyTitle}
                   </h3>
                   <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-lg">
@@ -412,13 +452,9 @@ export function LandingPage() {
             <div className="bg-zinc-950/40 border border-zinc-900/80 rounded-[48px] p-8 md:p-20 relative overflow-hidden backdrop-blur-md">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-[30%] bg-[#FF751F]/5 blur-[64px] rounded-full" />
               
-              <h2 className="text-3xl md:text-5xl font-black uppercase text-white mb-8 leading-tight">
+              <h2 className="formula-shimmer text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.9]">
                 {t.missionTitle}
               </h2>
-              
-              <p className="text-zinc-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                {t.missionDesc}
-              </p>
             </div>
           </div>
         </section>

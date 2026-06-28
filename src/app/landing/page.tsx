@@ -4,6 +4,21 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/lib/LanguageContext";
 
+// Deterministic pseudo-random so server and client render identically (no
+// hydration mismatch) and we never call an impure function during render.
+const seeded = (n: number) => {
+  const x = Math.sin(n * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+};
+
+const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+  width: seeded(i + 1) * 3 + 1 + "px",
+  height: seeded(i + 2) * 3 + 1 + "px",
+  top: seeded(i + 3) * 100 + "%",
+  left: seeded(i + 4) * 100 + "%",
+  animation: `star-pulse ${seeded(i + 5) * 3 + 2}s infinite ease-in-out ${seeded(i + 6) * 2}s, float ${seeded(i + 7) * 4 + 4}s infinite ease-in-out`,
+}));
+
 export default function LandingPage() {
   const [phase, setPhase] = useState<"shimmer" | "dissolve" | "text">("shimmer");
   const { language, t } = useLanguage();
@@ -77,16 +92,16 @@ export default function LandingPage() {
 
       {/* Floating particles background for "starlight" effect */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
-        {[...Array(20)].map((_, i) => (
+        {PARTICLES.map((p, i) => (
           <div
             key={i}
             className="absolute rounded-full bg-[#FF751F]"
             style={{
-              width: Math.random() * 3 + 1 + 'px',
-              height: Math.random() * 3 + 1 + 'px',
-              top: Math.random() * 100 + '%',
-              left: Math.random() * 100 + '%',
-              animation: `star-pulse ${Math.random() * 3 + 2}s infinite ease-in-out ${Math.random() * 2}s, float ${Math.random() * 4 + 4}s infinite ease-in-out`,
+              width: p.width,
+              height: p.height,
+              top: p.top,
+              left: p.left,
+              animation: p.animation,
               boxShadow: '0 0 8px 2px rgba(255, 117, 31, 0.4)'
             }}
           />
