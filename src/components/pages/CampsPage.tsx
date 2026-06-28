@@ -39,7 +39,7 @@ const objectivesZh = [
   {
     icon: "smart_toy",
     title: "AI 领导力 · AI Leadership",
-    body: "不是被 AI 取代，而是带着 AI 成事。从会用，到会指挥，孩子像创始人带团队一样，让 AI 稳定产出自己想要的结果。",
+    body: "不是被AI取代，而是用AI创造。从会用，到会指挥，孩子像创始人带团队一样，让 AI 稳定产出自己想要的结果。",
   },
   {
     icon: "diversity_3",
