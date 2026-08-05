@@ -17,6 +17,7 @@ const navItems = [
       { href: "/programs/academy", labelKey: "nav.academy" as const },
     ],
   },
+  { href: "/projects", labelKey: "nav.projects" as const },
   { href: "/about", labelKey: "nav.about" as const },
 ] as const;
 

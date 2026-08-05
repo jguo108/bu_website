@@ -1,258 +1,236 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MaterialIcon } from "@/components/MaterialIcon";
-import { images } from "@/lib/images";
 import { useLanguage } from "@/lib/LanguageContext";
+import projectsData from "../../../projects_data.json";
 
 const filtersEn = [
-  "All Projects",
-  "app and website",
-  "retail",
-  "Social Impact",
-  "Environmental Systems",
-] as const;
-
-const filtersZh = [
-  "全部项目",
-  "应用与网站",
-  "零售与文创",
-  "社会影响力",
-  "环境系统",
-] as const;
-
-const projectsEn = [
-  {
-    title: "Debate Masters",
-    categoryKey: "app and website",
-    categoryLabel: "app and website",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZqQM1gLilmFnXFTme9Cybjx6MOuDEfbJJSQ9HcAjvdoYtWNEJfCb29UnzEu1KRKfpUjJvLKMdiUi_bQxqsxhGghtQ9bKvHGm_erDP7Rd8JgyGpwMnA-IWE6Xx7vVK83HhQoYH7GhLa8mbJr1jK3Ky8Ufptnvf14w4hxFe9zLUmu9H7P1xqK_I7zmFfrPgnyMdKiAx-cI_C2LU27Z3VGxTDn-qjBa1zffOIsguYPjChyEFZ60RbkibOaDPnunjBp6PRqVGopKcxiL9",
-    desc: ["Built by a team of 10-year-olds who loved debating but couldn't find anyone to practice.", "They didn't just want a forum. They wanted structure, scoring, and the thrill of a real match."],
-    id: "UNKN-024-01",
-  },
-  {
-    title: "Voyd Explorer",
-    categoryKey: "app and website",
-    categoryLabel: "app and website",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCPEuJ8toaxmq8qFaxueE8tXTnJfNh_R_sG9OJDF7b225rd43hn4g2hAnecw-gqrQS1U9wbYq88jW-O5-CstaHvEtHzx7dl0yXYwxhu8CDE5ewOxsxDdS2Gf2M8sSYKF2q4AZ-EnTjERfRklR-HL_YxWQS6ofxwfaJ1kaCY1EmgKl9ROJvVd3TnTR6NARqyZh31M8fuLaFzMqNak5K-YcvhXi1vvE3TRa4vfOOkkOtvsqE6rx-KkdzxIp6D4ByjqFHr78BtoMXxfVNq",
-    desc: ["Designed by kids who thought every drawing app was painfully boring.", "They designed a game-based drawing app with daily challenges and streak rewards."],
-    id: "UNKN-2024-08",
-  },
-  {
-    title: "Boxed",
-    categoryKey: "retail",
-    categoryLabel: "retail",
-    img: images.project3,
-    desc: ["A blind box series of physical collectibles featuring AI-generated artwork.", "Part art project, part business model."],
-    id: "UNKN-2024-12",
-  },
-  {
-    title: "Peace Maker",
-    categoryKey: "Social Impact",
-    categoryLabel: "Social Impact",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwJLvE0uVWVZMhHxZr2REIo2eKWkytZfYKJqWI-xmhPSpUG_tWo8GkIe3lktPuKZYZoU2LvWbV0F5QirpH3WEVJIwbNR6LznZksRpcDBhYbzZhB3AOKiTQmRvyN8yaOpcNT7lW6WE3h3hrcOYkXMvRJUiypHFyQPVhoXaZOzTdZPYC0VQtOoeqea_Z-RpKhlGGtPTga4JmxjuTxeMCUcsYnjXsPknSIHD4MpDUFfgGmg2ZSmzL_EV-53CsySOVUn-jWr-k2ZQH6f9A",
-    desc: ["A desk toy that settles arguments between friends fairly.", "Simple idea. Surprisingly hard to make. They made it anyway."],
-    id: "UNKN-2024-05",
-  },
-  {
-    title: "Qing Luan",
-    categoryKey: "app and website",
-    categoryLabel: "entertainment",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuALnksZb8MhPhrvxP5u_njoHeI9Fnk2imxiKtrFdS79aqj-qz-F0OoNoGV_DVrCBK0NxgP4vWzXYwtAKRmlNZXhcXKsQr2BVe1iVejpLv66WmwheA__hOeCjVJ4BJ0Xa0ouoKNIZEJydjJFNkUkQxL9TNwRtxOi2M53rluihwjyEGRqP7EgxatQ4Qp3jh5gia-LVQqJLnqeGA7dC8Kgkh5XBzEeQgLxH1xNGlByH8iJwC3NgsOa6ng0nlRzIcGrWaJ-eB5deTMyArU9",
-    desc: ["An ethical AI pop star agency with transparent ownership and fair revenue splits."],
-    id: "UNKN-2024-03",
-  },
-  {
-    title: "Privacy Shield Protocol",
-    categoryKey: "Social Impact",
-    categoryLabel: "Social Impact",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDd5NKDBlDkurLMi9JoMrzbIqZulqqU-BiFfoHUVHVEG86jgHvJZ99sBwChtgUcNVqIdZVMPIUDJG95EHp3A5B_LqoxkiLeXhMImWpudSk19sqMSCf1f7GsztTFdU4v_FkEN3eQaebH8UGcUdXPIn1_eO6i1iZ9uCf1pKQhdYZsB-XGVNRf1e8RP1LCMkbup-VDpbLW9-xblcnrMW9nmf2O-S8Uz56gcd7EVqFP3QOaRtUxlvJ0RjwIpAvUgS1VIJ5uYCOeOu1hjcLi",
-    desc: ["A blockchain-based identity verification system designed specifically for stateless individuals."],
-    id: "UNKN-2024-19",
-  },
+  { label: "Term", key: "term", options: [{ v: "all", l: "All" }, { v: "2026s1", l: "2026 Summer" }, { v: "2026w", l: "2026 Winter" }] },
+  { label: "Category", key: "cat", options: [{ v: "all", l: "All" }, { v: "tool", l: "Tools · 8" }, { v: "game", l: "Games · 4" }, { v: "biz", l: "Business · 2" }] }
 ];
 
-const projectsZh = [
-  {
-    title: "辩论大师 (Debate Masters)",
-    categoryKey: "app and website",
-    categoryLabel: "应用与网站",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZqQM1gLilmFnXFTme9Cybjx6MOuDEfbJJSQ9HcAjvdoYtWNEJfCb29UnzEu1KRKfpUjJvLKMdiUi_bQxqsxhGghtQ9bKvHGm_erDP7Rd8JgyGpwMnA-IWE6Xx7vVK83HhQoYH7GhLa8mbJr1jK3Ky8Ufptnvf14w4hxFe9zLUmu9H7P1xqK_I7zmFfrPgnyMdKiAx-cI_C2LU27Z3VGxTDn-qjBa1zffOIsguYPjChyEFZ60RbkibOaDPnunjBp6PRqVGopKcxiL9",
-    desc: ["由一群热爱辩论但找不到练习对手的 10 岁孩子构建。", "他们不仅想要一个论坛，更渴望比赛的规则结构、评分机制以及真实对决的刺激感。"],
-    id: "UNKN-024-01",
-  },
-  {
-    title: "Voyd Explorer",
-    categoryKey: "app and website",
-    categoryLabel: "应用与网站",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCPEuJ8toaxmq8qFaxueE8tXTnJfNh_R_sG9OJDF7b225rd43hn4g2hAnecw-gqrQS1U9wbYq88jW-O5-CstaHvEtHzx7dl0yXYwxhu8CDE5ewOxsxDdS2Gf2M8sSYKF2q4AZ-EnTjERfRklR-HL_YxWQS6ofxwfaJ1kaCY1EmgKl9ROJvVd3TnTR6NARqyZh31M8fuLaFzMqNak5K-YcvhXi1vvE3TRa4vfOOkkOtvsqE6rx-KkdzxIp6D4ByjqFHr78BtoMXxfVNq",
-    desc: ["由那些觉得所有绘画应用都枯燥无味的学员们设计。", "他们开发了一款游戏化的绘画应用，提供每日挑战和连胜奖励。"],
-    id: "UNKN-2024-08",
-  },
-  {
-    title: "Boxed 盲盒产品线",
-    categoryKey: "retail",
-    categoryLabel: "零售与文创",
-    img: images.project3,
-    desc: ["融入 AI 生成艺术作品的实体收藏品盲盒系列。", "既是一个创意艺术项目，也是一个可行的商业模式。"],
-    id: "UNKN-2024-12",
-  },
-  {
-    title: "和事佬 (Peace Maker)",
-    categoryKey: "Social Impact",
-    categoryLabel: "社会影响力",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAwJLvE0uVWVZMhHxZr2REIo2eKWkytZfYKJqWI-xmhPSpUG_tWo8GkIe3lktPuKZYZoU2LvWbV0F5QirpH3WEVJIwbNR6LznZksRpcDBhYbzZhB3AOKiTQmRvyN8yaOpcNT7lW6WE3h3hrcOYkXMvRJUiypHFyQPVhoXaZOzTdZPYC0VQtOoeqea_Z-RpKhlGGtPTga4JmxjuTxeMCUcsYnjXsPknSIHD4MpDUFfgGmg2ZSmzL_EV-53CsySOVUn-jWr-k2ZQH6f9A",
-    desc: ["一款用于公正解决朋友间争吵的桌面玩具。", "想法很简单，实现过程却出乎意料地困难。但他们最终成功做到了。"],
-    id: "UNKN-2024-05",
-  },
-  {
-    title: "青鸾虚拟偶像 (Qing Luan)",
-    categoryKey: "app and website",
-    categoryLabel: "娱乐与文化",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuALnksZb8MhPhrvxP5u_njoHeI9Fnk2imxiKtrFdS79aqj-qz-F0OoNoGV_DVrCBK0NxgP4vWzXYwtAKRmlNZXhcXKsQr2BVe1iVejpLv66WmwheA__hOeCjVJ4BJ0Xa0ouoKNIZEJydjJFNkUkQxL9TNwRtxOi2M53rluihwjyEGRqP7EgxatQ4Qp3jh5gia-LVQqJLnqeGA7dC8Kgkh5XBzEeQgLxH1xNGlByH8iJwC3NgsOa6ng0nlRzIcGrWaJ-eB5deTMyArU9",
-    desc: ["一个产权透明、收入分成合理的合规 AI 虚拟偶像经纪公司。"],
-    id: "UNKN-2024-03",
-  },
-  {
-    title: "Privacy Shield 隐私验证协议",
-    categoryKey: "Social Impact",
-    categoryLabel: "社会影响力",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDd5NKDBlDkurLMi9JoMrzbIqZulqqU-BiFfoHUVHVEG86jgHvJZ99sBwChtgUcNVqIdZVMPIUDJG95EHp3A5B_LqoxkiLeXhMImWpudSk19sqMSCf1f7GsztTFdU4v_FkEN3eQaebH8UGcUdXPIn1_eO6i1iZ9uCf1pKQhdYZsB-XGVNRf1e8RP1LCMkbup-VDpbLW9-xblcnrMW9nmf2O-S8Uz56gcd7EVqFP3QOaRtUxlvJ0RjwIpAvUgS1VIJ5uYCOeOu1hjcLi",
-    desc: ["专为无国籍人士设计的基于区块链的身份验证系统。"],
-    id: "UNKN-2024-19",
-  },
+const filtersZh = [
+  { label: "期数", key: "term", options: [{ v: "all", l: "全部" }, { v: "2026s1", l: "2026 夏季创客松" }, { v: "2026w", l: "2026 冬季创客松" }] },
+  { label: "类型", key: "cat", options: [{ v: "all", l: "全部" }, { v: "tool", l: "工具类 App · 8" }, { v: "game", l: "游戏类 · 4" }, { v: "biz", l: "商业模式 · 2" }] }
 ];
 
 const content = {
   en: {
-    title: "Student Projects",
-    desc1: "These aren't school assignments. They're not thought experiments.",
-    desc2: (
+    heroEyebrow: "BOUNDARY UNKNOWN",
+    heroTitle: "Student Projects",
+    heroEntitle: "Explore our projects",
+    heroLead: (
       <>
-        They're <strong>real products</strong> — built around real problems, pitched like real businesses, and created by kids who refused to wait until they were older to make something worth using.
+        They aren't just sketching on paper—they're <b>drawing drafts, running market research, refining ideas</b>, and using AI to turn them into real, playable products. What's more impressive is that every project has figured out three things: <b>What am I making, who am I selling to, and why me.</b>
       </>
     ),
-    desc3: "That's exactly where every great business starts.",
-    sortByDate: "Sort by Date",
-    loadMore: "Load More Projects",
+    stats: [
+      { n: "14", t: "Student Projects" },
+      { n: "2", t: "Hackathons · Ongoing" },
+      { n: "50+", t: "Young Creators" },
+      { n: "2–5", t: "Days to Prototype" }
+    ],
+    totalProjects: "Total {n} projects",
+    indexTitle: "Quick Glance",
+    emptyMsg: "No projects found for the selected filters.",
+    closingTitle: "Your Turn",
+    closingP1: "These projects don't have flashy tech packaging, but they all start from a very specific, real problem—a cold war with parents, a video of walking alone at night, or just 'why aren't the fun games made for us'.",
+    closingP2: "What's more precious is that these kids didn't stop at 'thinking about it'. Every term, new projects will be added.",
+    cta: "Explore Our Programs →",
+    ctaLink: "/",
+    footerText: "Boundary Unknown · Student Projects · Content compiled from student pitches",
+    viewDetails: "View Details"
   },
   zh: {
-    title: "学员项目",
-    desc1: "这些不是普通的课堂作业，更不是空洞的思想实验。",
-    desc2: (
+    heroEyebrow: "未知边界 · BOUNDARY UNKNOWN",
+    heroTitle: "学员项目",
+    heroEntitle: "Explore our projects",
+    heroLead: (
       <>
-        它们是<strong>解决真实痛点的产品</strong>——围绕实际问题构建，像真实的初创企业一样进行商业路演。这群孩子们拒绝等待长大后再去创造有价值的东西。
+        他们不是在纸上画画写写，而是先<b>手绘草图、跑市场调研、反复打磨想法</b>，再借助 AI 把这些变成能扫码就玩、能真实运行的产品——从家庭沟通到深夜安全，从足球游戏到在线辩论。更难得的是，每个项目都想清楚了三件事：<b>我做的是什么、卖给谁、凭什么是我。</b>
       </>
     ),
-    desc3: "而这，正是一切伟大商业开始的地方。",
-    sortByDate: "按日期排序",
-    loadMore: "加载更多项目",
+    stats: [
+      { n: "14", t: "个学员项目" },
+      { n: "2", t: "期创客松 · 持续更新" },
+      { n: "50+", t: "位小创造者" },
+      { n: "2–5", t: "天做出可运行原型" }
+    ],
+    totalProjects: "共 {n} 个项目",
+    indexTitle: "项目速览",
+    emptyMsg: "这个筛选条件下暂时没有项目。",
+    closingTitle: "轮到你了",
+    closingP1: "这些项目没有华丽的技术包装，却都从一个特别具体、特别真实的问题出发——可能是自己和爸妈的一次冷战，可能是一条深夜独行的视频，也可能只是「为什么好玩的游戏都不是给我们做的」。",
+    closingP2: "更难得的是，这群孩子没有停在「想一想」。每一期，都还会有新的项目加进来。",
+    cta: "了解未知边界的课程 →",
+    ctaLink: "/",
+    footerText: "未知边界 Boundary Unknown · 学员项目展 · 页面内容由学员路演资料整理",
+    viewDetails: "查看详情"
   }
 };
 
 export function ProjectsPage() {
-  const [activeFilterIndex, setActiveFilterIndex] = useState<number>(0);
   const { language } = useLanguage();
-  const filters = language === "zh" ? filtersZh : filtersEn;
-  const projects = language === "zh" ? projectsZh : projectsEn;
   const t = content[language];
+  const filters = language === "zh" ? filtersZh : filtersEn;
+  // For now, use the Chinese data for both languages, as translating 14 projects is extensive.
+  // In a real scenario, we'd have a projectsEn array as well.
+  const projects = projectsData;
 
-  const filtered =
-    activeFilterIndex === 0
-      ? projects
-      : projects.filter(
-          (p) => p.categoryKey.toLowerCase() === filtersEn[activeFilterIndex].toLowerCase()
-        );
+  const [termFilter, setTermFilter] = useState("all");
+  const [catFilter, setCatFilter] = useState("all");
+
+  const filteredProjects = projects.filter(p => 
+    (termFilter === "all" || p.term === termFilter) &&
+    (catFilter === "all" || p.cat === catFilter)
+  );
 
   return (
-    <>
-      <Header />
-      <main className="max-w-screen-2xl mx-auto px-4 md:px-8 py-xxl">
-        <header className="mb-xl">
-          <h1 className="text-display-lg text-on-surface mb-md">{t.title}</h1>
-          <div className="text-body-lg text-on-surface-variant max-w-2xl space-y-4">
-            <p className="leading-[1.7]">{t.desc1}</p>
-            <p className="leading-[1.7]">{t.desc2}</p>
-            <p className="leading-[1.7]">{t.desc3}</p>
+    <div className="bg-[#FFFFFF] text-[#0B0B0C] font-sans min-h-screen">
+      <Header variant="white" />
+      
+      {/* HERO */}
+      <header className="bg-[#0B0B0C] text-white pt-[74px] pb-[70px] relative overflow-hidden">
+        <div className="absolute -bottom-[180px] -right-[140px] w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(255,90,21,0.30),rgba(255,90,21,0)_68%)] pointer-events-none" />
+        <div className="max-w-[1080px] mx-auto px-6 relative z-10">
+          <div className="inline-flex items-center gap-[9px] text-[12px] font-extrabold tracking-[0.2em] text-[#FF5A15] mb-[22px] before:content-[''] before:w-[26px] before:h-[2px] before:bg-[#FF5A15]">
+            {t.heroEyebrow}
           </div>
-        </header>
-
-        <div className="flex flex-wrap items-center gap-sm mb-xl border-b border-border pb-md">
-          {filters.map((f, i) => (
-            <button
-              key={f}
-              type="button"
-              onClick={() => setActiveFilterIndex(i)}
-              className={`px-md py-xs text-label-md rounded-full uppercase transition-colors cursor-pointer ${
-                activeFilterIndex === i
-                  ? "bg-primary text-white"
-                  : "bg-surface-container-highest text-on-surface-variant hover:bg-primary hover:text-white"
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-          <div className="ml-auto flex items-center gap-xs text-on-surface-variant hidden sm:flex">
-            <MaterialIcon name="filter_list" className="text-sm" />
-            <span className="text-label-md uppercase">{t.sortByDate}</span>
+          <h1 className="text-[clamp(40px,7vw,72px)] leading-[1.1] mb-[10px] font-extrabold tracking-[0.02em]">
+            {t.heroTitle}
+          </h1>
+          <p className="m-0 mb-[26px] text-[clamp(16px,2.2vw,22px)] font-bold tracking-[0.09em] text-[#FF5A15]">
+            {t.heroEntitle}
+          </p>
+          <p className="max-w-[660px] text-[17px] text-[#C4C4CB] m-0 leading-[1.75]">
+            {t.heroLead}
+          </p>
+          <div className="flex flex-wrap gap-[44px] mt-[44px] pt-[32px] border-t border-white/15">
+            {t.stats.map((stat, i) => (
+              <div key={i}>
+                <div className="text-[34px] font-extrabold tracking-[-0.02em] leading-none">
+                  {stat.n.includes("14") || stat.n.includes("2") || stat.n.includes("50") ? (
+                    <span className="text-[#FF5A15]">{stat.n}</span>
+                  ) : (
+                    stat.n
+                  )}
+                </div>
+                <div className="text-[13px] text-[#8C8C93] mt-[8px] font-semibold tracking-[0.04em]">
+                  {stat.t}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl">
-          {filtered.map((project) => (
-            <article
-              key={project.id}
-              className="bg-card border border-border flex flex-col group hover:border-primary transition-all duration-300 rounded-2xl overflow-hidden"
-            >
-              <div className="aspect-video w-full overflow-hidden bg-surface-dim relative rounded-t-2xl">
-                <Image
-                  alt={project.title}
-                  src={project.img}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-lg flex flex-col flex-grow">
-                <span className="bg-surface-container text-on-secondary-container px-sm py-1 text-[10px] uppercase tracking-widest rounded-lg w-fit mb-sm">
-                  {project.categoryLabel}
-                </span>
-                <h3 className="text-headline-lg mb-sm group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <div className="text-body-sm text-on-surface-variant mb-md flex-grow space-y-2">
-                  {project.desc.map((d, i) => (
-                    <p key={i}>
-                      {d.startsWith("Built") || d.startsWith("Designed") || d.startsWith("A ") || d.startsWith("由") || d.startsWith("融入") || d.startsWith("专为") ? (
-                        <em>{d}</em>
-                      ) : (
-                        d
-                      )}
-                    </p>
-                  ))}
-                </div>
-                <div className="knowledge-block-thin pl-md py-1 mt-auto">
-                  <span className="text-code text-on-surface">ID: {project.id}</span>
-                </div>
-              </div>
-            </article>
-          ))}
+      {/* FILTERS */}
+      <nav className="sticky top-[60px] md:top-[72px] z-50 bg-white/95 backdrop-blur-md border-b border-[#E7E5E1]">
+        <div className="max-w-[1080px] mx-auto px-6 py-[14px] flex items-center gap-[10px] flex-wrap">
+          <div className="flex items-center gap-[8px] flex-wrap">
+            <span className="text-[11px] font-extrabold tracking-[0.16em] text-[#9A9AA1] mr-[2px]">{filters[0].label}</span>
+            {filters[0].options.map(opt => (
+              <button 
+                key={opt.v}
+                onClick={() => setTermFilter(opt.v)}
+                className={`border border-[#E7E5E1] text-[13.5px] font-bold px-[15px] py-[7px] rounded-full cursor-pointer transition-colors whitespace-nowrap ${termFilter === opt.v ? 'bg-[#0B0B0C] border-[#0B0B0C] text-white' : 'bg-white text-[#3A3A3F] hover:border-[#BFBDB8]'}`}
+              >
+                {opt.l}
+              </button>
+            ))}
+          </div>
+          <div className="w-[1px] h-[20px] bg-[#E7E5E1] mx-[4px] hidden md:block"></div>
+          <div className="flex items-center gap-[8px] flex-wrap">
+            <span className="text-[11px] font-extrabold tracking-[0.16em] text-[#9A9AA1] mr-[2px]">{filters[1].label}</span>
+            {filters[1].options.map(opt => (
+              <button 
+                key={opt.v}
+                onClick={() => setCatFilter(opt.v)}
+                className={`border border-[#E7E5E1] text-[13.5px] font-bold px-[15px] py-[7px] rounded-full cursor-pointer transition-colors whitespace-nowrap ${catFilter === opt.v ? 'bg-[#FF5A15] border-[#FF5A15] text-white' : 'bg-white text-[#3A3A3F] hover:border-[#BFBDB8]'}`}
+              >
+                {opt.l}
+              </button>
+            ))}
+          </div>
+          <div className="w-full md:w-auto md:ml-auto text-[13px] text-[#6E6E73] font-semibold order-last md:order-none mt-2 md:mt-0">
+            {t.totalProjects.replace('{n}', filteredProjects.length.toString())}
+          </div>
+        </div>
+      </nav>
+
+      <main className="max-w-[1080px] mx-auto px-6">
+        {/* INDEX */}
+        <section className="py-[34px] pb-[6px]">
+          <h2 className="text-[12px] tracking-[0.2em] text-[#9A9AA1] font-extrabold m-0 mb-[14px]">{t.indexTitle}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[10px]">
+            {filteredProjects.map(p => (
+              <a 
+                key={p.id} 
+                href={`#${p.id}`}
+                className="flex items-center gap-[11px] no-underline border border-[#E7E5E1] rounded-[12px] p-[11px_13px] bg-white transition-all hover:border-[#FF5A15] hover:bg-[#FFF1EA] hover:-translate-y-[1px]"
+              >
+                <span className="text-[10px] font-extrabold text-[#FF5A15] tracking-[0.06em] whitespace-nowrap">{p.no.t} {p.no.d}</span>
+                <span className="text-[14.5px] font-bold">{p.title}</span>
+                <span className="ml-auto text-[11px] text-[#6E6E73] font-semibold">{p.chip}</span>
+              </a>
+            ))}
+          </div>
         </section>
 
-        <div className="mt-xxl flex justify-center">
-          <button
-            type="button"
-            className="border border-[#1A1A1A] text-[#1A1A1A] text-label-md uppercase px-xl py-md hover:bg-[#1A1A1A] hover:text-white transition-colors duration-300 rounded-xl cursor-pointer"
-          >
-            {t.loadMore}
-          </button>
+        {/* CARDS */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[24px] py-[34px] pb-[10px]">
+          {filteredProjects.map(p => (
+            <Link key={p.id} href={`/projects/${p.id}`} className="group flex flex-col bg-white border border-[#E7E5E1] rounded-[20px] overflow-hidden hover:border-[#FF5A15] hover:shadow-[0_8px_30px_rgba(255,90,21,0.12)] transition-all duration-300">
+              <div className="aspect-[4/3] relative overflow-hidden bg-[#F1EFEC] border-b border-[#E7E5E1]">
+                <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div className="p-[24px] flex flex-col flex-1">
+                <div className="flex justify-between items-start mb-[16px]">
+                  <span className="text-[10px] font-extrabold text-[#FF5A15] tracking-[0.12em]">{p.no.t} {p.no.d}</span>
+                  <span className="text-[10px] font-bold px-[10px] py-[4px] rounded-full bg-[#FFF1EA] text-[#E14700] border border-[#FFD9C6] whitespace-nowrap">{p.chip}</span>
+                </div>
+                <h3 className="text-[20px] font-extrabold tracking-[-0.01em] mb-[6px] group-hover:text-[#FF5A15] transition-colors line-clamp-1">{p.title}</h3>
+                <p className="text-[13px] text-[#6E6E73] font-semibold mb-[12px] line-clamp-1">{p.subtitle}</p>
+                <p className="text-[14px] text-[#3A3A3F] font-medium leading-[1.6] line-clamp-2 mb-[20px]">{p.tagline}</p>
+                
+                <div className="mt-auto pt-[16px] border-t border-[#E7E5E1] flex justify-between items-center">
+                  <span className="text-[11px] text-[#9A9AA1] font-extrabold tracking-wider">{p.termLabel}</span>
+                  <span className="text-[13px] font-bold text-[#FF5A15] flex items-center gap-[4px] group-hover:translate-x-1 transition-transform">
+                    {t.viewDetails} <MaterialIcon name="arrow_forward" className="text-[16px]" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
+
+        {filteredProjects.length === 0 && (
+          <p className="py-[70px] text-center text-[#6E6E73] text-[15px]">
+            {t.emptyMsg}
+          </p>
+        )}
+
+        {/* CLOSING */}
+        <section className="bg-[#0B0B0C] text-white rounded-[18px] sm:rounded-[24px] p-[40px_24px] sm:p-[52px_40px] my-[44px] mb-[60px] text-center relative overflow-hidden">
+          <div className="absolute -top-[120px] -right-[120px] w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(255,90,21,0.26),rgba(255,90,21,0)_68%)] pointer-events-none" />
+          <div className="relative z-10">
+            <h3 className="m-0 mb-[16px] text-[27px] font-extrabold tracking-[-0.015em]">{t.closingTitle}</h3>
+            <p className="max-w-[640px] mx-auto mb-[12px] text-[#B8B8C0] text-[15.5px]">{t.closingP1}</p>
+            <p className="max-w-[640px] mx-auto mb-[12px] text-[#B8B8C0] text-[15.5px]">{t.closingP2}</p>
+            <a href={t.ctaLink} className="inline-block mt-[24px] bg-[#FF5A15] text-white no-underline font-extrabold text-[15px] px-[28px] py-[13px] rounded-full transition-colors hover:bg-white hover:text-[#0B0B0C]">
+              {t.cta}
+            </a>
+          </div>
+        </section>
       </main>
-      <Footer />
-    </>
+
+      <footer className="border-t border-[#E7E5E1] py-[28px] pb-[44px] text-center text-[#9A9AA1] text-[12.5px]">
+        <div dangerouslySetInnerHTML={{ __html: t.footerText.replace('未知边界 Boundary Unknown', '<b>未知边界 Boundary Unknown</b>') }}></div>
+      </footer>
+    </div>
   );
 }
-
