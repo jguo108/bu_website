@@ -68,7 +68,11 @@ const content = {
           { title: "Game Creation", desc: "Explain game rules clearly, and let AI help you build playable games; create your own character assets, adjust difficulty, and challenge high scores." }
         ],
         sem2Skills: [
-          { title: "TBD", desc: "Content to be added" }
+          { title: "Understand Users & Markets", desc: "" },
+          { title: "Simple Business Models", desc: "" },
+          { title: "Basic Industry Knowledge", desc: "" },
+          { title: "Creation vs. Product", desc: "" },
+          { title: "Agile Iteration (V0→V1→Final)", desc: "" }
         ]
       },
       {
@@ -106,7 +110,12 @@ const content = {
           { title: "Software Engineering Methodology", desc: "Brainstorming → PRD (Product Requirements Document) → Implementation → Debugging → Iteration." }
         ],
         sem2Skills: [
-          { title: "TBD", desc: "Content to be added" }
+          { title: "Basics of Industry Analysis", desc: "" },
+          { title: "Competitor Analysis & SWOT", desc: "" },
+          { title: "User Research & Interviews", desc: "" },
+          { title: "Business Model Canvas", desc: "" },
+          { title: "Basics of Pricing & Costs", desc: "" },
+          { title: "Agile Iteration (V0→V1→Final)", desc: "" }
         ]
       },
       {
@@ -136,6 +145,15 @@ const content = {
         sem2Tags: ["AI Innovation", "Frontier Tech", "Business Models", "Climate Action", "Clean Energy", "Health & Wellbeing", "Sustainable Cities"],
         sem2Note: "Covers tech, business, and social innovation aligned with UN SDGs. Actual themes may vary.",
         sem2Output: "Projects can be submitted to hackathons and business competitions.",
+        sem1Skills: [],
+        sem2Skills: [
+          { title: "Macro & Industry Analysis", desc: "" },
+          { title: "Data Collection & Analysis", desc: "" },
+          { title: "Business Model Canvas", desc: "" },
+          { title: "Financial Basics (Income Statement & Break-even)", desc: "" },
+          { title: "Complete Business Plan", desc: "" },
+          { title: "Agile Iteration (V0→V1→Final)", desc: "" }
+        ]
       }
     ]
   },
@@ -202,7 +220,11 @@ const content = {
           { title: "游戏创作", desc: "把游戏规则说清楚，AI 帮你做出能玩的游戏；自制角色素材，调整难度挑战高分" }
         ],
         sem2Skills: [
-          { title: "待补充", desc: "内容即将推出" }
+          { title: "认识用户与市场", desc: "" },
+          { title: "简单商业模式", desc: "" },
+          { title: "行业初步认知", desc: "" },
+          { title: "作品 vs 产品的区别", desc: "" },
+          { title: "敏捷迭代（V0→V1→Final）", desc: "" }
         ]
       },
       {
@@ -240,7 +262,12 @@ const content = {
           { title: "软件工程方法论", desc: "脑洞 → 需求文档 → 实现 → 调试 → 迭代" }
         ],
         sem2Skills: [
-          { title: "待补充", desc: "内容即将推出" }
+          { title: "行业分析基础", desc: "" },
+          { title: "竞品分析 + SWOT 分析", desc: "" },
+          { title: "用户调研与访谈", desc: "" },
+          { title: "商业模式画布", desc: "" },
+          { title: "定价与成本基础", desc: "" },
+          { title: "敏捷迭代（V0→V1→Final）", desc: "" }
         ]
       },
       {
@@ -270,6 +297,15 @@ const content = {
         sem2Tags: ["AI 创新", "前沿科技", "商业模式创新", "气候行动", "清洁能源", "健康福祉", "可持续城市"],
         sem2Note: "涵盖科技创新、商业创新与对齐联合国可持续发展目标（SDGs）的社会创新，实际主题根据课程进度和实际情况可能有所变化",
         sem2Output: "作品可以提交黑客松、商赛等平台。",
+        sem1Skills: [],
+        sem2Skills: [
+          { title: "宏观与行业分析", desc: "" },
+          { title: "数据收集与分析", desc: "" },
+          { title: "商业模式画布", desc: "" },
+          { title: "财务基础（利润表 + 盈亏平衡）", desc: "" },
+          { title: "完整商业计划书", desc: "" },
+          { title: "敏捷迭代（V0→V1→Final）", desc: "" }
+        ]
       }
     ]
   }
@@ -378,7 +414,9 @@ export function AcademyPage() {
                               <li key={i} className="text-[11.5px] text-[#3D3833] leading-[1.55] flex items-start gap-[6px]">
                                 <span className="text-[#E8590C] font-bold mt-[1px]">•</span>
                                 <span>
-                                  <b>{skill.title}</b>{language === 'en' ? ': ' : '：'}{skill.desc}
+                                  {skill.title && <b>{skill.title}</b>}
+                                  {skill.title && skill.desc ? (language === 'en' ? ': ' : '：') : ''}
+                                  {skill.desc}
                                 </span>
                               </li>
                             ))}
@@ -422,7 +460,9 @@ export function AcademyPage() {
                               <li key={i} className="text-[11.5px] text-[#3D3833] leading-[1.55] flex items-start gap-[6px]">
                                 <span className="text-[#E8590C] font-bold mt-[1px]">•</span>
                                 <span>
-                                  <b>{skill.title}</b>{language === 'en' ? ': ' : '：'}{skill.desc}
+                                  {skill.title && <b>{skill.title}</b>}
+                                  {skill.title && skill.desc ? (language === 'en' ? ': ' : '：') : ''}
+                                  {skill.desc}
                                 </span>
                               </li>
                             ))}
