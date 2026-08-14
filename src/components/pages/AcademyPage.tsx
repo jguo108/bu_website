@@ -2,6 +2,7 @@
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { MaterialIcon } from "@/components/MaterialIcon";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const content = {
@@ -19,11 +20,19 @@ const content = {
     ),
     overviewTitle: "THREE-STAGE OVERVIEW",
     overviewSub: "3 Levels × 2 Semesters: The Advancement Path",
-    overviewQuote: (
-      <>
-        Each level consists of two semesters: <b>Semester 1: AI Foundation</b> (building AI skills) → <b>Semester 2: Kids Entrepreneur</b> (building a complete project). The logic: <b>Level 1</b> finds passion; <b>Level 2</b> turns passion into a market product; <b>Level 3</b> thinks about how the product creates value—both business and social.
-      </>
-    ),
+    overviewVisual: {
+      sem1Title: "Semester 1: AI Foundation",
+      sem1Desc: "Building AI skills",
+      sem2Title: "Semester 2: Kids Entrepreneur",
+      sem2Desc: "Building a complete project",
+      logicTitle: "Advancement Logic",
+      level1Title: "Level 1",
+      level1Desc: "Find passion",
+      level2Title: "Level 2",
+      level2Desc: "Turn passion into a market product",
+      level3Title: "Level 3",
+      level3Desc: "Create business & social value"
+    },
     ageLabel: "Suggested Age",
     refLabel: "Ref Only",
     businessLabel: "Business",
@@ -175,16 +184,24 @@ const content = {
     ),
     overviewTitle: "三阶段总览",
     overviewSub: "三层 × 两学期，一张图看懂进阶路径",
-    overviewQuote: (
-      <>
-        每一层都分两个学期：<b>第一学期 AI Foundation</b>（打 AI 技能基础）→ <b>第二学期 Kids Entrepreneur</b>（用技能做一个完整项目）。三层的进阶逻辑：<b>Level 1</b> 找到自己感兴趣、热爱的东西；<b>Level 2</b> 把喜欢的东西做成一个能放在市场上的产品；<b>Level 3</b> 思考这个产品如何为大家创造价值——商业价值与社会价值。
-      </>
-    ),
+    overviewVisual: {
+      sem1Title: "第一学期：AI Foundation",
+      sem1Desc: "打 AI 技能基础",
+      sem2Title: "第二学期：Kids Entrepreneur",
+      sem2Desc: "用技能做一个完整项目",
+      logicTitle: "三层的进阶逻辑",
+      level1Title: "Level 1",
+      level1Desc: "找到自己感兴趣、热爱的东西",
+      level2Title: "Level 2",
+      level2Desc: "把喜欢的东西做成一个能放在市场上的产品",
+      level3Title: "Level 3",
+      level3Desc: "思考这个产品如何为大家创造价值——商业价值与社会价值"
+    },
     ageLabel: "适合年龄",
     refLabel: "仅参考",
     businessLabel: "商业",
-    sem1: "第一学期",
-    sem2: "第二学期",
+    sem1: "第一学期·AI素养",
+    sem2: "第二学期·产品开发",
     coreContent: "核心内容",
     themeType: "主题类型",
     skillsLabel: "知识和技能",
@@ -355,9 +372,60 @@ export function AcademyPage() {
           <div className="text-[24px] font-bold text-[#1A1A1A] mb-[22px] font-serif tracking-[0.5px]">
             {t.overviewSub}
           </div>
-          <blockquote className="border-l-4 border-[#6B7257] bg-[#EBEDE4] py-[14px] px-[20px] my-[18px] mb-[30px] rounded-r-[4px] text-[#3D3833] text-[14px]">
-            {t.overviewQuote}
-          </blockquote>
+          
+          <div className="bg-white border border-[#E0D6C8] rounded-[12px] p-[24px] my-[18px] mb-[40px] shadow-sm">
+            {/* Semester Progression */}
+            <div className="flex flex-col md:flex-row items-center gap-[16px] mb-[32px]">
+              <div className="flex-1 bg-[#FDF6F1] border border-[#F1CBAB] rounded-[8px] p-[16px] w-full text-center relative">
+                <div className="text-[#E8590C] font-bold text-[15px] mb-[4px]">{t.overviewVisual.sem1Title}</div>
+                <div className="text-[#8C8279] text-[13px]">{t.overviewVisual.sem1Desc}</div>
+                {/* Arrow for mobile */}
+                <div className="md:hidden absolute -bottom-[22px] left-1/2 -translate-x-1/2 text-[#E8590C]">
+                  <MaterialIcon name="arrow_downward" className="text-[20px]" />
+                </div>
+              </div>
+              
+              {/* Arrow for desktop */}
+              <div className="hidden md:block text-[#E8590C] shrink-0">
+                <MaterialIcon name="arrow_forward" className="text-[24px]" />
+              </div>
+
+              <div className="flex-1 bg-[#FDF6F1] border border-[#F1CBAB] rounded-[8px] p-[16px] w-full text-center">
+                <div className="text-[#E8590C] font-bold text-[15px] mb-[4px]">{t.overviewVisual.sem2Title}</div>
+                <div className="text-[#8C8279] text-[13px]">{t.overviewVisual.sem2Desc}</div>
+              </div>
+            </div>
+
+            {/* Level Progression */}
+            <div>
+              <div className="text-[14px] font-bold text-[#3D3833] mb-[16px] flex items-center gap-[8px]">
+                <span className="w-[4px] h-[14px] bg-[#E8590C] rounded-full"></span>
+                {t.overviewVisual.logicTitle}
+              </div>
+              <div className="flex flex-col md:flex-row gap-[16px] md:gap-[12px]">
+                {[
+                  { title: t.overviewVisual.level1Title, desc: t.overviewVisual.level1Desc, bg: "bg-[#FFF8F3]", border: "border-[#F2A878]" },
+                  { title: t.overviewVisual.level2Title, desc: t.overviewVisual.level2Desc, bg: "bg-[#FFF3EB]", border: "border-[#EC8748]" },
+                  { title: t.overviewVisual.level3Title, desc: t.overviewVisual.level3Desc, bg: "bg-[#FFF0E5]", border: "border-[#E8590C]" }
+                ].map((lvl, i) => (
+                  <div key={i} className={`flex-1 ${lvl.bg} border ${lvl.border} rounded-[8px] p-[16px] relative`}>
+                    <div className="font-serif font-bold text-[16px] text-[#1A1A1A] mb-[6px]">{lvl.title}</div>
+                    <div className="text-[#3D3833] text-[13px] leading-[1.5]">{lvl.desc}</div>
+                    {i < 2 && (
+                      <>
+                        <div className="hidden md:flex absolute -right-[18px] top-1/2 -translate-y-1/2 text-[#E8590C] z-10 bg-white rounded-full w-[24px] h-[24px] items-center justify-center border border-[#E0D6C8]">
+                          <MaterialIcon name="chevron_right" className="text-[18px]" />
+                        </div>
+                        <div className="md:hidden flex absolute -bottom-[18px] left-1/2 -translate-x-1/2 text-[#E8590C] z-10 bg-white rounded-full w-[24px] h-[24px] items-center justify-center border border-[#E0D6C8]">
+                          <MaterialIcon name="expand_more" className="text-[18px]" />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
           <div className="flex flex-wrap gap-[16px] my-[20px] items-stretch">
             {t.levels.map((lvl: any, idx: number) => {
