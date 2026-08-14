@@ -30,7 +30,6 @@ const content = {
     sem1: "Semester 1",
     sem2: "Semester 2",
     coreContent: "Core Content",
-    output: "Output",
     themeType: "Themes",
     skillsLabel: "Knowledge & Skills",
     levels: [
@@ -187,7 +186,6 @@ const content = {
     sem1: "第一学期",
     sem2: "第二学期",
     coreContent: "核心内容",
-    output: "产出",
     themeType: "主题类型",
     skillsLabel: "知识和技能",
     levels: [
@@ -433,14 +431,6 @@ export function AcademyPage() {
                           </ul>
                         </div>
                       )}
-                      <div className="mt-[10px]">
-                        <span className="inline-block text-[9.5px] font-extrabold tracking-[0.5px] text-white bg-[#E8590C] border border-[#E8590C] rounded-[5px] py-[1px] px-[6px] mb-[4px]">
-                          {t.output}
-                        </span>
-                        <span className="block text-[11.5px] text-[#3D3833] leading-[1.55] mt-[3px]">
-                          {lvl.sem1Output}
-                        </span>
-                      </div>
                     </div>
 
                     {/* Sem 2 */}
@@ -492,14 +482,6 @@ export function AcademyPage() {
                         </div>
                         <span className="block text-[9px] text-[#8C8279] mt-[6px] leading-[1.4]">
                           {lvl.sem2Note}
-                        </span>
-                      </div>
-                      <div className="mt-[10px]">
-                        <span className="inline-block text-[9.5px] font-extrabold tracking-[0.5px] text-white bg-[#E8590C] border border-[#E8590C] rounded-[5px] py-[1px] px-[6px] mb-[4px]">
-                          {t.output}
-                        </span>
-                        <span className="block text-[11.5px] text-[#3D3833] leading-[1.55] mt-[3px]">
-                          {lvl.sem2Output}
                         </span>
                       </div>
                     </div>
