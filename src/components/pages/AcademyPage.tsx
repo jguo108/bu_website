@@ -145,7 +145,12 @@ const content = {
         sem2Tags: ["AI Innovation", "Frontier Tech", "Business Models", "Climate Action", "Clean Energy", "Health & Wellbeing", "Sustainable Cities"],
         sem2Note: "Covers tech, business, and social innovation aligned with UN SDGs. Actual themes may vary.",
         sem2Output: "Projects can be submitted to hackathons and business competitions.",
-        sem1Skills: [],
+        sem1Skills: [
+          { title: "Real Software Engineering", desc: "Utilize engineering-grade AI skills to clarify requirements, standardize code, test, and refactor." },
+          { title: "Advanced AI Applications", desc: "RAG (Retrieval-Augmented Generation), vector databases, model evaluation, and cost optimization." },
+          { title: "Software Engineering Collaboration", desc: "Git/GitHub version control, branching and Code Review, CI/CD automated deployment, agile project management." },
+          { title: "AI Judgment & Ethics", desc: "Identify AI hallucinations and biases, data privacy and compliance, tech ethics." }
+        ],
         sem2Skills: [
           { title: "Macro & Industry Analysis", desc: "" },
           { title: "Data Collection & Analysis", desc: "" },
@@ -297,7 +302,12 @@ const content = {
         sem2Tags: ["AI 创新", "前沿科技", "商业模式创新", "气候行动", "清洁能源", "健康福祉", "可持续城市"],
         sem2Note: "涵盖科技创新、商业创新与对齐联合国可持续发展目标（SDGs）的社会创新，实际主题根据课程进度和实际情况可能有所变化",
         sem2Output: "作品可以提交黑客松、商赛等平台。",
-        sem1Skills: [],
+        sem1Skills: [
+          { title: "真实软件工程", desc: "利用工程级AI Skills，理清需求，规范代码，测试和重构" },
+          { title: "高级AI 应用", desc: "RAG 检索增强，向量数据库，模型评估与成本优化" },
+          { title: "软件工程协作", desc: "Git/GitHub 版本管理，分支与 Code Review，CI/CD 自动化部署，敏捷项目管理" },
+          { title: "AI 判断力与伦理", desc: "识别 AI 幻觉与偏见，数据隐私与合规，技术伦理" }
+        ],
         sem2Skills: [
           { title: "宏观与行业分析", desc: "" },
           { title: "数据收集与分析", desc: "" },
