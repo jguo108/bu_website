@@ -32,7 +32,7 @@ const content = {
     coreContent: "Core Content",
     output: "Output",
     themeType: "Themes",
-    skillsLabel: "Skills",
+    skillsLabel: "Knowledge & Skills",
     levels: [
       {
         level: "1",
@@ -61,11 +61,14 @@ const content = {
         sem2Tags: ["IP Design", "Publishing", "Mini Games", "Media Channel", "Merch"],
         sem2Note: "Actual themes may vary based on progress and circumstances",
         sem2Output: "Complete project + Final presentation",
-        skills: [
+        sem1Skills: [
           { title: "Image Creation", desc: "Learn to use prompts to describe scenes (who + where + style), design exclusive characters with consistent styles, and complete theme posters." },
           { title: "Video Creation", desc: "Animate images with Image-to-Video, design storyboards to tell stories, edit with subtitles and music, and complete animated shorts." },
           { title: "Web Creation", desc: "Build your own web pages by talking to AI, learn to \"tweak\" and optimize styles, and create interactive websites and apps." },
           { title: "Game Creation", desc: "Explain game rules clearly, and let AI help you build playable games; create your own character assets, adjust difficulty, and challenge high scores." }
+        ],
+        sem2Skills: [
+          { title: "TBD", desc: "Content to be added" }
         ]
       },
       {
@@ -95,12 +98,15 @@ const content = {
         sem2Tags: ["Cultural IP", "Games", "Health Tech", "Pets", "Merch Design", "Open a Store", "Campus Solutions"],
         sem2Note: "Actual themes may vary based on progress and circumstances",
         sem2Output: "Pitch presentation. Projects can be submitted to hackathons and business competitions.",
-        skills: [
+        sem1Skills: [
           { title: "Full-Stack Web Dev", desc: "Next.js / React component-based development, building and deploying real, usable web applications." },
           { title: "Mobile App Dev", desc: "Cross-platform development with React Native + Expo, building installable mobile apps." },
           { title: "Data Management", desc: "Understand database structures and cloud storage concepts." },
           { title: "Multi-Service Integration", desc: "Integrate AI, voice, and map features into applications." },
           { title: "Software Engineering Methodology", desc: "Brainstorming → PRD (Product Requirements Document) → Implementation → Debugging → Iteration." }
+        ],
+        sem2Skills: [
+          { title: "TBD", desc: "Content to be added" }
         ]
       },
       {
@@ -160,7 +166,7 @@ const content = {
     coreContent: "核心内容",
     output: "产出",
     themeType: "主题类型",
-    skillsLabel: "Skills",
+    skillsLabel: "知识和技能",
     levels: [
       {
         level: "1",
@@ -189,11 +195,14 @@ const content = {
         sem2Tags: ["IP 设计", "图书出版", "小游戏", "频道/自媒体", "潮玩周边"],
         sem2Note: "实际主题根据课程进度和实际情况可能有所变化",
         sem2Output: "完整作品 + 期末展示",
-        skills: [
+        sem1Skills: [
           { title: "图片创作", desc: "学会用提示词描述画面（谁 + 在哪 + 什么风格），统一风格设计专属角色，完成主题海报" },
           { title: "视频创作", desc: "图生视频让画面动起来，设计分镜讲故事，剪辑配字幕音乐，完成动画短片" },
           { title: "网页创作", desc: "和 AI 对话搭建自己的网页，学会「改一下」优化样式，做出互动网站和应用" },
           { title: "游戏创作", desc: "把游戏规则说清楚，AI 帮你做出能玩的游戏；自制角色素材，调整难度挑战高分" }
+        ],
+        sem2Skills: [
+          { title: "待补充", desc: "内容即将推出" }
         ]
       },
       {
@@ -223,12 +232,15 @@ const content = {
         sem2Tags: ["文创×非遗", "游戏", "健康科技", "宠物", "周边设计", "开一家店", "校园难题"],
         sem2Note: "实际主题根据课程进度和实际情况可能有所变化",
         sem2Output: "路演展示。作品可以提交黑客松、商赛等平台。",
-        skills: [
+        sem1Skills: [
           { title: "Web 全栈开发", desc: "Next.js / React 组件化开发，搭建真实可用的 Web 应用并部署上线" },
           { title: "移动端 App 开发", desc: "React Native + Expo 跨平台开发，构建可安装的手机的应用" },
           { title: "数据管理", desc: "理解数据库结构和云端存储概念" },
           { title: "多服务集成", desc: "给应用集成AI，语音，地图功能" },
           { title: "软件工程方法论", desc: "脑洞 → 需求文档 → 实现 → 调试 → 迭代" }
+        ],
+        sem2Skills: [
+          { title: "待补充", desc: "内容即将推出" }
         ]
       },
       {
@@ -356,6 +368,23 @@ export function AcademyPage() {
                           {lvl.sem1Content}
                         </span>
                       </div>
+                      {lvl.sem1Skills && lvl.sem1Skills.length > 0 && (
+                        <div className="mt-[10px]">
+                          <span className="inline-block text-[9.5px] font-extrabold tracking-[0.5px] text-[#B8460A] border border-[#E8590C] rounded-[5px] py-[1px] px-[6px] mb-[4px]">
+                            {t.skillsLabel}
+                          </span>
+                          <ul className="flex flex-col gap-[6px] mt-[3px]">
+                            {lvl.sem1Skills.map((skill: any, i: number) => (
+                              <li key={i} className="text-[11.5px] text-[#3D3833] leading-[1.55] flex items-start gap-[6px]">
+                                <span className="text-[#E8590C] font-bold mt-[1px]">•</span>
+                                <span>
+                                  <b>{skill.title}</b>{language === 'en' ? ': ' : '：'}{skill.desc}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                       <div className="mt-[10px]">
                         <span className="inline-block text-[9.5px] font-extrabold tracking-[0.5px] text-white bg-[#E8590C] border border-[#E8590C] rounded-[5px] py-[1px] px-[6px] mb-[4px]">
                           {t.output}
@@ -383,6 +412,23 @@ export function AcademyPage() {
                           {lvl.sem2Content}
                         </span>
                       </div>
+                      {lvl.sem2Skills && lvl.sem2Skills.length > 0 && (
+                        <div className="mt-[10px]">
+                          <span className="inline-block text-[9.5px] font-extrabold tracking-[0.5px] text-[#B8460A] border border-[#E8590C] rounded-[5px] py-[1px] px-[6px] mb-[4px]">
+                            {t.skillsLabel}
+                          </span>
+                          <ul className="flex flex-col gap-[6px] mt-[3px]">
+                            {lvl.sem2Skills.map((skill: any, i: number) => (
+                              <li key={i} className="text-[11.5px] text-[#3D3833] leading-[1.55] flex items-start gap-[6px]">
+                                <span className="text-[#E8590C] font-bold mt-[1px]">•</span>
+                                <span>
+                                  <b>{skill.title}</b>{language === 'en' ? ': ' : '：'}{skill.desc}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                       <div className="mt-[10px] bg-white border border-[#F1CBAB] rounded-[8px] py-[8px] px-[10px]">
                         <span className="inline-block text-[9.5px] font-extrabold tracking-[0.5px] text-white bg-[#B8460A] border border-[#B8460A] rounded-[5px] py-[1px] px-[6px] mb-[4px]">
                           {t.themeType}
@@ -408,26 +454,6 @@ export function AcademyPage() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Skills */}
-                  {lvl.skills && (
-                    <div className="p-[15px] px-[16px] border-t border-[#E0D6C8] bg-white mt-auto">
-                      <div className="flex items-center gap-[6px] text-[12px] font-extrabold text-[#1A1A1A] font-serif mb-[10px]">
-                        <span className="w-[7px] h-[7px] rounded-full bg-[#E8590C] shrink-0"></span>
-                        {t.skillsLabel}
-                      </div>
-                      <ul className="flex flex-col gap-[8px]">
-                        {lvl.skills.map((skill: any, i: number) => (
-                          <li key={i} className="text-[11.5px] text-[#3D3833] leading-[1.55] flex items-start gap-[6px]">
-                            <span className="text-[#E8590C] font-bold mt-[1px]">•</span>
-                            <span>
-                              <b>{skill.title}</b>{language === 'en' ? ': ' : '：'}{skill.desc}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
               );
             })}
